@@ -54,6 +54,24 @@ panel
 		}
 	}
 	
+	//---------------------------------------------------------------
+
+	child label "WIPText"
+	{
+		position	40 40;
+		visible		1;
+		
+		size		400 14;
+		scaling		uniform;
+		
+		align		top left;
+		textalign	left;
+		
+		label		"#GAME_VERSION";
+		font		"Roboto" bold italic;
+		fontScale	10 10;
+	}
+	
 	child image "game_logo"
 	{
 		path		"ui/syndiclassic_logo";

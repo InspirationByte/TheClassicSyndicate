@@ -99,6 +99,7 @@ child Container "main"
 		
 		size		160 120;
 		scaling		inherit_min;
+		color		1 1 1 0.7;
 
 		child image "radarColor"
 		{
@@ -143,20 +144,3 @@ child label "alertText"
 	fontScale	25 25;
 }
 
-//---------------------------------------------------------------
-
-child label "WIPText"
-{
-	position	15 20;
-	visible		1;
-	
-	size		400 14;
-	scaling		uniform;
-	
-	align		bottom left;
-	textalign	left;
-	
-	label		"#GAME_VERSION";
-	font		"Roboto" bold italic;
-	fontScale	8 8;
-}

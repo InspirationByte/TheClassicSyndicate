@@ -17,7 +17,7 @@ MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 
 sounds:LoadScript(EmitterSounds.iview)
 
-MISSION.Hud = "resources/hud/mcd_pkd.res"
+MISSION.Hud = "resources/hud/iview.res"
 
 MISSION.RotationCheckThreshold = 80		-- degress
 MISSION.RotationSphereRadius = 4.0

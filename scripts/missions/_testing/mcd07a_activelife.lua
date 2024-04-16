@@ -56,8 +56,6 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(180, 180,-180) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
-	--playerCar:SetMaxSpeed(170)
-	--playerCar:SetTorqueScale(1.2)
 
 	sounds:Precache( "wind.mcd07a" )
 	sounds:Precache( "wind.mcd07b" )
@@ -106,10 +104,7 @@ MISSION.JeanPaulSartre = function()
 	
 	local activeLife = opponentCar:AddComponent("ActiveLifeAIComponent")
 	activeLife:SetPersonalityType("racer")
-
-	missionmanager:ScheduleEvent( function() 
-		activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
-	end, 2.0)
+	activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
 
 	sounds:Emit( EmitParams.new("goon.frenchcat"), -1 )
 
@@ -280,7 +275,7 @@ MISSION.Update = function( delta )
 	local playerCar = MISSION.playerCar
 	
 	-- update player rubber banding
-	UpdateRubberBanding(playerCar, opponentCar:GetOrigin(), MISSION.PlayerRubberBandingParams)
+	--UpdateRubberBanding(playerCar, opponentCar:GetOrigin(), MISSION.PlayerRubberBandingParams)
 
 	-- check player vehicle is wrecked
 	if CheckVehicleIsWrecked( playerCar, MISSION.Data, delta ) then
@@ -305,7 +300,7 @@ MISSION.Update = function( delta )
 		end
 	
 		-- check distance between the car and timer
-		if (length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 120) then
+		if (length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 240) then
 			gameHUD:ShowScreenMessage("You lost him.", 3.5)
 			MISSION.OnFailed()
 		end

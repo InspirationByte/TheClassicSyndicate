@@ -56,8 +56,6 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(0,-45,0) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
-	playerCar:SetMaxSpeed(170)
-	playerCar:SetTorqueScale(1.2)
 
 	sounds:Precache( "wind.mcd11a" )
 
@@ -128,7 +126,7 @@ MISSION.JeanPaulSartre = function()
 	
 	MISSION.targetHandle = gameHUD:AddTrackingObject(MISSION.opponentCar, HUD_DOBJ_IS_TARGET + HUD_DOBJ_CAR_DAMAGE)
 
-	missionmanager:EnableTimeout( true, 145 ) -- enable, time
+	missionmanager:EnableTimeout( true, 168 ) -- enable, time
 
 	-- here we start
 	missionmanager:SetRefreshFunc( MISSION.Update )
@@ -309,7 +307,7 @@ MISSION.Update = function( delta )
 	local playerCar = MISSION.playerCar
 
 	-- update player rubber banding
-	UpdateRubberBanding(playerCar, opponentCar:GetOrigin(), MISSION.PlayerRubberBandingParams)	
+	--UpdateRubberBanding(playerCar, opponentCar:GetOrigin(), MISSION.PlayerRubberBandingParams)	
 
 	-- check player vehicle is wrecked
 	if CheckVehicleIsWrecked( playerCar, MISSION.Data, delta ) then
@@ -336,7 +334,7 @@ MISSION.Update = function( delta )
 		end
 	
 		-- check distance between the car and timer
-		if (length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 120) then
+		if (length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 240) then
 			gameHUD:ShowScreenMessage("You lost him.", 3.5)
 			MISSION.OnFailed()
 		end

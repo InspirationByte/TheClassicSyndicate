@@ -10,23 +10,8 @@ world:SetEnvironmentName("day_clear")
 SetMusicName("")
 
 MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
-
-MISSION.cutCameras = {
-	{
-		{ Vector3D.new(-57.50, 0.50, 33), Vector3D.new(6, 360, 20), -5, 50 },
-		{ Vector3D.new(-59.50, 1.40, 38.0), Vector3D.new(10 ,372, -5), 4, 50 },	
-	},
-	{
-		{ Vector3D.new(-59.50, 1.40, 38.0), Vector3D.new(10 ,372, -5), 0, 50 },	
-		{ Vector3D.new(-59.50, 1.40, 38.0), Vector3D.new(10 ,372, -5), 60, 50 },	
-	}
-}
-
-----------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------
--- Pre-Init Scenery --------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------
+MISSION.EnableReplay = false
+MISSION.Pausable = false
 
 function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
 	
@@ -54,17 +39,55 @@ end
 -- Mission Init ------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
+local FlatGameMenuElements = function()
+	return {
+		MenuStack.MakeItem("#MENU_GAME_NEXTMISSION", true, {
+			onEnter = function( self, stack )
+				missionladder:OnMissionCompleted()
+				missionladder:RunContinue()
+				return { command = "nextState" }
+			end,
+		}),
+		MenuStack.MakeItem("#MENU_GAME_RESTART", false, {
+			onEnter = function(self, stack)
+				MISSION.PlayMessage()
+				return {}
+			end,
+		}),
+		MenuStack.MakeCommand("#MENU_GAME_EXIT", "quitToMainMenu", true)
+	}
+end
+
+local FlatGameMenuStack = MenuStack( FlatGameMenuElements )
+
+MISSION.PlayMessage = function()
+	MISSION.Data.soundObj:Emit(0, MISSION.Data.machineAudio)
+	gameses:SignalMissionStatus( MIS_STATUS_INGAME, 0 )
+	missionmanager:ScheduleEvent( function()
+		gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 0.0 )
+	end, MISSION.MessageLength or 10)
+end
+
 MISSION.Init = function()									-- Preparing Introduction
 	MISSION.Data = {
 		targetPosition = Vector3D.new(-54,0.70,69),			-- Targets Positions
 		target2Position = Vector3D.new(1719,0.70,-603),
-		--DEVTESTtargetPosition = Vector3D.new(-119,0.70,-1145),		
-		--DEVTESTtarget2Position = Vector3D.new(-119,0.70,-1175),
+		soundObj = CSoundingObject.new()
+	}
+	
+	local cutCameras = {
+		{
+			{ Vector3D.new(-57.50, 0.50, 33), Vector3D.new(6, 360, 20), -5, 50 },
+			{ Vector3D.new(-59.50, 1.40, 38.0), Vector3D.new(10 ,372, -5), 4, 50 },	
+		},
+		{
+			{ Vector3D.new(-59.50, 1.40, 38.0), Vector3D.new(10 ,372, -5), 0, 50 },	
+			{ Vector3D.new(-59.50, 1.40, 38.0), Vector3D.new(10 ,372, -5), 60, 50 },	
+		}
 	}
 	
 	MISSION.Settings.EnableCops = false						-- Cops are disabled
 	MISSION.Settings.EnableTraffic = false
-
 	MISSION.SpawnSceneryCars()
 
 	-- precache sounds
@@ -73,15 +96,14 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(true, 0.60)							-- Screen Fade-In (Duration)
+	
+	CurrentGameMenuTable = {
+		Ingame = FlatGameMenuStack,
+		MissionSuccess = FlatGameMenuStack,
+		MissionFailed = FlatGameMenuStack,
+	}
 
 	missionmanager:ScheduleEvent( function() 
-		-- first signall ladder about completion
-		-- for retrieving next mission
-		missionladder:OnMissionCompleted()
-		
-		sounds:Emit( EmitParams.new("wind.msg01"), -1 )
-		sounds:Emit( EmitParams.new("d3.citynoise", Vector3D.new(-88,0.77,-1143)), -1 )
-		
 		local messageId = missionladder:GetCurrentMission().message
 		local message = MISSION.MessageList[messageId]
 
@@ -90,34 +112,19 @@ MISSION.Init = function()									-- Preparing Introduction
 		MISSION.MessageLength = message.length
 		MISSION.MessageDelay = message.delay
 		MISSION.AnsweringMachinePosition = if_then_else(message.flatId ~= nil, MISSION.AnsweringMachines[message.flatId], MISSION.AnsweringMachines[1])
+		sounds:Precache( MISSION.MessageScript )
+		
+		MISSION.Data.machineAudio = EmitParams.new(MISSION.MessageScript, MISSION.AnsweringMachinePosition)
 		
 		world:SetEnvironmentName(message.environment or "day_clear")
 		world:InitEnvironment()
-		
-		-- re-signal
-		gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, MISSION.MessageLength or 10 )
 
-		sounds:Precache( MISSION.MessageScript )
+		missionmanager:ScheduleEvent( function()
+			MISSION.PlayMessage()
+		end, MISSION.MessageDelay or 1)
 	end, 0)
 
-	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
-end
-
-----------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------
--- FlyBy Cutscenes ---------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------
-
-function MISSION.SetupFlybyCutscene()
-
-	missionmanager:ScheduleEvent( function()
-		local emitParams = EmitParams.new(MISSION.MessageScript, MISSION.AnsweringMachinePosition)
-
-		sounds:Emit( emitParams )
-	end, MISSION.MessageDelay or 1)
-
-	local playerCar = gameses:GetPlayerCar()
-
-	McdCutsceneCamera.Start(MISSION.cutCameras, nil, 1000) -- make wait forever
+	MISSION.Data.soundObj:Emit(1, EmitParams.new("wind.msg01") )
+	MISSION.Data.soundObj:Emit(2, EmitParams.new("d3.citynoise", vec3(-88,0.77,-1143)))
+	McdCutsceneCamera.Start(cutCameras, nil, 1000) -- make wait forever
 end

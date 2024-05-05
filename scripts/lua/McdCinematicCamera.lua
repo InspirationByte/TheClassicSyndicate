@@ -70,7 +70,9 @@ function McdCutsceneCamera.Start(cameras, onCompleted, extraWait)
 	-- convert every camera angle to quaternion
 	for si, set in ipairs(cameras) do
 		for i, v in ipairs(set) do
-			set[i][2] = qrotateZXY(v[2].x * Deg2Rad, v[2].y * Deg2Rad, v[2].z * Deg2Rad)
+			if type(set[i][2]) ~= "userdata" or rawget(getmetatable(v[2]), "__name") ~= "Quaternion" then
+				set[i][2] = qrotateZXY(v[2].x * Deg2Rad, v[2].y * Deg2Rad, v[2].z * Deg2Rad)
+			end
 		end
 	end
 	

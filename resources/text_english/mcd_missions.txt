@@ -1,0 +1,77 @@
+MCD_SLOWDOWN			"Slow down!";
+MCD_WELLDONE			"Well done!";
+MCD_GOODJOB				"Good job!";
+
+MCD_MISSION_TOBECONT	"to be continued..";
+
+MCD01_TITLE_THEBANKJOB 	"THE BANK JOB";
+MCD01_OBJ_FAILED				"Too late. Mission is failed.";
+MCD01_OBJ_GETTOBANK				"Get to the bank.";
+MCD01_OBJ_TOOEARLY				"Too early. Come back later.";
+MCD01_OBJ_GETTOLOCKUP			"Get to the lock up.";
+
+MCD02_TITLE_HIDEEVIDENCE	"HIDE THE EVIDENCE";
+MCD02_OBJ_BREAKERS					"Take it to the breakers.";
+
+MCD03_TITLE_TICCO			"TICCO'S RIDE";
+MCD03_OBJ_PICKUP			"Pick up Ticco.";
+MCD03_OBJ_TAKEHIM			"Take him where he wants to go.";
+MCD03_OBJ_FAILED			"Too late. Mission is failed.";
+
+MCD04_TITLE_CLEANUP			"THE CLEAN UP";
+MCD04_TITLE_CLEANUP_CNTD	"THE CLEAN UP (continued..)";
+MCD04_OBJ_PICKUP			"Pick up the car.";
+MCD04_OBJ_FAILED			"Too late. Mission is failed.";
+MCD04_OBJ_GETOUT			"Get the hell out of there!";
+
+MCD05_TITLE_CASEFORAKEY		"CASE FOR A KEY";
+MCD05_TITLE_CASEFORAKEY_CNTD	"CASE FOR A KEY (continued..)";
+MCD05_OBJ_MEET				"Go meet them.";
+MCD05_OBJ_FAILED			"Too late. Mission is failed.";
+MCD05_OBJ_EXCHANGE			"Make the exchange.";
+MCD05_OBJ_CHASE				"Chase the boat.";
+MCD05_OBJ_LOST				"You lost him.";
+
+MCD06_TITLE_RUFUS			"TANNER MEETS RUFUS";
+MCD06_OBJ_MEET				"Go and meet Rufus.";
+MCD06_OBJ_FAILED			"Too late. Mission is failed.";
+
+MCD07_TITLE_JEANPAUL		"BUST OUT JEAN PAUL";
+MCD07_TITLE_JEANPAUL_CNTD	"BUST OUT JEAN PAUL (continued..)";
+MCD07_OBJ_RAM				"Ram the armoured car.";
+MCD07_OBJ_FAILED			"Too late. Mission is failed.";
+MCD07_OBJ_LOST				"You lost him.";
+MCD07_OBJ_GETOUT			"Get Jean-Paul out of there.";
+
+MCD08_TITLE_PAYBACK			"PAYBACK";
+MCD08_OBJ_RESTAURANT1		"Get to the first restaurant.";
+MCD08_OBJ_RESTAURANT2		"Take out restaurant two.";
+MCD08_OBJ_RESTAURANT3		"Smash restaurant three.";
+MCD08_OBJ_RESTAURANT4		"Wreck the fourth restaurant.";
+MCD08_OBJ_RESTAURANT5		"Ram the last restaurant.";
+
+MCD09_TITLE_SHIPMENT		"A SHIPMENT'S COMING IN";
+MCD09_OBJ_PICK				"Pick up the hardware.";
+MCD09_OBJ_GETOUT			"Get out of there and back to the motel.";
+MCD09_OBJ_FAILED			"Too late. Mission is failed.";
+
+MCD10_TITLE_SUPERFLY		"SUPERFLY DRIVE";
+MCD10_OBJ_TAKEITHOME		"Take this puppy home.";
+MCD10_OBJ_FAILED			"Too late. Mission is failed.";
+
+MCD11_TITLE_DIANGIO			"TAKE OUT DI'ANGIO'S CAR";
+MCD11_OBJ_RAM				"Ram him!";
+MCD11_OBJ_FAILED			"Too late. Mission is failed.";
+MCD11_OBJ_LOST				"You lost him.";
+
+MCD12_TITLE_BAIT			"BAIT FOR A TRAP";
+MCD12_OBJ_WRECK				"Wreck his car.";
+MCD12_OBJ_GETOUT			"Get out of here, you've been double crossed!";
+MCD12_OBJ_DONTLOSE			"Don't lose him.";
+MCD12_OBJ_FAILED			"Too late. Mission is failed.";
+MCD12_OBJ_LOST				"You've lost him.";
+
+MCD13_TITLE_INFORMANT		"THE INFORMANT";
+MCD13_OBJ_CATCHJESSE		"Catch Jesse.";
+MCD13_OBJ_FAILED			"Too late. Mission is failed.";
+MCD13_OBJ_LOST				"You lost her.";

@@ -216,7 +216,7 @@ MISSION.Init = function()
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 0.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("CASE FOR A KEY (continued..)", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD05_TITLE_CASEFORAKEY_CNTD", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 	MISSION.StartPause()	-- Starting Introduction FlyBy Cutscene 
@@ -277,7 +277,7 @@ function MISSION.Phase1Start()
 		
 	end)
 
-	gameHUD:ShowScreenMessage("Chase the boat.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD05_OBJ_CHASE", 3.5)
 	
 	missionmanager:EnableTimeout( true, 95 ) -- Enable, time
 end
@@ -291,7 +291,7 @@ MISSION.Phase1Update = function( delta )
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
 	if length(MISSION.speedboatObject:GetOrigin() - playerCar:GetOrigin()) > 230 then
-		gameHUD:ShowScreenMessage("You lost him.", 3.5)
+		gameHUD:ShowScreenMessage("#MCD05_OBJ_LOST", 3.5)
 		gameses:SignalMissionStatus( MIS_STATUS_FAILED, 4.0 )
 
 		MISSION.playerCar:Lock(true)
@@ -348,7 +348,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("Well done!", 3.5)
+	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
 end
 
 function MISSION.StartPause()						-- Marker disappears after reached by player
@@ -389,7 +389,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("Too late. Mission is failed.", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#MCD05_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

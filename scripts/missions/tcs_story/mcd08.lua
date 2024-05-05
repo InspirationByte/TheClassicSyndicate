@@ -54,7 +54,7 @@ function MISSION.Init()
 		{
 			position = vec3(-143, 0.7, -453),
 			radius = 5,	-- meters
-			startMessage = "Get to the first restaurant.",
+			startMessage = "#MCD08_OBJ_RESTAURANT1",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.015,
@@ -64,7 +64,7 @@ function MISSION.Init()
 		{
 			position = vec3(78, 0.7, -447),
 			radius = 5,	-- meters
-			startMessage = "Take out restaurant two.",
+			startMessage = "#MCD08_OBJ_RESTAURANT2",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.015,
@@ -74,7 +74,7 @@ function MISSION.Init()
 		{
 			position = vec3(-336, 0.7, 34),
 			radius = 5,	-- meters
-			startMessage = "Smash restaurant three.",
+			startMessage = "#MCD08_OBJ_RESTAURANT3",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.01,
@@ -83,7 +83,7 @@ function MISSION.Init()
 		{
 			position = vec3(-1672, 0.7, -115),
 			radius = 5,	-- meters
-			startMessage = "Wreck the fourth restaurant.",
+			startMessage = "#MCD08_OBJ_RESTAURANT4",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.01,
@@ -92,7 +92,7 @@ function MISSION.Init()
 		{
 			position = vec3(-1384, 0.7, -680),
 			radius = 5,	-- meters
-			startMessage = "Ram the last restaurant.",
+			startMessage = "#MCD08_OBJ_RESTAURANT5",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.01,
@@ -109,7 +109,7 @@ function MISSION.Init()
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("PAYBACK", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD08_TITLE_PAYBACK", 3.5)				-- Classic title text (Duration)
 
 	-- setup initial state/phase
 	MISSION.SetupFlybyCutscene()
@@ -374,5 +374,5 @@ function MISSION.CompleteMission()
 	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 4.0 )
 	
 	-- show messages etc
-	gameHUD:ShowScreenMessage("Good job!", 3.5)
+	gameHUD:ShowScreenMessage("#MCD_GOODJOB", 3.5)
 end

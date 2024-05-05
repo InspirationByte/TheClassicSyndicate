@@ -68,7 +68,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("THE CLEAN UP", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD04_TITLE_CLEANUP", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
@@ -146,7 +146,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("Pick up the car.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD04_OBJ_PICKUP", 3.5)
 	
 	missionmanager:EnableTimeout( true, 120 ) -- Enable, time
 end
@@ -214,7 +214,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("to be continued..", 3.5)
+	gameHUD:ShowScreenMessage("#MCD_MISSION_TOBECONT", 3.5)
 end
 
 MISSION.UpdateAll = function(delta)
@@ -243,7 +243,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("Too late. Mission is failed.", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#MCD04_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

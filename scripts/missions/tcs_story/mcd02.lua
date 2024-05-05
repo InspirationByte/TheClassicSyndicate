@@ -45,7 +45,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("HIDE THE EVIDENCE", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD02_TITLE_HIDEEVIDENCE", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("HIDE THE EVIDENCE", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
@@ -134,7 +134,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("Take it to the breakers.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD02_OBJ_BREAKERS", 3.5)
 end
 
 ----------------------------------------------------------------------------------------------
@@ -197,7 +197,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("Good job!", 3.5)
+	gameHUD:ShowScreenMessage("#MCD_GOODJOB", 3.5)
 end
 
 MISSION.UpdateAll = function(delta)

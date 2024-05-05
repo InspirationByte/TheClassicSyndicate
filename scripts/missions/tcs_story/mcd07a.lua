@@ -82,7 +82,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("BUST OUT JEAN PAUL", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD07_TITLE_JEANPAUL", 3.5)				-- Classic title text (Duration)
 
 ----------------------------------------------------------------------------------------------
 -- Opponent Car ------------------------------------------------------------------------------
@@ -155,7 +155,7 @@ MISSION.JeanPaulSartre = function()
 	-- here we start
 	missionmanager:SetRefreshFunc( MISSION.Update )
 	
-	gameHUD:ShowScreenMessage("Ram the armoured car.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD07_OBJ_RAM", 3.5)
 end
 
 --------------------------------------------------------------------------------
@@ -171,7 +171,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	local opponentCar = MISSION.opponentCar
 
 	-- show message and signal success
-	gameHUD:ShowScreenMessage("to be continued...", 3.5)
+	gameHUD:ShowScreenMessage("#MCD_MISSION_TOBECONT", 3.5)
 
 	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 2.5, function()
 		-- setup mission completion data
@@ -334,7 +334,7 @@ MISSION.Update = function( delta )
 	
 		-- check the timer
 		if missionmanager:IsTimedOut() then
-			gameHUD:ShowScreenMessage("Too late. Mission is failed.", 3.5)
+			gameHUD:ShowScreenMessage("#MCD07_OBJ_FAILED", 3.5)
 			
 			MISSION.OnFailed()
 		end
@@ -342,7 +342,7 @@ MISSION.Update = function( delta )
 		-- check distance between the car and timer
 		if (length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 120) then
 
-			gameHUD:ShowScreenMessage("You lost him.", 3.5)
+			gameHUD:ShowScreenMessage("#MCD07_OBJ_LOST", 3.5)
 			
 			MISSION.OnFailed()
 		end

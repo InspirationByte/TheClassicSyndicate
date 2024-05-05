@@ -82,7 +82,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 0.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("CASE FOR A KEY (continued..)", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD05_TITLE_CASEFORAKEY_CNTD", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 	MISSION.StartPause()	-- Starting Introduction FlyBy Cutscene 
@@ -115,7 +115,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("Make the exchange.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD05_OBJ_EXCHANGE", 3.5)
 	
 	missionmanager:EnableTimeout( true, 95 ) -- Enable, time
 end
@@ -226,7 +226,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("Too late. Mission is failed.", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#MCD05_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

@@ -74,7 +74,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("THE INFORMANT", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD13_TITLE_INFORMANT", 3.5)				-- Classic title text (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
 end
@@ -193,7 +193,7 @@ function MISSION.Phase1Start()
 
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("Catch Jesse.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD13_OBJ_CATCHJESSE", 3.5)
 	
 	missionmanager:EnableTimeout( true, 95 ) -- Enable, time
 end
@@ -270,7 +270,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("Well done!", 3.5)
+	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
 end
 
 MISSION.UpdateAll = function(delta)
@@ -299,7 +299,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("Too late. Mission is failed.", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#MCD13_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		
@@ -313,7 +313,7 @@ MISSION.UpdateAll = function(delta)
 
 	if (length(playerCar:GetOrigin() - MISSION.metro.object:GetOrigin()) > 125) then	-- Set up function
 
-		gameHUD:ShowScreenMessage("You lost her.", 3.5)
+		gameHUD:ShowScreenMessage("#MCD13_OBJ_LOST", 3.5)
 		
 		MISSION.OnFailed()
 	end

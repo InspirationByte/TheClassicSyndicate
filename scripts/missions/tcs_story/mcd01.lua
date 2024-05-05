@@ -87,9 +87,8 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("THE BANK JOB", 3.5)				-- Classic title text (Duration)
-	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
-
+	gameHUD:ShowScreenMessage("#MCD01_TITLE_THEBANKJOB", 3.5)				-- Classic title text (Duration)
+	
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
 end
 
@@ -169,7 +168,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("Get to the bank.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD01_OBJ_GETTOBANK", 3.5)
 	
 	missionmanager:EnableTimeout( true, 70 ) -- Enable, time
 end
@@ -189,7 +188,7 @@ MISSION.Phase1Update = function( delta )
 	if distToTarget < 15.0 then						-- If player enters % meters radius, then..
 	
 		if remainingTime > 15 then					-- ..If timer is above 15 seconds, then..
-			gameHUD:ShowScreenMessage("Too early. Come back later.", 1.5)	-- .. Too early message on screen
+			gameHUD:ShowScreenMessage("#MCD01_OBJ_TOOEARLY", 1.5)	-- .. Too early message on screen
 			playerCar:SetFelony(playerCar:GetFelony() + 0.1 * delta) -- 10 percent per second
 		elseif playerSpeed < 60 then				-- **If player speed is higher than %, then ..
 
@@ -207,7 +206,7 @@ MISSION.Phase1Update = function( delta )
 				end
 			end
 		else
-			gameHUD:ShowScreenMessage("Slow down!", 1.0) -- .. Slow down message on screen**
+			gameHUD:ShowScreenMessage("#MCD_SLOWDOWN", 1.0) -- .. Slow down message on screen**
 		end
 	end
 	
@@ -242,7 +241,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("Well done!", 3.5)
+	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
 end
 
 ----------------------------------------------------------------------------------------------
@@ -365,7 +364,7 @@ function MISSION.Phase2Start()
 	MISSION.targetHandle = gameHUD:AddMapTargetPoint(MISSION.safeHouseTarget)
 	
 	-- Show objective message (Duration)
-	gameHUD:ShowScreenMessage("Get to the lock up.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD01_OBJ_GETTOLOCKUP", 3.5)
 	
 	missionmanager:SetRefreshFunc( MISSION.Phase2Update )
 end
@@ -396,7 +395,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("Too late. Mission is failed.", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#MCD01_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

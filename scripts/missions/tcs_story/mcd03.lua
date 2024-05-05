@@ -80,7 +80,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("TICCO'S RIDE", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD03_TITLE_TICCO", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
@@ -174,7 +174,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("Pick up Ticco.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD03_OBJ_PICKUP", 3.5)
 	
 	missionmanager:EnableTimeout( true, 80 ) -- Enable, time
 end
@@ -244,11 +244,6 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	end ) 
 	
 	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 3.3 )
-
-	-- Trigger MissionSuccess UI
-	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
-	
-	--gameHUD:ShowScreenMessage("Well done!", 3.5)
 end
 
 ----------------------------------------------------------------------------------------------
@@ -285,7 +280,7 @@ function MISSION.TiccoPewPewPREPAUSE()
 	gameHUD:Enable(false)
 	playerCar:Lock(true)
 
-	gameHUD:ShowScreenMessage("Well done!", 3.5)
+	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
 
 	missionmanager:SetRefreshFunc( function() 
 		return false 
@@ -397,7 +392,7 @@ function MISSION.Phase2Start()
 	MISSION.finalTarget = true
 	
 	-- Show objective message (Duration)
-	gameHUD:ShowScreenMessage("Take him where he wants to go.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD03_OBJ_TAKEHIM", 3.5)
 	
 	missionmanager:SetRefreshFunc( MISSION.Phase2Update )
 end
@@ -428,7 +423,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("Too late. Mission is failed.", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#MCD03_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

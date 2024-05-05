@@ -93,7 +93,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("BAIT FOR A TRAP", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD12_TITLE_BAIT", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 -- DEVTEST position
@@ -200,7 +200,7 @@ function MISSION.Phase1Start()
 		
 	end)
 
-	gameHUD:ShowScreenMessage("Wreck his car.", 3.5)
+	gameHUD:ShowScreenMessage("#MCD12_OBJ_WRECK", 3.5)
 	
 	missionmanager:EnableTimeout( true, 155 ) -- Enable, time
 end
@@ -273,7 +273,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("Well done!", 3.5)
+	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
 end
 
 function MISSION.OnFailed()
@@ -315,7 +315,7 @@ function MISSION.Phase2Start()
 	MISSION.targetHandle = gameHUD:AddMapTargetPoint(MISSION.safeHouseTarget)
 	
 	-- Show objective message (Duration)
-	gameHUD:ShowScreenMessage("Get out of here, you've been double crossed!", 3.5)
+	gameHUD:ShowScreenMessage("#MCD12_OBJ_GETOUT", 3.5)
 
 	missionmanager:SetPluginRefreshFunc("BaitTrapCars", function()	-- Spawn scenery when player enters % radius
 
@@ -327,7 +327,7 @@ function MISSION.Phase2Start()
 	end)
 
 	missionmanager:ScheduleEvent( function() 
-		gameHUD:ShowScreenMessage("Don't lose him.", 3.5)
+		gameHUD:ShowScreenMessage("#MCD12_OBJ_DONTLOSE", 3.5)
 		missionmanager:SetRefreshFunc( MISSION.Phase2Update )
 	end, 3.5);
 end
@@ -356,7 +356,7 @@ MISSION.UpdateAll = function(delta)
 	-- Check player's time is out
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
-		gameHUD:ShowScreenMessage("Too late. Mission is failed.", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#MCD12_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		
@@ -381,7 +381,7 @@ MISSION.Phase2Update = function( delta )
 	local opponentCar = MISSION.opponentCar
 
 	if playerCar:GetPursuedCount() == 0 then
-		gameHUD:ShowScreenMessage("You've lost him.", 3.5)
+		gameHUD:ShowScreenMessage("#MCD12_OBJ_LOST", 3.5)
 
 		MISSION.OnFailed()	-- Game Over
 		return false

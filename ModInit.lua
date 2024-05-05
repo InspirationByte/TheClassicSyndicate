@@ -274,6 +274,7 @@ end
 -- Initialization function
 function ModInit:Init()
 	
+	AddLanguageFile("mcd_missions")
 	fonts.LoadFontDescriptionFile("resources/additional_fonts.res")
 
 	-- make MCD camera available

@@ -179,7 +179,7 @@ function MISSION.Phase1Start()
 			opponentCar:SetAngles( Vector3D.new(180,0,180) )			-- Scenery items coords
 			opponentCar:Enable(false)
 
-			local aiComponent = opponentCar:GetComponent("PursuerAIComponent")
+			local aiComponent = opponentCar:GetComponent(PursuerAIComponent)
 			aiComponent:SetAngryMode(PURSUER_PUPPYDOG)
 			aiComponent:SetTorqueScale(1.0)
 			aiComponent:SetMaxSpeed(140.0)
@@ -213,7 +213,7 @@ MISSION.TargetCarHit = function(self, props)
 	if props.hitBy == playerCar then
 		opponentCar:Enable(true)
 		
-		local aiComponent = opponentCar:GetComponent("PursuerAIComponent")
+		local aiComponent = opponentCar:GetComponent(PursuerAIComponent)
 		aiComponent:SetPursuitTarget( playerCar )
 		aiComponent:BeginPursuit(0)
 		ai:TrackCar(opponentCar)
@@ -390,7 +390,7 @@ MISSION.Phase2Update = function( delta )
 	local distToTarget = length(playerCar:GetOrigin() - MISSION.safeHouseTarget)
 	if distToTarget < 5 then	-- If player enters % meter objective radius, then..
 		
-		local aiComponent = opponentCar:GetComponent("PursuerAIComponent")
+		local aiComponent = opponentCar:GetComponent(PursuerAIComponent)
 		aiComponent:EndPursuit(false)
 		
 		MISSION.OnCompleted()		-- ..Mission completed

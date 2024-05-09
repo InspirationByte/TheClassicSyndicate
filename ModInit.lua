@@ -139,7 +139,7 @@ local MiamiMissionsList = {
 		args = "render01.mpg"
 	},
 	{
-		id = "mcd07a", 
+		id = "mcd07a_activelife", 
 		label = "Bust Out Jean Paul" 
 	},
 	{
@@ -165,7 +165,6 @@ local MiamiMissionsList = {
 		screen = "story_movie_play",
 		args = {"render56.mpg", "message.call_shipment"} 
 	},
-	--"mcd_flat_nextmessage",	-- A Shipment's Coming In (Message)				O
 	{
 		id = "mcd09", 
 		label = "A Shipment's Coming In"
@@ -190,7 +189,7 @@ local MiamiMissionsList = {
 		args = {"render59.mpg", "message.call_diangio"}
 	},
 	{
-		id = "mcd11",
+		id = "mcd11_activelife",
 		label = "Take Out Di Angio's Car"
 	},
 	{
@@ -204,7 +203,7 @@ local MiamiMissionsList = {
 		args = {"render59.mpg", "message.call_baitforatrap"}
 	},
 	{
-		id = "mcd12",
+		id = "mcd12_activelife",
 		label = "Bait for a Trap"
 	},
 	{

@@ -229,6 +229,9 @@ MISSION.TargetCarHit = function(self, props)
 		
 		aiComponent:SetPersonalityTraits(puppyDogTraits)
 		aiComponent:SetFollowTargetVehicle(playerCar)
+		
+		local hudIndicator = opponentCar:AddComponent(HudIndicatorComponent)
+		hudIndicator:SetTypeFlags(HUD_DOBJ_CAR_SIGHTCONE | HUD_DOBJ_CAR_IN_PURSUIT)
 	
 		opponentCar:Enable(true)
 		sounds:Emit( EmitParams.new("goon.wat"), -1 )
@@ -338,11 +341,8 @@ function MISSION.Phase2Start()
 		end
 		
 	end)
-
-	missionmanager:ScheduleEvent( function() 
-		gameHUD:ShowScreenMessage("#MCD12_OBJ_DONTLOSE", 3.5)
-		missionmanager:SetRefreshFunc( MISSION.Phase2Update )
-	end, 3.5);
+	
+	missionmanager:SetRefreshFunc( MISSION.Phase2Update )
 end
 
 MISSION.UpdateAll = function(delta)
@@ -393,10 +393,13 @@ MISSION.Phase2Update = function( delta )
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 	local opponentCar = MISSION.opponentCar
 
-	if length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 100 then
+	local distToCar = length(playerCar:GetOrigin() - opponentCar:GetOrigin())
+	if distToCar > 100 then
 		gameHUD:ShowScreenMessage("#MCD12_OBJ_LOST", 3.5)
 		MISSION.OnFailed()	-- Game Over
 		return false
+	elseif distToCar > 60 then
+		gameHUD:ShowScreenMessage("#MCD12_OBJ_DONTLOSE", 1.0)
 	end
 	
 	local distToTarget = length(playerCar:GetOrigin() - MISSION.safeHouseTarget)

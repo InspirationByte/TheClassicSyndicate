@@ -1,0 +1,52 @@
+﻿// pedestiran registry
+
+ped1 "models/characters/ped01.egf"
+{
+	driver 		1;
+	passenger 	1;
+	pedestrian 	1;
+	spawnInterval	0;
+}
+
+ped2 "models/characters/ped02.egf"
+{
+	driver 		1;
+	passenger 	1;
+	pedestrian 	1;
+
+	spawnInterval	4;
+	bodyGroups	"cophat";
+}
+
+cop "models/characters/cop01.egf"
+{
+	driver 		1;
+	passenger 	1;
+	pedestrian 	0;
+	onlyVehicles	"cop_regis";
+	forceBodyGroups	"hat";
+}
+
+robber "models/characters/mcd_pedrobber.egf"
+{
+	driver 		0;
+	passenger 	0;
+	pedestrian 	0;
+}
+
+ticco "models/characters/mcd_ticco.egf"
+{
+	driver 		0;
+	passenger 	0;
+	pedestrian 	0;
+}
+
+/*
+fatcop "models/characters/cop02.egf"
+{
+	driver 		1;
+	passenger 	1;
+	pedestrian 	0;
+	onlyVehicles	"cop_regis";
+}
+*/

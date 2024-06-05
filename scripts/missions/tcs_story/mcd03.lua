@@ -62,7 +62,10 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
 
-	gameutil.PrecacheStudioModel( "models/characters/mcd_ticco.egf", nil )
+	gameutil.PrecacheStudioModel( "models/characters/mcd_ticco.egf", {
+		"models/characters/pedestrian.mop",
+		"models/characters/driver.mop",
+	})
 	sounds:Precache( "car.lightswitch" )
 
 	sounds:Precache( "wind.mcd03a" )
@@ -250,6 +253,7 @@ end
 ----------------------------------------------------------------------------------------------
 
 function MISSION.TiccoPause()				-- Transition between Phase1Update and Phase2Start
+	local playerCar = MISSION.playerCar
     local pedestrian = gameses:CreatePedestrian("models/characters/mcd_ticco.egf", -1)
     pedestrian:SetOrigin(vec3(-217.17,0.7,-182.11))
     pedestrian:Spawn()
@@ -260,6 +264,9 @@ function MISSION.TiccoPause()				-- Transition between Phase1Update and Phase2St
         if PedWalkToTarget(pedestrian, gameses:GetPlayerCar():GetOrigin(), run) < 1.2 then
 			missionmanager:SetPluginRefreshFunc( "pedswalk", nil)
 			pedestrian:Remove()
+			
+			playerCar:SetPassengerType(0, "ticco")
+			playerCar:SetPassengers(1)
         end
     end)
 
@@ -281,7 +288,7 @@ function MISSION.TiccoPewPewPREPAUSE()
 	playerCar:Lock(true)
 
 	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
-
+	
 	missionmanager:SetRefreshFunc( function() 
 		return false 
 	end ) 
@@ -298,6 +305,7 @@ function MISSION.TiccoPewPewPRECAM()				-- Transition between Phase1Update and P
 
 	playerCar:SetOrigin( Vector3D.new(-1820,0.7,-436) )						--Player car properties
 	playerCar:SetAngles( Vector3D.new(180,180,180) )
+	playerCar:SetPassengers(0)
 
 	-- Setup cameras
 	cameraAnimator:SetScripted(true)
@@ -321,6 +329,8 @@ end
 
 function MISSION.TiccoPewPew()				-- Transition between Phase1Update and Phase2Start
 
+	local playerCar = MISSION.playerCar
+	
     local pedestrian1 = gameses:CreatePedestrian("models/characters/mcd_ticco.egf", -1)
     pedestrian1:SetOrigin(vec3(-1806, 0.7, -433))
     pedestrian1:Spawn()
@@ -331,6 +341,8 @@ function MISSION.TiccoPewPew()				-- Transition between Phase1Update and Phase2S
         if PedWalkToTarget(pedestrian1, gameses:GetPlayerCar():GetOrigin(), run) < 1.2 then
 			missionmanager:SetPluginRefreshFunc( "pedswalk2", nil)
 			pedestrian1:Remove()
+			
+			playerCar:SetPassengers(1)
         end
 	end)
 	

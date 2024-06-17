@@ -4,12 +4,12 @@ font	"Cooper" 30;
 
 child Container "main"
 {
-	child ProgressBar "mcdDamageBar"
+	child ProgressBar "damageBar"
 	{
 		visible 	0;
 	}
 
-	child ProgressBar "mcdFelonyBar"
+	child ProgressBar "felonyBar"
 	{
 		visible 	0;
 	}

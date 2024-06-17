@@ -2,9 +2,9 @@
 ------------------------------------------------------------
 -- Plug-in to handle felony and damage bars
 
-local function AddHudDamageBar()
+local function AddHudDamageBar(elementName, carGetter)
 	-- Damage bar
-	local damageBar = gameHUD:FindChildElement("mcdDamageBar")
+	local damageBar = gameHUD:FindChildElement(elementName)
 	if damageBar == nil then
 		return
 	end
@@ -15,23 +15,24 @@ local function AddHudDamageBar()
 		return
 	end
 
-	MissionManager:SetPluginRefreshFunc("hudDamageBar", nil)
+	MissionManager:SetPluginRefreshFunc(elementName, nil)
 
 	local alpha = 1.0
 	local oldPercentageValue = 0.0
 	local animateDamageBar = 0.0
 	local lightsTime = 0
 	
-	MissionManager:SetPluginRefreshFunc("hudDamageBar", function(dt)
-	
+	MissionManager:SetPluginRefreshFunc(elementName, function(dt)
 		lightsTime = lightsTime + dt
 
 		local percentage = 0
 
-		local playerCar = gameses:GetPlayerCar()
-		
-		if playerCar ~= nil then
-			percentage = playerCar:GetDamage() / playerCar:GetMaxDamage()				
+		local trackedCar = carGetter()
+		if trackedCar ~= nil then
+			percentage = trackedCar:GetDamage() / trackedCar:GetMaxDamage()
+			damageBar:SetVisible(true)
+		else
+			damageBar:SetVisible(false)
 		end
 
 		if percentage > oldPercentageValue then
@@ -69,7 +70,7 @@ local function AddHudDamageBar()
 end
 
 local function AddHudFelonyBar()
-	local felonyBar = gameHUD:FindChildElement("mcdFelonyBar")
+	local felonyBar = gameHUD:FindChildElement("felonyBar")
 	if felonyBar == nil then
 		return
 	end
@@ -81,7 +82,7 @@ local function AddHudFelonyBar()
 	end
 
 	local lightsTime = 0
-	MissionManager:SetPluginRefreshFunc("hudFelonyBar", function(dt)
+	MissionManager:SetPluginRefreshFunc("felonyBar", function(dt)
 		lightsTime = lightsTime + dt
 
 		local felonyPercent = 0
@@ -108,6 +109,7 @@ end
 
 -- Add game HUD initialization
 SetHudInitializedCallback("mcdHUD", function()
-	AddHudDamageBar()
+	AddHudDamageBar("damageBar", function() return gameses:GetPlayerCar() end)
+	AddHudDamageBar("damageBar2", function() return gameses:GetLeadCar() end)
 	AddHudFelonyBar()
 end)

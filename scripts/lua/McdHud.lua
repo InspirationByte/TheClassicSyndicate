@@ -2,7 +2,10 @@
 ------------------------------------------------------------
 -- Plug-in to handle felony and damage bars
 
-local function AddHudDamageBar(elementName, carGetter)
+local function AddHudDamageBar(elementName, carGetter, visibilityToggle)
+
+	visibilityToggle = visibilityToggle or false
+	
 	-- Damage bar
 	local damageBar = gameHUD:FindChildElement(elementName)
 	if damageBar == nil then
@@ -30,8 +33,10 @@ local function AddHudDamageBar(elementName, carGetter)
 		local trackedCar = carGetter()
 		if trackedCar ~= nil then
 			percentage = trackedCar:GetDamage() / trackedCar:GetMaxDamage()
-			damageBar:SetVisible(true)
-		else
+			if visibilityToggle then
+				damageBar:SetVisible(true)
+			end
+		elseif visibilityToggle then
 			damageBar:SetVisible(false)
 		end
 
@@ -110,6 +115,6 @@ end
 -- Add game HUD initialization
 SetHudInitializedCallback("mcdHUD", function()
 	AddHudDamageBar("damageBar", function() return gameses:GetPlayerCar() end)
-	AddHudDamageBar("damageBar2", function() return gameses:GetLeadCar() end)
+	AddHudDamageBar("damageBar2", function() return gameses:GetLeadCar() end, true)
 	AddHudFelonyBar()
 end)

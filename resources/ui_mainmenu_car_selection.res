@@ -53,33 +53,61 @@ panel
 		}
 	}
 
-	child image "carselection_img"
-	{
-		path		"ui/vehicles/unknown_vehicle";
-		position	70 95;
-		size		400 300;
+	//----------------
 
-		scaling		aspecth;
+	child label "page_info"
+	{
+		position	-120 40;
+	
+		size		70 15;
+		scaling		uniform;
+		align		bottom hcenter;
+		fontScale	16 16;
+	
+		label		"< 1 / 9 >";
 	}
+	
+	child label "total_cars"
+	{
+		position	120 40;
+		size		170 15;
+
+		scaling		uniform;
+		align		bottom hcenter;
+		fontScale	16 16;
+	
+		label		"#MENU_CARSELECTION_COUNT";
+		
+		child label "total_cars_count"
+		{
+			position	120 0;
+			size		40 15;
+			scaling		uniform;
+			align		left top;
+		}
+	}
+	
+	
+	//----------------
 
 	child HudElement "Menu"
 	{
-		position	100 200;
+		position	0 60;
 		
 		size		200 200;
 		scaling		uniform;
 		
-		textalign	right;
-		align		right top;
+		textalign	center;
+		align		hcenter top;
 
-		fontScale	16 16;
+		fontScale	20 20;
 	}
 	
 	child container "controls_return"
 	{
 		align			bottom left;
 		scaling			uniform;
-		position 		40 40;
+		position 		40 10;
 		size 			200 20;	// map hud size to 640x480
 		selfvisible		0;
 
@@ -113,7 +141,7 @@ panel
 	{
 		align			bottom hcenter;
 		scaling			uniform;
-		position 		10 40;
+		position 		10 10;
 		size 			200 20;	// map hud size to 640x480
 		selfvisible		0;
 
@@ -176,7 +204,7 @@ panel
 	{
 		align			bottom right;
 		scaling			uniform;
-		position 		40 40;
+		position 		40 10;
 		size 			120 20;	// map hud size to 640x480
 		selfvisible		0;
 

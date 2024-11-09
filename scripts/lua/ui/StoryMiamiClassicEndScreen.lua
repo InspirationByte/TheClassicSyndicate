@@ -43,7 +43,7 @@ local StoryMiamiClassicEndingScreen = class()
 	function StoryMiamiClassicEndingScreen:Close()
 		self.done = true
 		SequenceScreens.current = nil
-		EqStateMgr.ScheduleNextStateType( GAME_STATE_MAINMENU )
+		EqStateMgr.ScheduleNextStateType( APP_STATE_MAINMENU )
 		
 		missionladder:DeleteProgress("mcd_missions")
 	end

@@ -74,11 +74,7 @@ MISSION.InitSceneryObject = function()
 
 	objects:AddObjectDef("emitter", "speedboat_splashes", defData)
 	
-	local boatSettings = {
-		staticShadowmap = false
-	}
-	
-	local speedboatObject = objects:CreateGameObject("object", create_section(boatSettings))
+	local speedboatObject = objects:CreateGameObject("object", nil)
 	speedboatObject:SetModel(speedboatModel)
 	speedboatObject:SetOrigin(boatPath[1])
 	speedboatObject:SetAngles(vec3(0))

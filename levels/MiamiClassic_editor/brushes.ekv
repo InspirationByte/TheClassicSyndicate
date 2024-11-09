@@ -3136,7 +3136,7 @@ brush 6
 	{
 		face tools\occluder
 		{
-			N -1 -0 -0 -323;
+			N -0.993884 0 0.110431 -234.336;
 			U -4.37114e-08 0 1 0;
 			V 0 1 0 0;
 			TS 4 4;
@@ -3144,7 +3144,7 @@ brush 6
 		};
 		face tools\occluder
 		{
-			N 1 -0 -0 303;
+			N 0.993884 0 -0.110432 214.457;
 			U 1.19249e-08 0 -1 0;
 			V 0 1 0 0;
 			TS 4 4;
@@ -3152,7 +3152,7 @@ brush 6
 		};
 		face tools\occluder
 		{
-			N -0 1 -0 -8;
+			N 0 1 0 -8;
 			U -1 0 -8.74228e-08 0;
 			V -8.74228e-08 1.19249e-08 1 0;
 			TS 4 4;
@@ -3160,7 +3160,7 @@ brush 6
 		};
 		face tools\occluder
 		{
-			N -0 -1 -0 0;
+			N 0 -1 0 0;
 			U -1 0 -8.74228e-08 0;
 			V 8.74228e-08 -4.37114e-08 -1 0;
 			TS 4 4;
@@ -3168,7 +3168,7 @@ brush 6
 		};
 		face tools\occluder
 		{
-			N -0 -0 1 788;
+			N 0 0 1 776;
 			U 1 0 0 0;
 			V 0 1 0 0;
 			TS 4 4;
@@ -3176,7 +3176,7 @@ brush 6
 		};
 		face tools\occluder
 		{
-			N -0 -0 -1 -812;
+			N -0 0 -1 -821;
 			U -1 0 -8.74228e-08 0;
 			V 0 1 0 0;
 			TS 4 4;
@@ -3195,7 +3195,7 @@ brush 7
 	{
 		face tools\occluder
 		{
-			N -1 0 0 -432;
+			N -0.996398 0 0.0847998 -363.643;
 			U -4.37114e-08 0 1 0;
 			V 0 1 0 0;
 			TS 4 4;
@@ -3203,7 +3203,7 @@ brush 7
 		};
 		face tools\occluder
 		{
-			N 1 0 0 412;
+			N 0.996398 0 -0.0848005 343.714;
 			U 1.19249e-08 0 -1 0;
 			V 0 1 0 0;
 			TS 4 4;
@@ -3219,7 +3219,7 @@ brush 7
 		};
 		face tools\occluder
 		{
-			N 0 -1 0 -0;
+			N 0 -1 0 0;
 			U -1 0 -8.74228e-08 0;
 			V 8.74228e-08 -4.37114e-08 -1 0;
 			TS 4 4;
@@ -3227,7 +3227,7 @@ brush 7
 		};
 		face tools\occluder
 		{
-			N 0 0 1 789;
+			N 0 0 1 776;
 			U 1 0 0 0;
 			V 0 1 0 0;
 			TS 4 4;
@@ -3235,7 +3235,125 @@ brush 7
 		};
 		face tools\occluder
 		{
-			N 0 0 -1 -812;
+			N -0 -0 -1 -823;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 398;
+	groupId 65535;
+	visGroupId 2;
+	def city_buildings_volume;
+};
+brush 8
+{
+	faces
+	{
+		face tools\occluder
+		{
+			N -0.962788 0 0.270257 -134.435;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0.962789 0 -0.270256 114.218;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 1 0 -8;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 -1 0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N -0 0 1 924;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N -0 -0 -1 -981;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 398;
+	groupId 65535;
+	visGroupId 2;
+	def city_buildings_volume;
+};
+brush 9
+{
+	faces
+	{
+		face tools\occluder
+		{
+			N -0.976575 0 0.215178 -298.468;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0.976575 0 -0.215179 278.935;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 1 0 -8;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 -1 0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 0 1 923;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N -0 -0 -1 -982;
 			U -1 0 -8.74228e-08 0;
 			V 0 1 0 0;
 			TS 4 4;
@@ -3538,6 +3656,124 @@ brush 3
 	groupId 65535;
 	visGroupId 1;
 };
+brush 4
+{
+	faces
+	{
+		face tools\occluder
+		{
+			N -0.948683 0 0.316228 -309.587;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0.948683 0 -0.316228 287.767;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 1 0 -8;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 -1 0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N -0 0 1 347;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N -0 -0 -1 -392;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 462;
+	groupId 65535;
+	visGroupId 2;
+	def city_buildings_volume;
+};
+brush 5
+{
+	faces
+	{
+		face tools\occluder
+		{
+			N -0.906722 -0 -0.421729 -615.579;
+			U -0.447213 0 0.894427 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0.906722 -0 0.42173 597.445;
+			U 0.447214 0 -0.894427 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 1 0 -8;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 -1 0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 0 1 490;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N -0 -0 -1 -533;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 462;
+	groupId 65535;
+	visGroupId 2;
+	def city_buildings_volume;
+};
 brush 0
 {
 	faces
@@ -3711,6 +3947,65 @@ brush 2
 	region 494;
 	groupId 65535;
 	visGroupId 1;
+};
+brush 3
+{
+	faces
+	{
+		face tools\occluder
+		{
+			N -1 0 0 -410;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 1 -0 0 390;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 1 0 -8;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 -1 0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N 0 0 1 45;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\occluder
+		{
+			N -0 -0 -1 -101;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 494;
+	groupId 65535;
+	visGroupId 2;
+	def city_buildings_volume;
 };
 brush 0
 {
@@ -12534,16 +12829,16 @@ brush 0
 		face tools\physclip
 		{
 			N 0 1 0 -12;
-			U -1 0 -8.74228e-08 0;
-			V -8.74228e-08 1.19249e-08 1 0;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
 			TS 4 4;
 			TR 0;
 		};
 		face tools\physclip
 		{
 			N 0 -1 0 -0;
-			U -1 0 -8.74228e-08 0;
-			V 8.74228e-08 -4.37114e-08 -1 0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
 			TS 4 4;
 			TR 0;
 		};

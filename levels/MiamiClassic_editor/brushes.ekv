@@ -56,6 +56,65 @@ brush 0
 	groupId 65535;
 	visGroupId 1;
 };
+brush 1
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 -1644;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 1588;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -28;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 -52;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 489;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
 brush 0
 {
 	faces
@@ -3774,6 +3833,73 @@ brush 5
 	visGroupId 2;
 	def city_buildings_volume;
 };
+brush 6
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 -348;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 312;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 380;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 -416;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.928477 0 0.371391 -174.554;
+			U 0.371391 0 0.928477 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 462;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
 brush 0
 {
 	faces
@@ -4006,6 +4132,65 @@ brush 3
 	groupId 65535;
 	visGroupId 2;
 	def city_buildings_volume;
+};
+brush 4
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -0.682319 -0 -0.731055 -408.611;
+			U -0.752577 0 0.658505 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 0 312;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 236;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 -264;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 494;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
 };
 brush 0
 {
@@ -5810,6 +5995,199 @@ brush 0
 {
 	faces
 	{
+		face tools\navmesh
+		{
+			N -1 0 0 -108;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 12;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 471;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 -500;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.729537 0 -0.683941 -322.273;
+			U -0.683941 0 -0.729537 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.630593 0 -0.776114 -446.072;
+			U -0.776114 0 0.630593 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 463;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 0
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 -228;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 132;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 16;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 -52;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 495;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 1
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 -108;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 72;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 92;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 -128;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 495;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 0
+{
+	faces
+	{
 		face tools\physclip
 		{
 			N -1 -0 -0 -140;
@@ -6736,6 +7114,65 @@ brush 2
 	visGroupId 3;
 	def nav_open_area;
 };
+brush 3
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 88;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -124;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 385;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 -411;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 464;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
 brush 0
 {
 	faces
@@ -6851,6 +7288,65 @@ brush 1
 	region 496;
 	groupId 65535;
 	visGroupId 1;
+};
+brush 2
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 28;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -124;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 92;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 -128;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 496;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
 };
 brush 0
 {
@@ -10986,6 +11482,601 @@ brush 0
 	groupId 65535;
 	visGroupId 1;
 };
+brush 1
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1492;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1520;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -856;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 828;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.707107 0 0.707107 -1663.12;
+			U 0.707107 0 -0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 629;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 2
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1492;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1524;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -924;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 884;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.789352 0 -0.613941 -638.148;
+			U -0.613941 0 -0.789352 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 629;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 3
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1456;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1484;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -924;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 828;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 629;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 4
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1396;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1424;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -852;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 828;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.707107 0 0.707107 -1595.23;
+			U 0.707107 0 -0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 629;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 5
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1396;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1428;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -1036;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 1004;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.707107 -0 -0.707107 -280.014;
+			U -0.707107 0 -0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 629;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 6
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1396;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1424;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -964;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 940;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.640184 0 0.768221 -1636.82;
+			U 0.768221 0 -0.640184 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 629;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 7
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1452;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1484;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -1036;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 992;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.819232 -0 -0.573462 1781.34;
+			U -0.573462 0 0.819232 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 629;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 8
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1456;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1484;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -968;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 940;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.707107 -0 0.707107 362.039;
+			U 0.707107 0 0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 629;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 9
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1492;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1524;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1036;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1004;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.707107 0 -0.707107 -347.897;
+			U -0.707107 0 -0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 629;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
 brush 0
 {
 	faces
@@ -11160,6 +12251,609 @@ brush 2
 	groupId 65535;
 	visGroupId 1;
 };
+brush 3
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1456;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1484;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1072;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1044;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.707107 0 0.707107 288.5;
+			U 0.707107 0 0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 661;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 4
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1452;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1484;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1140;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1096;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.819232 0 -0.573462 1840.98;
+			U -0.573462 0 0.819232 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 661;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 5
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1396;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1428;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1140;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1108;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.707107 0 -0.707107 -206.475;
+			U -0.707107 0 -0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 661;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 6
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1396;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1424;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1068;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1044;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.640184 0 0.768221 -1716.72;
+			U 0.768221 0 -0.640184 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 661;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 7
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1492;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1520;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1068;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1044;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.640184 0 0.768221 -1778.18;
+			U 0.768221 0 -0.640184 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 661;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 8
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1492;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1524;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1140;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1108;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.707107 0 -0.707107 -274.357;
+			U -0.707107 0 -0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 661;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 9
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1492;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1520;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1172;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1148;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.640184 0 0.768221 -1858.07;
+			U 0.768221 0 -0.640184 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 661;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 10
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1492;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1520;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1276;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1252;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.640184 0 0.768221 -1937.97;
+			U 0.768221 0 -0.640184 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 661;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 0
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1492;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1524;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1348;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1316;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.707107 0 -0.707107 -127.279;
+			U -0.707107 0 -0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 693;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
 brush 0
 {
 	faces
@@ -11217,6 +12911,65 @@ brush 0
 	region 438;
 	groupId 65535;
 	visGroupId 1;
+};
+brush 1
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1676;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1711;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 532;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 -628;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 438;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
 };
 brush 0
 {
@@ -11451,6 +13204,132 @@ brush 3
 	groupId 65535;
 	visGroupId 2;
 	def parking_volume;
+};
+brush 4
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -0.799989 3.05221e-05 0.600015 1602.39;
+			U 0.599999 0 0.800001 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.779373 0.000190277 -0.62656 -1601.34;
+			U -0.613941 0 -0.789352 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1.05233e-06 -0 1 419.998;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -1 -0.00012207 -3.48772e-06 1676;
+			U -6.00418e-06 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 470;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 5
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1676;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 0 -1696;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 -0 -0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 0 1 308;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.855197 0 -0.518303 -1613.16;
+			U -0.518302 0 -0.855198 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.707111 0 0.707103 1408.56;
+			U 0.581238 0 0.813733 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 470;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
 };
 brush 0
 {
@@ -12574,6 +14453,274 @@ brush 0
 	groupId 65535;
 	visGroupId 1;
 };
+brush 1
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1542;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -924;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 888;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.685365 0 -0.7282 1726.78;
+			U -0.7282 0 0.685365 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 630;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 2
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1552;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 -856;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 828;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.707107 -0 0.707107 509.117;
+			U 0.707107 0 0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 630;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 3
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1552;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -968;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 940;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.707107 0 0.707107 429.921;
+			U 0.707107 0 0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 630;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 4
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1548;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1036;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 992;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.819232 0 -0.573462 1859.98;
+			U -0.573462 0 0.819232 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 630;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
 brush 0
 {
 	faces
@@ -12689,6 +14836,341 @@ brush 1
 	region 662;
 	groupId 65535;
 	visGroupId 1;
+};
+brush 2
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1548;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1140;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1096;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.819232 0 -0.573462 1919.62;
+			U -0.573462 0 0.819232 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 662;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 3
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1552;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1072;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1044;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.707107 0 0.707107 356.382;
+			U 0.707107 0 0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 662;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 4
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1552;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1176;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1148;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.707107 0 0.707107 282.843;
+			U 0.707107 0 0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 662;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 5
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1552;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1280;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1252;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.707107 0 0.707107 209.304;
+			U 0.707107 0 0.707107 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 662;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
+brush 6
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1548;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1244;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1200;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.819232 0 -0.573462 1979.26;
+			U -0.573462 0 0.819232 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 662;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
 };
 brush 0
 {
@@ -12806,6 +15288,73 @@ brush 1
 	groupId 65535;
 	visGroupId 1;
 };
+brush 2
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 0 0 1548;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 0 0 -1580;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U 1 0 0 0;
+			V 0 1.19249e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U 1 0 0 0;
+			V 0 -4.37114e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 1 -1348;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 0 -1 1304;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.819232 0 -0.573462 2038.9;
+			U -0.573462 0 0.819232 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 694;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
 brush 0
 {
 	faces
@@ -12864,6 +15413,73 @@ brush 0
 	groupId 65535;
 	visGroupId 1;
 };
+brush 1
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 0 1788;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.967075 0 -0.254493 -1903.2;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 1 0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0 -1 0 -0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -1.52588e-06 0 1 532.003;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 0.784885 0.000189099 -0.619641 -1780.12;
+			U -0.771373 0 -0.636383 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0.664364 0 0.747409 1591.48;
+			U 0.747409 0 0.664364 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 439;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
+};
 brush 0
 {
 	faces
@@ -12921,6 +15537,65 @@ brush 0
 	region 471;
 	groupId 65535;
 	visGroupId 1;
+};
+brush 1
+{
+	faces
+	{
+		face tools\navmesh
+		{
+			N -1 -0 -0 1788;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N 1 -0 -0 -1876;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 1 -0 -1;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 1 308;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\navmesh
+		{
+			N -0 -0 -1 -404;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 471;
+	groupId 65535;
+	visGroupId 3;
+	def nav_open_area;
 };
 brush 0
 {

@@ -105,6 +105,12 @@ MISSION.JeanPaulSartre = function()
 	
 	local activeLife = opponentCar:AddComponent(ActiveLifeAIComponent)
 	activeLife:SetPersonalityType("racer")
+	MISSION.onRouteTargetReached = activeLife.OnRouteTargetReached:AddHandler(function()
+		-- switch target
+		Msg("new target\n")
+		MISSION.currentTarget = (math.floor(math.random(0, #MISSION.Data.AITargets)) % (#MISSION.Data.AITargets)) + 1
+		activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
+	end)
 	
 	missionmanager:ScheduleEvent( function() 
 		activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
@@ -336,14 +342,6 @@ MISSION.Update = function( delta )
 		if (length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 240) then
 			gameHUD:ShowScreenMessage("#MCD11_OBJ_LOST", 3.5)
 			MISSION.OnFailed()
-		end
-		
-		-- switch target
-		if length(opponentCar:GetOrigin() - MISSION.Data.AITargets[MISSION.currentTarget]) < 45.0 then
-			MISSION.currentTarget = (math.floor(math.random(0, #MISSION.Data.AITargets)) % (#MISSION.Data.AITargets)) + 1
-			
-			local activeLife = opponentCar:GetComponent(ActiveLifeAIComponent)
-			activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
 		end
 	else -- not alive - completed
 		MISSION.OnCompleted()		

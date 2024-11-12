@@ -15326,6 +15326,64 @@ brush 2
 	groupId 65535;
 	visGroupId 1;
 };
+brush 3
+{
+	faces
+	{
+		face tools\physclip
+		{
+			N -1 -0 -0 1680;
+			U -4.37114e-08 0 1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\physclip
+		{
+			N 1 -0 -0 -1760;
+			U 1.19249e-08 0 -1 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\physclip
+		{
+			N -0 1 -0 -12;
+			U -1 0 -8.74228e-08 0;
+			V -8.74228e-08 1.19249e-08 1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\physclip
+		{
+			N -0 -1 -0 0;
+			U -1 0 -8.74228e-08 0;
+			V 8.74228e-08 -4.37114e-08 -1 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\physclip
+		{
+			N -0 -0 1 -48;
+			U 1 0 0 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+		face tools\physclip
+		{
+			N -0 -0 -1 44;
+			U -1 0 -8.74228e-08 0;
+			V 0 1 0 0;
+			TS 4 4;
+			TR 0;
+		};
+	};
+	name "";
+	region 534;
+	groupId 65535;
+	visGroupId 0;
+};
 brush 0
 {
 	faces

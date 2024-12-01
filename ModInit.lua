@@ -273,7 +273,7 @@ end
 -- Initialization function
 function ModInit:Init()
 	
-	AddLanguageFile("mcd_missions")
+	localize.AddTokensFile("mcd_missions")
 	fonts.LoadFontDescriptionFile("resources/additional_fonts.res")
 
 	-- make MCD camera available
@@ -367,7 +367,9 @@ function ModInit:Init()
 end
 
 -- Deinitialization function
-function ModInit:DeInit()							-- Remove sound script(s) usage when mod turned off
+function ModInit:DeInit()
+	localize.RemoveTokensFile("mcd_missions")
+	
 	EmitterSoundRegistry.MCDEngine = nil			-- Driver 1 engine sounds
 	EmitterSoundRegistry.MCDIview = nil				-- Default Interview resources
 	EmitterSoundRegistry.MCDVoices = nil			-- Driver 1 missions voices

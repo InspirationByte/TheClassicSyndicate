@@ -110,21 +110,26 @@
 //---------H------O------R------N------S--------------
 //---------H------O------R------N------S--------------
 
-"MCD_DefaultCOP.siren"
+mcd_defaultcop.siren
 {
 	rndwave
 	{
-		wave 	"sirens/mcd_default_siren.wav";
-		wave 	"sirens/mcd_default_siren.wav";
-	}
-
-	loop		1;
-	volume		1.4;
-	pitch		1.0;
-	distance 	6;
-	maxdistance	150;
-	channel		CHAN_SIGNAL;
+		wave "sirens/mcd_default_siren.wav";
+		wave "sirens/mcd_default_siren.wav";
+	};
+	channel CHAN_SIGNAL;
+	maxDistance 150;
+	startLoopTime 0;
+	stopLoopTime 2.05;
+	loop 1;
+	is2d 0;
+	input loopRemainTimeFactor;
+	volume 1.4;
+	pitch loopRemainTimeFactor;
+	lpf loopRemainTimeFactor;
+	distance 6;
 };
+
 
 "MCD_DefaultNPC.horn"
 {

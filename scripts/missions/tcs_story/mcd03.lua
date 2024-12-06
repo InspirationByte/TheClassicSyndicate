@@ -38,12 +38,46 @@ end
 -- Mission Init ------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
+MISSION.PlayPassengerAnim = function(name)
+	local seq = MISSION.AnimTable[name]
+	if seq == nil then
+		return
+	end
+
+	local playerCar = MISSION.playerCar
+	local passenger = playerCar:GetPassengerOccupant(0)
+	for i, anim in ipairs(seq) do
+		missionmanager:ScheduleEvent( function() 
+			passenger:SetSequenceByName(anim.play, 0)
+		end, anim.delay or 0);
+	end
+end
+
 MISSION.Init = function()									-- Preparing Introduction
 	MISSION.Data = {
 		targetPosition = Vector3D.new(-229,0.70,-189),			-- Targets Positions
 		target2Position = Vector3D.new(-1818,0.80,-447),
 		--DEVTESTtargetPosition = Vector3D.new(-119,0.70,-1145),		
 		--DEVTESTtarget2Position = Vector3D.new(-119,0.70,-1175),
+	}
+	
+	MISSION.loseTailId = 0
+	MISSION.AnimTable = {
+		start = { 
+			{ play = "driver.Passenger_TalkToDriver", delay = 0.5 },
+			{ play = "driver.Passenger_Point", delay = 4.0 }
+		},
+		whatdahell = { 
+			{ play = "driver.Passenger_Agree", delay = 0.5 },
+			{ play = "driver.Passenger_LookBack", delay = 1.5 }
+		},
+		notailman = {
+			{ play = "driver.Passenger_LookAround" },
+			{ play = "driver.Passenger_Fun", delay = 1.0 }
+		},
+		ending = {
+			{ play = "driver.Passenger_Talk", delay = 1.0 }
+		}
 	}
 	
 	MISSION.Settings.EnableCops = false						-- Cops are disabled
@@ -259,6 +293,10 @@ function MISSION.TiccoPause()				-- Transition between Phase1Update and Phase2St
     pedestrian:Spawn()
     pedestrian:SetBodyGroups(1)        -- 2 to make briefcase
     
+	missionmanager:SetRefreshFunc( function() 
+		return false 
+	end ) 
+	
     missionmanager:SetPluginRefreshFunc( "pedswalk", function()
         local run = true
         if PedWalkToTarget(pedestrian, gameses:GetPlayerCar():GetOrigin(), run) < 1.2 then
@@ -267,14 +305,14 @@ function MISSION.TiccoPause()				-- Transition between Phase1Update and Phase2St
 			
 			playerCar:SetPassengerType(0, "ticco")
 			playerCar:SetPassengers(1)
+			
+			MISSION.Phase2Start()
+			
+			missionmanager:ScheduleEvent( function() MISSION.PlayPassengerAnim("start") end, 0.5 )
         end
     end)
 
-	missionmanager:SetRefreshFunc( function() 
-		return false 
-	end ) 
 
-	missionmanager:ScheduleEvent( MISSION.Phase2Start, 2.5 )	-- Going into Phase2Start after 2 seconds
 end
 
 ----------------------------------------------------------------------------------------------
@@ -335,6 +373,7 @@ function MISSION.TiccoPewPew()				-- Transition between Phase1Update and Phase2S
     pedestrian1:SetOrigin(vec3(-1806, 0.7, -433))
     pedestrian1:Spawn()
     pedestrian1:SetBodyGroups(1)        -- 2 to make briefcase
+
     
     missionmanager:SetPluginRefreshFunc( "pedswalk2", function()
         local run = true
@@ -372,6 +411,7 @@ function MISSION.PostTiccoPewPew()
 
 	missionmanager:ScheduleEvent( function() 
 		sounds:Emit( EmitParams.new("ticco.end"), -1 )
+		MISSION.PlayPassengerAnim("ending")
 	end, 0);
 
 	missionmanager:SetRefreshFunc( function() 
@@ -464,7 +504,16 @@ MISSION.Phase2Update = function( delta )
 	MISSION.loseTailDelay = MISSION.loseTailDelay - delta
 	if playerCar:GetPursuedCount() > 0 and MISSION.loseTailDelay <= 0 then
 		MISSION.loseTailDelay = 20.0
-		sounds:Emit( EmitParams.new("ticco.losetail"), -1 )
+		
+		local ep = EmitParams.new("ticco.losetail")
+		ep.sampleId = MISSION.loseTailId
+		MISSION.loseTailId = (MISSION.loseTailId + 1) % 2
+		if ep.sampleId == 0 then
+			MISSION.PlayPassengerAnim("whatdahell")
+		else
+			MISSION.PlayPassengerAnim("notailman")
+		end
+		sounds:Emit(ep)
 	end
 	
 	if MISSION.finalTarget then

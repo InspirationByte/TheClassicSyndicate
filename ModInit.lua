@@ -237,23 +237,38 @@ local McdLevelNames = {
 }
 
 local ClassicCars = {
+	{"m_default_ios", "TCS - Skylark"},			-- Miami
+	{"m_fairlane_ios", "TCS - Fairlane"},		-- Frisco
+	{"m_bonneville_ios", "TCS - Bonneville"},	-- LA
+	{"m_evidence_ios", "TCS - Evidence"},		-- NYC
+	
+	{"m_superfly_ios", "TCS - Superfly"},
+	{"m_continental_ios", "TCS - Continental"},
+	{"m_truck_ios", "TCS - Bomb Truck"},
+	{"m_chevess_ios", "TCS - Chevelle SS"},
+	{"m_chevelle_ios", "TCS - Chevelle"},
+	{"m_camaro_ios", "TCS - Camaro"},
+	{"m_taxi_ios", "TCS - Taxi"},
+	{"m_torino_ios", "TCS - Torino"},
+	{"m_deville_ios", "TCS - DeVille"},
+	{"m_police_ios", "TCS - Police"},
+	{"m_250gt_ios", "TCS - 250 GT"},
+}
 
-	{"m_default_ios", "Miami - Default Car (iOS)"},
-	{"m_evidence_ios", "Miami - Evidence Car (iOS)"},
+-- TODO: unlock with cheats or completion of story
+local UnlockableCars = {
+	{"mcd_miamidef", "TCS - Miami PSX Car"},
+	{"mcd_superflydrive", "TCS - Superfly Drive Car"},			
+	{"mcd_defaultpolicecar_black", "TCS - NYC Police"},
+	{"NPC_mcd_traffic01", "TCS - Traffic 1"},
+	{"NPC_mcd_traffic02", "TCS - Traffic 2"},
+	{"mcd_miamibetagsx", "TCS - Yellow GSX Car"},
+	{"mcd_miamievidence", "TCS - NYC PC Car"},	
+	{"mcd_miamidef_PC", "TCS - Miami PC Car"},
+	{"mcd_miamicleanup", "TCS - The Clean Up Car"},
+	{"mcd_miamidef_mini", "TCS - Miami PSX Car (MINI)"},
 
-	{"mcd_miamidef", "Miami - Default PSX Car"},
-	{"mcd_superflydrive", "Miami - Superfly Drive Car"},			-- TODO: unlock with cheats or completion of story
-	{"mcd_defaultpolicecar_black", "Miami, New York - Police"},		-- TODO: unlock with cheats or completion of story
-	{"NPC_mcd_traffic01", "Miami - Traffic Car 1"},					-- TODO: unlock with cheats or completion of story
-	{"NPC_mcd_traffic02", "Miami - Traffic Car 2"},					-- TODO: unlock with cheats or completion of story
-	{"mcd_miamibetagsx", "Miami - Beta GSX Car"},					-- TODO: unlock with cheats or completion of story
-	{"mcd_miamievidence", "Miami - Hide The Evidence Car"},			-- TODO: unlock with cheats or completion of story
-	{"mcd_miamidef_PC", "Miami - Default PC Car"},
-	{"mcd_miamicleanup", "Miami - The Clean Up Car"},				-- TODO: unlock with cheats or completion of story
---	{"mcd_miamidef_iphone", "Miami - Default iPhone Car"},
-	{"mcd_miamidef_mini", "Miami - Default PSX Car (MINI)"},		-- TODO: unlock with cheats or completion of story
-
-	{"sfd_friscodef", "Frisco - Default PSX Car"},
+	{"sfd_friscodef", "TCS - Frisco PSX Car"},
 }
 
 local MyCopSoundsFilename = "scripts/sounds/mcd_cops.txt"

@@ -1,7 +1,7 @@
 "DrvSynVehicle"
 { 
-	BaseTexture					"models/vehicles/m_camaro_ios/car_ok";
-	DamageTexture				"models/vehicles/m_camaro_ios/car_ko";
+	BaseTexture					"models/vehicles/m_superfly_ios/car_ok";
+	DamageTexture				"models/vehicles/m_superfly_ios/car_ko";
 	
 	BaseTextureSpecularAlpha 	1;
 

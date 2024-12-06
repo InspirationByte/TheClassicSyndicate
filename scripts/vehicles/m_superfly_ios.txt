@@ -1,7 +1,7 @@
 name		"Miami - Superfly (iOS)";
 
-cleanmodel		"models/vehicles/m_camaro_ios/car_ok.egf";
-damagedmodel	"models/vehicles/m_camaro_ios/car_ko.egf";
+cleanmodel		"models/vehicles/m_superfly_ios/car_ok.egf";
+damagedmodel	"models/vehicles/m_superfly_ios/car_ko.egf";
 
 wheelmodel		"models/vehicles/common/x_wheels.egf";
 

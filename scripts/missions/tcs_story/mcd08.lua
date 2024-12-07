@@ -281,6 +281,7 @@ function MISSION.InitPlayerCar( start )
 	playerCar:SetAngles( start.angles )
 	playerCar:SetMaxDamage( start.maxDamage )
 	playerCar:Lock(start.lock)
+	playerCar:SetDriverType("ped2")
 	
 	-- FIXME: other params?
 

@@ -39,6 +39,9 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(180,0,180) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
+	playerCar:SetDriverType("ped2")
+	playerCar:SetPassengers(1)
+	playerCar:SetPassengerType(0, "ped1")
 
 	--sounds:Precache( "door.garage" )
 	sounds:Precache( "goon.go" )

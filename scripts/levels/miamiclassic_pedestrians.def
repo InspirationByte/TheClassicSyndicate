@@ -6,6 +6,7 @@ ped1 "models/characters/ped01.egf"
 	passenger 	1;
 	pedestrian 	1;
 	spawnInterval	0;
+	bodyGroups	"hat";
 }
 
 ped2 "models/characters/ped02.egf"
@@ -15,7 +16,7 @@ ped2 "models/characters/ped02.egf"
 	pedestrian 	1;
 
 	spawnInterval	4;
-	bodyGroups	"cophat";
+	bodyGroups	"briefcase";
 }
 
 cop "models/characters/cop01.egf"
@@ -23,8 +24,8 @@ cop "models/characters/cop01.egf"
 	driver 		1;
 	passenger 	1;
 	pedestrian 	0;
-	onlyVehicles	"cop_regis";
-	forceBodyGroups	"hat";
+	onlyVehicles	"m_police_ios";
+	forceBodyGroups	"cophat";
 }
 
 robber "models/characters/mcd_pedrobber.egf"
@@ -40,13 +41,3 @@ ticco "models/characters/mcd_ticco.egf"
 	passenger 	0;
 	pedestrian 	0;
 }
-
-/*
-fatcop "models/characters/cop02.egf"
-{
-	driver 		1;
-	passenger 	1;
-	pedestrian 	0;
-	onlyVehicles	"cop_regis";
-}
-*/

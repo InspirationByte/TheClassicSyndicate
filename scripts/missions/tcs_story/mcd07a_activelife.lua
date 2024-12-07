@@ -56,7 +56,8 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(180, 180,-180) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
-
+	playerCar:SetDriverType("ped2")
+	
 	sounds:Precache( "wind.mcd07a" )
 	sounds:Precache( "wind.mcd07b" )
 
@@ -72,17 +73,18 @@ MISSION.Init = function()									-- Preparing Introduction
 ----------------------------------------------------------------------------------------------
 -- Opponent Car ------------------------------------------------------------------------------
 
-	local opponentCar = gameses:CreateCar("mcd_defaultpolicecar_black", CAR_TYPE_NORMAL)
+	local opponentCar = gameses:CreateCar("m_police_ios", CAR_TYPE_NORMAL)
 	MISSION.opponentCar = opponentCar
 	opponentCar:SetMaxDamage(10000)
 	
 	-- opponent initial position
 	opponentCar:SetOrigin( Vector3D.new(-393, 0.70, -90) )
 	opponentCar:SetAngles( Vector3D.new(180, -90, -180) )
-
+	opponentCar:SetDriver(true)
+	opponentCar:SetPassengers(2)
+	opponentCar:SetPassengerType(1, "ped1")
 	opponentCar:Spawn()
 	opponentCar:SetColorScheme( 1 )
-	opponentCar:SetLight(0, false)
 	
 	opponentCar.onCarCollision = MISSION.OpponentHit
 	
@@ -122,7 +124,6 @@ MISSION.JeanPaulSartre = function()
 	opponentCar:SetTorqueScale(2.0)
 	missionmanager:ScheduleEvent(function()
 		opponentCar:SetTorqueScale(1.0)
-		opponentCar:SetSirenEnabled(true)
 	end, 2.0)
 	
 	MISSION.targetHandle = gameHUD:AddTrackingObject(MISSION.opponentCar, HUD_DOBJ_IS_TARGET + HUD_DOBJ_CAR_DAMAGE)

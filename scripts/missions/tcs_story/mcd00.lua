@@ -40,7 +40,7 @@ MISSION.Init = function()
 	-- put globals here
 	MISSION.Data = {
 	
-		carName = McdGetPlayerCarName(),
+		carName = "m_default_ios",
 		startPos = Vector3D.new(130,0.70,94),
 		
 		waitTime = 1.0,
@@ -148,6 +148,7 @@ MISSION.Init = function()
 	playerCar:SetColorScheme( 1 )
 
 	playerCar:Spawn()
+	playerCar:SetDriverType("ped2")
 	playerCar:AlignToGround();
 	playerCar:SetPassengers(1)
 

@@ -47,7 +47,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	--MISSION.SpawnSceneryCars()
 
-	local playerCar = gameses:CreateCar("mcd_miamicleanup", CAR_TYPE_NORMAL)	-- Create player car
+	local playerCar = gameses:CreateCar("m_continental_ios", CAR_TYPE_NORMAL)	-- Create player car
 	
 	MISSION.playerCar = playerCar	-- Define spawned car above as player car for mission
 	
@@ -57,6 +57,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(180,-90,180) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
+	playerCar:SetDriverType("ped2")
 
 	-- For the load time, set player car
 	gameses:SetPlayerCar( playerCar )

@@ -56,6 +56,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(0,-45,0) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
+	playerCar:SetDriverType("ped2")
 
 	sounds:Precache( "wind.mcd11a" )
 
@@ -73,7 +74,7 @@ MISSION.Init = function()									-- Preparing Introduction
 ----------------------------------------------------------------------------------------------
 -- Opponent Car ------------------------------------------------------------------------------
 
-	local opponentCar = gameses:CreateCar("NPC_mcd_traffic02", CAR_TYPE_NORMAL)
+	local opponentCar = gameses:CreateCar("m_camaro_ios", CAR_TYPE_NORMAL)
 	MISSION.opponentCar = opponentCar
 	opponentCar:SetMaxDamage(10000)
 	
@@ -84,6 +85,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	opponentCar:Spawn()
 	opponentCar:SetColorScheme( 3 )
 	opponentCar:SetLight(0, false)
+	opponentCar:SetDriverType("ped1")
 	
 	opponentCar.onCarCollision = MISSION.OpponentHit
 	

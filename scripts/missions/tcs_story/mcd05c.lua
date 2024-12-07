@@ -194,6 +194,7 @@ MISSION.Init = function()
 	playerCar:SetAngles( Vector3D.new(180,0,180) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
+	playerCar:SetDriverType("ped2")
 	
 	local restoreData = RestoreMissionCompletionData("mcd05b_playerCar")
 	

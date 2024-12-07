@@ -45,6 +45,7 @@ visuals
 	
 	driver 					-0.39 	0.15 	0.26;
 	passenger1 				0.39 	0.15 	0.26;
+	passenger2 				0.39 	0.18 	-0.68;
 	
 	// name					position					type		want double exhausts? (add 1).
 	

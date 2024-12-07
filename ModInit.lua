@@ -296,7 +296,7 @@ function ModInit:Init()
 	include("scripts/lua/McdHud.lua")
 	include("scripts/lua/ui/StoryMiamiClassicEndScreen.lua")
 	include("scripts/lua/ui/StoryMoviePlay.lua")
-	storySelectionItems = include("scripts/lua/McdStoryCarSelection.lua")
+	local storySelectionItems = include("scripts/lua/McdStoryCarSelection.lua")
 
 	EmitterSoundRegistry.MCDEngine = "scripts/sounds/mcd_engine.txt"				-- Driver 1 engine sounds
 	EmitterSoundRegistry.MCDVoices = "scripts/sounds/mcd_missions_vo.txt"			-- Driver 1 original mission voices
@@ -378,7 +378,8 @@ function ModInit:Init()
 	}
 	
 	MiamiMissionsIdx = table.insert(StoryGameExtraElems, 
-		MenuStack.MakeSubMenu("Miami - Classic Missions", storySelectionItems, nil, EQUI_CARSSELECTION_SCHEME_NAME))
+		MenuStack.MakeSubMenu("Miami - Classic Missions", storySelectionItems, nil, EQUI_CARSSELECTION_SCHEME_NAME)
+	)
 end
 
 -- Deinitialization function

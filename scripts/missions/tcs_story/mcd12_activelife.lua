@@ -82,6 +82,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(0,180,0) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
+	playerCar:SetDriverType("ped2")
 
 	sounds:Precache( "wind.mcd09" )
 	sounds:Precache( "goon.wat" )
@@ -184,7 +185,7 @@ function MISSION.Phase1Start()
 		if length(playerCar:GetOrigin() - MISSION.Data.targetPosition) < 100 then	-- Set up function
 			MISSION.Settings.StopCops = false
 		
-			local opponentCar = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+			local opponentCar = gameses:CreateCar("m_chevelle_ios", CAR_TYPE_NORMAL)
 			MISSION.opponentCar = opponentCar
 			
 			opponentCar:SetOrigin( vec3(1509.79, 0.66, 1243.58) )

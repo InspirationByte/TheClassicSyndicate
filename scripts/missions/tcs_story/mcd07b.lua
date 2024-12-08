@@ -67,7 +67,7 @@ MISSION.Init = function()									-- Preparing Introduction
 		if opponentCarData ~= nil then -- PARANOID
 		
 			-- create beaten opponent car
-			local opponentCar = gameses:CreateCar("mcd_defaultpolicecar_black", CAR_TYPE_NORMAL)
+			local opponentCar = gameses:CreateCar("m_police_ios", CAR_TYPE_NORMAL)
 
 			opponentCar:SetOrigin( toVector(opponentCarData.position) )
 			opponentCar:SetAngles( toVector(opponentCarData.angles) )

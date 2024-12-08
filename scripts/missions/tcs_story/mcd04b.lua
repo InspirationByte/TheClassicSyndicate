@@ -98,9 +98,11 @@ function MISSION.Phase1Start()
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 	
 	MISSION.Settings.EnableCops = true
-	MISSION.Settings.StopCops = false
-	MISSION.Settings.StopCopsRadius = 300
-	MISSION.Settings.StopCopsPosition = MISSION.Data.targetPosition
+	MISSION.Settings.MinCops = 2
+	MISSION.Settings.MaxCops = 2
+	MISSION.Settings.CopRespawnInterval = MISSION.Settings.CopRespawnInterval * 0.75
+	MISSION.Settings.CopWantedRespawnInterval = MISSION.Settings.CopWantedRespawnInterval * 0.75
+	MISSION.Settings.CopWantedRespawnInterval2 = MISSION.Settings.CopWantedRespawnInterval2 * 0.8
 	
 	gameHUD:Enable(true)
 	playerCar:Lock(false)

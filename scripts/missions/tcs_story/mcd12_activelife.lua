@@ -191,6 +191,8 @@ function MISSION.Phase1Start()
 			opponentCar:SetOrigin( vec3(1509.79, 0.66, 1243.58) )
 			opponentCar:SetAngles( vec3(-2.91, 65.46, -0.90) )
 			opponentCar:Enable(false)
+			opponentCar:SetDriver(true)
+			opponentCar:SetDriverType("ped1")
 
 			opponentCar:Spawn()
 			opponentCar:SetColorScheme(2)

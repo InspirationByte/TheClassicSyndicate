@@ -69,7 +69,7 @@ panel
 		
 		label		"#GAME_VERSION";
 		font		"Roboto" bold italic;
-		fontScale	10 10;
+		fontScale	8 8;
 	}
 	
 	child image "game_logo"

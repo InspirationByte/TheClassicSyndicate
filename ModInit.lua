@@ -224,13 +224,9 @@ local MiamiMissionsList = {
 }
 
 local MyLevelFileName = "MiamiClassic"
-local ParkingLevelName = "iviewclassic"
-local MyLevelFileName2 = "FriscoClassic"
 
 local McdLevelNames = {
 	MyLevelFileName,
-	ParkingLevelName,
-	MyLevelFileName2,
 }
 
 local ClassicCars = {
@@ -329,12 +325,8 @@ function ModInit:Init()
 	EmitterSoundRegistry.MCDObjects = "scripts/sounds/mcd_objects.txt"				-- Objects SFX
 	
 	CopVoiceOver[MyLevelFileName] = MyCopSoundsFilename;	-- Define what cop sounds script a level uses
-	CopVoiceOver[MyLevelFileName2] = MyCopSoundsFilename;
-	CopVoiceOver[ParkingLevelName] = MyCopSoundsFilename;
 	
 	CopVoiceOver[string.lower(MyLevelFileName)] = MyCopSoundsFilename;
-	CopVoiceOver[string.lower(MyLevelFileName2)] = MyCopSoundsFilename;
-	CopVoiceOver[string.lower(ParkingLevelName)] = MyCopSoundsFilename;
 	
 	-- Change music state logic
     OldMakeDefaultMissionSettings = MakeDefaultMissionSettings
@@ -355,22 +347,12 @@ function ModInit:Init()
 		night_stormy = "nyc_night"
 	}
 
-	CityTimeOfDayMusic[MyLevelFileName2] = {			-- Music selection for Miami (Classic)
-		day_clear = "frisco_day",
-		day_stormy = "la_day",
-		dawn_clear = "frisco_night",
-		night_clear = "frisco_night",
-		night_stormy = "nyc_night"
-	}
-
 	-----------------------------------------------------------
 	-- Classic Content (Map / Vehicles / Missions / Minigames) --
 	-----------------------------------------------------------
 	
 	-- add levels
 	table.insert(MenuCityList, {MyLevelFileName, "Miami (Classic)"})			-- Miami Classic
-	table.insert(MenuCityList, {ParkingLevelName, "Parking (Classic)"})			-- Parking Classic
-	table.insert(MenuCityList, {MyLevelFileName2, "Frisco (Classic)"})			-- Miami Classic
 
 	-- add cars
 	for i,v in ipairs(ClassicCars) do

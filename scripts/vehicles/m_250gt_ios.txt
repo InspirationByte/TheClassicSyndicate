@@ -72,17 +72,18 @@ mass 			2900;
 antiroll		0.32;
 
 gears
-	-1.85
-	1.85
-	1.25
-	0.82
-	0.57;
+	-1.95
+	1.95
+	1.31
+	0.91
+	0.69
+	0.55;
 
-differential 		25.0;
+differential 		28.0;
 transmissionrate	1.0;
-torquemultipler		1.7;
+torquemultipler		1.5;
 
-maxspeed		215;
+maxspeed		225;
 
 suspensionLift		-0.08;
 	

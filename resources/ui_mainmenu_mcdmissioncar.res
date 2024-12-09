@@ -8,14 +8,13 @@ panel
 	font			"Cooper" 30 italic;
 	fontScale		16 16;
 
-	child image "background"
+	child panel "fade"
 	{
-		path		"ui/ui_menu_bg5";
 		position	0 15;
 		size		1000  500;
 		align		vcenter hcenter;
-
 		scaling		aspecth;
+		color		0 0 0 0;
 	}
 
 	child container "menu_bg_top"
@@ -39,48 +38,6 @@ panel
 			align		right vcenter;
 			scaling		aspecth;
 		}
-		
-		child image "lines_bg"
-		{
-			color		0.08 0.08 0.08 1;
-			path		"ui/lines";
-			position	120 15;
-			size		300 2000;
-			align		right vcenter;
-			flipx		1;
-		
-			scaling		aspecth;
-		}
-	}
-
-	child image "carselection_prev"
-	{
-		path		"ui/vehicles/unknown_vehicle";
-		position	-50 25;
-		size		400  300;
-		align		left vcenter;
-	
-		scaling		aspecth;
-	}
-
-	child image "carselection_next"
-	{
-		path		"ui/vehicles/unknown_vehicle";
-		position	270 25;
-		size		400  300;
-		align		left vcenter;
-	
-		scaling		aspecth;
-	}
-
-	child image "carselection_img"
-	{
-		path		"ui/vehicles/unknown_vehicle";
-		position	120 25;
-		size		400  300;
-		align		left vcenter;
-	
-		scaling		aspecth;
 	}
 
 	child HudElement "Menu"

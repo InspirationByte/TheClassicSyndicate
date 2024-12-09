@@ -5,6 +5,9 @@
 -- World Parameters --------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
+local EQUI_CARSSELECTION_SCHEME_NAME = "ui_mainmenu_mcdmissioncar"
+local carSelectionItems = include("scripts/lua/McdStoryCarSelection.lua")
+
 world:SetLevelName("flatsclassic")
 world:SetEnvironmentName("day_clear")
 SetMusicName("")
@@ -13,24 +16,36 @@ MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 MISSION.EnableReplay = false
 MISSION.Pausable = false
 
-function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
+function MISSION.SpawnPlayerCar(carName)
+	local car = gameses:CreateCar(carName or McdGetPlayerCarName(), CAR_TYPE_NORMAL)
+	car:SetOrigin( Vector3D.new(-60.5,0.77,44.5) )
+	car:SetAngles( Vector3D.new(180,0,180) )
+	car:Enable(false)
+	car:Spawn()
+	car:SetColorScheme(1)
+	MISSION.playerCar = car
 	
-	local car2 = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
-	car2:SetOrigin( Vector3D.new(-62.8,0.77,44.5) )
-	car2:SetAngles( Vector3D.new(180,0,180) )
-	car2:Enable(false)
-	car2:Spawn()
-	car2:SetColorScheme(4)
 
-	local car3 = gameses:CreateCar(McdGetPlayerCarName(), CAR_TYPE_NORMAL)
-	car3:SetOrigin( Vector3D.new(-60.5,0.77,44.5) )
-	car3:SetAngles( Vector3D.new(180,0,180) )
-	car3:Enable(false)
-	car3:Spawn()
-	car3:SetColorScheme(1)
+	car:Lock(true)
+end
+
+function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
+	local car = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	car:SetOrigin( Vector3D.new(-62.8,0.77,44.5) )
+	car:SetAngles( Vector3D.new(180,0,180) )
+	car:Enable(false)
+	car:Spawn()
+	car:SetColorScheme(4)
+	gameses:SetPlayerCar(car)
 	
-	gameses:SetPlayerCar(car3)
-	car3:Lock(true)
+	MISSION.SpawnPlayerCar()
+end
+
+function MISSION.OnPreferredCarChanged(carName)
+	MISSION.playerCar:Remove()
+	MISSION.playerCar = nil
+	
+	MISSION.SpawnPlayerCar(carName)
 end
 
 ----------------------------------------------------------------------------------------------
@@ -48,12 +63,13 @@ local FlatGameMenuElements = function()
 				return { command = "nextState" }
 			end,
 		}),
-		MenuStack.MakeItem("#MENU_GAME_RESTART", false, {
+		MenuStack.MakeItem("#MCD_FLAT_PLAYAGAIN", false, {
 			onEnter = function(self, stack)
 				MISSION.PlayMessage()
 				return {}
 			end,
 		}),
+		MenuStack.MakeSubMenu("#MCD_FLAT_CHOOSECAR", carSelectionItems, nil, EQUI_CARSSELECTION_SCHEME_NAME),
 		MenuStack.MakeCommand("#MENU_GAME_EXIT", "quitToMainMenu", true)
 	}
 end
@@ -82,7 +98,7 @@ MISSION.Init = function()									-- Preparing Introduction
 		},
 		{
 			{ Vector3D.new(-59.50, 1.40, 38.0), Vector3D.new(10 ,372, -5), 0, 50 },	
-			{ Vector3D.new(-59.50, 1.40, 38.0), Vector3D.new(10 ,372, -5), 60, 50 },	
+			{ Vector3D.new(-59.50, 1.40, 38.0), Vector3D.new(10 ,372, -5), 90000, 50 },	
 		}
 	}
 	

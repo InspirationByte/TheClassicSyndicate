@@ -3,7 +3,7 @@
 --// 2009-2020
 --//////////////////////////////////////////////////////////////////////////////////
 
-local StoryCarsList = {
+local StandardStoryCarsList = {
 	{"m_default_ios", "Skylark"},
 	{"m_fairlane_ios", "Fairlane"},
 	{"m_bonneville_ios", "Bonneville"},
@@ -12,127 +12,99 @@ local StoryCarsList = {
 	{"m_deville_ios", "DeVille"},
 }
 
-function McdGetPlayerCarName()
-	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
-	if storyPreferences ~= nil then
-		McdPrefferedStoryCar = storyPreferences.PrefferedStoryCar
-	end
-	
-	-- reset in some paranoid cases
-	if McdPrefferedStoryCar == nil then
-		McdPrefferedStoryCar = "m_default_ios"
-	end
-	
-	return McdPrefferedStoryCar
-end
+local UnlockableStoryCarsList = {
+	{"m_superfly_ios", "Superfly"},
+	{"m_continental_ios", "Continental"},
+	{"m_truck_ios", "Bomb Truck"},
+	{"m_chevelle_ios", "Chevelle"},
+	{"m_camaro_ios", "Camaro"},
+	{"m_taxi_ios", "Taxi"},
+	{"m_police_ios", "Police"},
+}
 
 local function McdCarSelectionElementsFunc(equiScheme, stack)
 
+	local fadeElem = equi:Cast(equiScheme:FindChild("fade"), "panel")
+
+	local lastPreferredCar = McdGetPlayerCarName()
+	local newPreferredCar = lastPreferredCar
+
+	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
+	if storyPreferences == nil then
+		-- first store for MCD
+		storyPreferences = {
+			UnlockCars = false,
+		}
+	end
+
+	local StoryCarsList = {}
+	for i,v in ipairs(StandardStoryCarsList) do
+		gameses:PrecacheCar(v[1])
+		table.insert(StoryCarsList, v)
+	end
+	
+	-- add extra cars if unlocked
+	if storyPreferences.UnlockCars then
+		for i,v in ipairs(UnlockableStoryCarsList) do
+			gameses:PrecacheCar(v[1])
+			table.insert(StoryCarsList, v)
+		end
+	end
+
 	-- reset car type if mods were disabled
-	if MenuStack.FindChoiceIndex(StoryCarsList, McdPrefferedStoryCar) == -1 then
-		McdPrefferedStoryCar = StoryCarsList[1][1]
+	if MenuStack.FindChoiceIndex(StoryCarsList, lastPreferredCar) == -1 then
+		McdSetPlayerCarName(StoryCarsList[1][1])
 	end
 	
-	-- init elements
-	local selElem = {}
-	local prevElem = {}
-	local nextElem = {}
-
-	selElem.ui = equi:Cast(equiScheme:FindChild("carselection_img"), "image")
-	selElem.ui:SetMaterial("ui/vehicles/"..McdPrefferedStoryCar)
-
-	prevElem.ui = equi:Cast(equiScheme:FindChild("carselection_prev"), "image")
-	prevElem.ui:SetMaterial("ui/vehicles/"..McdPrefferedStoryCar)
-
-	nextElem.ui = equi:Cast(equiScheme:FindChild("carselection_next"), "image")
-	nextElem.ui:SetMaterial("ui/vehicles/"..McdPrefferedStoryCar)
-
-	-- make update function to show and hide prev/next items
-	local updateItems = function()
-		local value = McdPrefferedStoryCar
-		local choiceIdx = MenuStack.FindChoiceIndex(StoryCarsList, value)
-		
-		local imageName = "ui/vehicles/"..value
-		
-		-- check for image existence
-		if not fileSystem:FileExist("materials/"..imageName..".mat", SP_MOD) then
-			imageName = "ui/vehicles/unknown_vehicle"
-		end
-		
-		selElem.ui:SetMaterial(imageName)
-		
-		if choiceIdx-1 > 0 then
-			value = StoryCarsList[choiceIdx-1][1]
-			imageName = "ui/vehicles/"..value
-		
-			-- check for image existence
-			if not fileSystem:FileExist("materials/"..imageName..".mat", SP_MOD) then
-				imageName = "ui/vehicles/unknown_vehicle"
-			end
-		
-			prevElem.ui:SetMaterial(imageName)
-			prevElem.ui:Show()
-		else
-			prevElem.ui:Hide()
-		end
-		
-		if choiceIdx+1 <= #StoryCarsList then
-			value = StoryCarsList[choiceIdx+1][1]
-			
-			imageName = "ui/vehicles/"..value
-		
-			-- check for image existence
-			if not fileSystem:FileExist("materials/"..imageName..".mat", SP_MOD) then
-				imageName = "ui/vehicles/unknown_vehicle"
-			end
-			
-			nextElem.ui:SetMaterial(imageName)
-			nextElem.ui:Show()
-		else
-			nextElem.ui:Hide()
-		end		
-	end
+	local fade = 0.0
+	local changing = 0
+	local delay = 0
 	
-	updateItems() -- first time update
-	
-	local movetime = 0
-	local movedir = 1
-
 	-- make get/set for both CVar and element
 	local currentCarNameGetSet = { 
 		get = function()
-			return McdPrefferedStoryCar
+			return newPreferredCar
 		end,
 		set = function(value, dir)
 			movetime = 0.25
 			movedir = dir
 			
-			McdPrefferedStoryCar = value
+			newPreferredCar = value
 			
-			updateItems()
+			changing = 1
 		end
 	}
 	
+	stack.onPop = function()
+		if newPreferredCar ~= lastPreferredCar then
+			MISSION.OnPreferredCarChanged(lastPreferredCar)
+		end
+	end
+	
 	-- this updates UI every frame
 	stack.updateFunc = function(delta)
-
-		local moveVal = movetime*movetime * 1.0
-		local scale = 1.0 - moveVal*4
-		selElem.ui:SetTransform(vec2(movetime * movedir * 500, 0), vec2(scale,scale), movedir * movetime * 25.0)
-		
-		local unselScale = 0.75+movetime
-	
-		if movedir < 0 then
-			nextElem.ui:SetTransform(vec2(movetime * -80, movetime * 80), vec2(unselScale,unselScale), 0)
-			prevElem.ui:SetTransform(vec2(0, 0), vec2(0.75,0.75), 0)
-		else
-			prevElem.ui:SetTransform(vec2(movetime * 80, movetime * 80), vec2(unselScale,unselScale), 0)
-			nextElem.ui:SetTransform(vec2(0, 0), vec2(0.75,0.75), 0)
+		if changing == 1 then
+			fade = fade + delta * 2
+			if fade > 1.0 then
+				fade = 1.0
+				changing = 2
+				delay = 0.5
+				MISSION.OnPreferredCarChanged(newPreferredCar)
+			end
+		elseif changing == 2 then
+			delay = delay - delta
+			if delay <= 0 then
+				changing = 3
+			end
+		elseif changing == 3 then
+			fade = fade - delta * 3
+			if fade < 0.0 then
+				fade = 0.0
+				changing = 0
+			end
 		end
 		
-		if movetime > 0 then
-			movetime = movetime-delta
-		end
+		fadeElem:SetColor(vec4(0,0,0,math.pow(fade, 0.5)))
 	end
 
 	-- make menu elements
@@ -140,19 +112,12 @@ local function McdCarSelectionElementsFunc(equiScheme, stack)
 	local elems = {
 		MenuStack.MakeChoiceParam("< %s >", currentCarNameGetSet, StoryCarsList),
 		{
-			label = "#MENU_SYNDICATE_NEWGAME",
-			isFinal = true,
+			label = "#MCD_FLAT_CONFIRMCAR",
+			isFinal = false,
 			onEnter = function(self, stack)
-			
-				-- first store for MCD
-				StoreMissionCompletionData("McdStoryPreferences", {
-					PrefferedStoryCar = McdPrefferedStoryCar
-				})
-							
-				-- Reset and run ladder
-				missionladder:Run( "tcs_story", missions["tcs_story"] )
-
-				return {}
+				lastPreferredCar = newPreferredCar
+				McdSetPlayerCarName(newPreferredCar)
+				return { menuCommand = "Pop" }
 			end,
 		},
 	}

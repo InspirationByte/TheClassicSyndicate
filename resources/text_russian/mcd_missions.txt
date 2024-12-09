@@ -1,4 +1,7 @@
-﻿MCD_SLOWDOWN		"Сбавь скорость!";
+﻿MCD_FLAT_PLAYAGAIN	"Повторить сообщение";
+MCD_FLAT_CHOOSECAR	"Выбрать машину";
+MCD_FLAT_CONFIRMCAR	"Подтвердить выбор";
+MCD_SLOWDOWN		"Сбавь скорость!";
 MCD_WELLDONE		"Отличная работа!";
 MCD_GOODJOB		"Хорошая работа!";
 MCD_MISSION_TOBECONT		"продолжение следует...";

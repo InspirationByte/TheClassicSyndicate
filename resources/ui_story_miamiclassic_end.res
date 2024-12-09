@@ -31,7 +31,7 @@ panel
 		font		"Roboto Condensed" italic bold;
 
 		label
-"You have completed &#00CDFF;Miami Classic&; story missions!";
+"You have completed &#00CDFF;Miami Classic&; story missions!\nYou have unlocked bonus cars for Story and Take A Ride";
 		
 		fontScale	22 22;
 	}

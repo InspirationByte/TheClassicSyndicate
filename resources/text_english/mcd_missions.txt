@@ -1,3 +1,7 @@
+MCD_FLAT_PLAYAGAIN	"Play message";
+MCD_FLAT_CHOOSECAR	"Choose car";
+MCD_FLAT_CONFIRMCAR	"Confirm car";
+
 MCD_SLOWDOWN			"Slow down!";
 MCD_WELLDONE			"Well done!";
 MCD_GOODJOB				"Good job!";

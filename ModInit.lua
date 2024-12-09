@@ -13,9 +13,6 @@ local ModInit = {
 	Conflicts = {}
 }
 
-McdPrefferedStoryCar = "mcd_miamidef"
-local EQUI_CARSSELECTION_SCHEME_NAME = "ui_mainmenu_mcdmissioncar"
-
 -------------------------------------------------------------------------------
 
 -- Mod Vocabulary:
@@ -241,7 +238,10 @@ local ClassicCars = {
 	{"m_fairlane_ios", "TCS - Fairlane"},		-- Frisco
 	{"m_bonneville_ios", "TCS - Bonneville"},	-- LA
 	{"m_evidence_ios", "TCS - Evidence"},		-- NYC
-	
+}
+
+-- unlocked with completion of story
+local UnlockableCars = {
 	{"m_superfly_ios", "TCS - Superfly"},
 	{"m_continental_ios", "TCS - Continental"},
 	{"m_truck_ios", "TCS - Bomb Truck"},
@@ -253,10 +253,8 @@ local ClassicCars = {
 	{"m_deville_ios", "TCS - DeVille"},
 	{"m_police_ios", "TCS - Police"},
 	{"m_250gt_ios", "TCS - 250 GT"},
-}
 
--- TODO: unlock with cheats or completion of story
-local UnlockableCars = {
+	-- Old Bonus cars
 	{"mcd_miamidef", "TCS - Miami PSX Car"},
 	{"mcd_superflydrive", "TCS - Superfly Drive Car"},			
 	{"mcd_defaultpolicecar_black", "TCS - NYC Police"},
@@ -267,9 +265,35 @@ local UnlockableCars = {
 	{"mcd_miamidef_PC", "TCS - Miami PC Car"},
 	{"mcd_miamicleanup", "TCS - The Clean Up Car"},
 	{"mcd_miamidef_mini", "TCS - Miami PSX Car (MINI)"},
-
 	{"sfd_friscodef", "TCS - Frisco PSX Car"},
 }
+
+function McdGetPlayerCarName()
+	local standardCarName = "m_default_ios"
+	
+	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
+	if storyPreferences ~= nil then
+		return storyPreferences.PrefferedStoryCar or standardCarName
+	end
+	
+	return standardCarName
+end
+
+function McdSetPlayerCarName(name)
+	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
+	if storyPreferences ~= nil then
+		storyPreferences.PrefferedStoryCar = name
+	end
+	StoreMissionCompletionData("McdStoryPreferences", storyPreferences)
+end
+
+function McdGetSuperflyCarName()
+	local standardCarName = "m_superfly_ios"
+	if McdGetPlayerCarName() == standardCarName then
+		return "m_250gt_ios"
+	end
+	return standardCarName
+end
 
 local MyCopSoundsFilename = "scripts/sounds/mcd_cops.txt"
 
@@ -296,7 +320,6 @@ function ModInit:Init()
 	include("scripts/lua/McdHud.lua")
 	include("scripts/lua/ui/StoryMiamiClassicEndScreen.lua")
 	include("scripts/lua/ui/StoryMoviePlay.lua")
-	local storySelectionItems = include("scripts/lua/McdStoryCarSelection.lua")
 
 	EmitterSoundRegistry.MCDEngine = "scripts/sounds/mcd_engine.txt"				-- Driver 1 engine sounds
 	EmitterSoundRegistry.MCDVoices = "scripts/sounds/mcd_missions_vo.txt"			-- Driver 1 original mission voices
@@ -342,7 +365,6 @@ function ModInit:Init()
 	-----------------------------------------------------------
 	-- Classic Content (Map / Vehicles / Missions / Minigames) --
 	-----------------------------------------------------------
-
 	
 	-- add levels
 	table.insert(MenuCityList, {MyLevelFileName, "Miami (Classic)"})			-- Miami Classic
@@ -353,7 +375,13 @@ function ModInit:Init()
 	for i,v in ipairs(ClassicCars) do
 		table.insert(MenuCarsList, v)
 	end
-
+	
+	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
+	if storyPreferences ~= nil and storyPreferences.UnlockCars then
+		for i,v in ipairs(UnlockableCars) do
+			table.insert(MenuCarsList, v)
+		end
+	end
 	-- Add missions
 	missions["tcs_story"] = MiamiMissionsList
 
@@ -362,24 +390,19 @@ function ModInit:Init()
 	table.insert(missions["minigame/survival"], {"mcd_srv02", "Miami Classic (Downtown)"})
 	table.insert(missions["minigame/survival"], {"mcd_srv03", "Miami Classic (Coral Gables)"})
 
-	local MiamiMissionsElems = 
-	{
-		{
-			label = "#MENU_SYNDICATE_NEWGAME",
-			isFinal = true,
-			onEnter = function(self, stack)
-			
-				-- Reset and run ladder
-				missionladder:Run( "tcs_story", missions["tcs_story"] )
+	local MiamiMissionsElem = {
+		label = "Miami - Classic Missions",
+		isFinal = true,
+		onEnter = function(self, stack)
+		
+			-- Reset and run ladder
+			missionladder:Run( "tcs_story", missions["tcs_story"] )
 
-				return {}
-			end,
-		},
+			return {}
+		end,
 	}
 	
-	MiamiMissionsIdx = table.insert(StoryGameExtraElems, 
-		MenuStack.MakeSubMenu("Miami - Classic Missions", storySelectionItems, nil, EQUI_CARSSELECTION_SCHEME_NAME)
-	)
+	MiamiMissionsIdx = table.insert(StoryGameExtraElems, MiamiMissionsElem)
 end
 
 -- Deinitialization function
@@ -421,6 +444,12 @@ function ModInit:DeInit()
 	for i,v in ipairs(MenuCarsList) do
 	
 		for ii,vv in ipairs(ClassicCars) do
+			if vv[1] == v[1] then
+				--table.remove( MenuCarsList, i)
+				MenuCarsList[i] = nil
+			end
+		end
+		for ii,vv in ipairs(UnlockableCars) do
 			if vv[1] == v[1] then
 				--table.remove( MenuCarsList, i)
 				MenuCarsList[i] = nil

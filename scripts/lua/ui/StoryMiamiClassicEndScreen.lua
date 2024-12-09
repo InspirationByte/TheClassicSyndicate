@@ -45,7 +45,11 @@ local StoryMiamiClassicEndingScreen = class()
 		SequenceScreens.current = nil
 		EqStateMgr.ScheduleNextStateType( APP_STATE_MAINMENU )
 		
+		Msg("completed MCD story\n");
 		missionladder:DeleteProgress("mcd_missions")
+		StoreMissionCompletionData("McdStoryPreferences", {
+			UnlockCars = true
+		})
 	end
 	
 	function StoryMiamiClassicEndingScreen:KeyPress(key, down)

@@ -281,9 +281,10 @@ end
 
 function McdSetPlayerCarName(name)
 	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
-	if storyPreferences ~= nil then
-		storyPreferences.PrefferedStoryCar = name
+	if storyPreferences == nil then
+		storyPreferences = {}
 	end
+	storyPreferences.PrefferedStoryCar = name
 	StoreMissionCompletionData("McdStoryPreferences", storyPreferences)
 end
 

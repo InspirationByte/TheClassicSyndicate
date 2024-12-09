@@ -1,0 +1,7 @@
+"Skinned" 
+{ 
+	BaseTexture "models/vehicles/d1m_ioswheel"; 
+	alphatest	1;
+	nocull		1;
+	basetexturetransform "[0.25 0]";
+}; 

@@ -68,6 +68,8 @@ MISSION.Init = function()									-- Preparing Introduction
 		--DEVTESTtarget2Position = Vector3D.new(-119,0.70,-1175),
 	}
 	
+	gameses:PrecacheCar("m_chevelle_ios")
+	
 	MISSION.Settings.EnableCops = false						-- Cops are disabled
 
 	MISSION.SpawnSceneryCars()

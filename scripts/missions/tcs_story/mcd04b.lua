@@ -98,8 +98,8 @@ function MISSION.Phase1Start()
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 	
 	MISSION.Settings.EnableCops = true
-	MISSION.Settings.MinCops = 2
-	MISSION.Settings.MaxCops = 2
+	MISSION.Settings.MinCops = math.max(2, MISSION.Settings.MinCops)
+	MISSION.Settings.MaxCops = math.max(3, MISSION.Settings.MaxCops)
 	MISSION.Settings.CopRespawnInterval = MISSION.Settings.CopRespawnInterval * 0.75
 	MISSION.Settings.CopWantedRespawnInterval = MISSION.Settings.CopWantedRespawnInterval * 0.75
 	MISSION.Settings.CopWantedRespawnInterval2 = MISSION.Settings.CopWantedRespawnInterval2 * 0.8

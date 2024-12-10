@@ -44,6 +44,11 @@ MISSION.Init = function()									-- Preparing Introduction
 	}
 	
 	MISSION.Settings.EnableCops = false						-- Cops are disabled
+	MISSION.Settings.MinCops = math.max(2, MISSION.Settings.MinCops)
+	MISSION.Settings.MaxCops = math.max(3, MISSION.Settings.MaxCops)
+	MISSION.Settings.CopRespawnInterval = MISSION.Settings.CopRespawnInterval * 0.75
+	MISSION.Settings.CopWantedRespawnInterval = MISSION.Settings.CopWantedRespawnInterval * 0.75
+	MISSION.Settings.CopWantedRespawnInterval2 = MISSION.Settings.CopWantedRespawnInterval2 * 0.8
 
 	local playerCar = gameses:CreateCar(McdGetPlayerCarName(), CAR_TYPE_NORMAL)	-- Create player car
 	

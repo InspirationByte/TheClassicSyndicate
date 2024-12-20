@@ -53,7 +53,7 @@ MISSION.Init = function()
 	missionmanager:SetRefreshFunc( function(dt)
 	
 		-- do first game update frame to spawn cops and adjust params
-		ai:MakePursued( playerCar )
+		felonySystem:MakePursued( playerCar )
 		playerCar:SetFelony(1.0)
 
 	
@@ -77,7 +77,7 @@ function MISSION.Update( delta )
 	local playerCar = MISSION.playerCar
 
 	UpdateCops( playerCar, delta )
-	ai:MakePursued( playerCar )
+	felonySystem:MakePursued( playerCar )
 
 	-- check player vehicle is wrecked
 	if CheckVehicleIsWrecked( playerCar, MISSION.Data, delta ) then

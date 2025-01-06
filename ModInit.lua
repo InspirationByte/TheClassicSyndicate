@@ -314,7 +314,6 @@ function ModInit:Init()
 
 	-- make MCD camera available
 	include("scripts/lua/McdCinematicCamera.lua")
-	include("scripts/lua/McdHud.lua")
 	include("scripts/lua/ui/StoryMiamiClassicEndScreen.lua")
 	include("scripts/lua/ui/StoryMoviePlay.lua")
 
@@ -386,6 +385,31 @@ function ModInit:Init()
 	}
 	
 	MiamiMissionsIdx = table.insert(StoryGameExtraElems, MiamiMissionsElem)
+	
+	SetMissionLoadedCallback("mcdHUDInitializer", function()
+		local levName = world:GetLevelName()
+		
+		if levName == MyLevelFileName then
+			DefaultHudScheme.resourceFile = "resources/hud/classichud.res"
+			DefaultHudScheme.felonyBar = HudFelonyBar {
+				-- classic hud scheme already includes control
+				-- so we don't need to load resource file
+				resourceFile = HUD_NIL
+			}
+			DefaultHudScheme.map = HudMap {
+				mapViewAngleTargetA = 90.0,
+				mapViewHeightTargetA = 300.0,
+				mapViewForwardTargetA = 0,
+				mapHudScaleTargetA = 1.0,
+				
+				mapViewAngleTargetB = 90.0,
+				mapViewHeightTargetB = 800.0,
+				mapViewForwardTargetB = -200.0,
+				mapHudScaleTargetB = 2.5
+			}
+		end
+	end)
+
 end
 
 -- Deinitialization function
@@ -439,6 +463,8 @@ function ModInit:DeInit()
 			end
 		end
 	end
+	
+	SetMissionLoadedCallback("mcdHUDInitializer", nil)
 end
 
 return ModInit

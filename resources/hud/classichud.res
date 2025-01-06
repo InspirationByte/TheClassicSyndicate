@@ -1,6 +1,18 @@
 position 		0 0;
 size 			640 480;	// map hud size to 640x480
 
+fonts
+{
+	Default 	"Cooper" 30;
+	FelonyBar	"Cooper" 30;
+	Timer		"Cooper" 30;
+	Message		"Cooper" 30;
+	Alert		"Cooper" 30;
+}
+
+font		Default;
+fontScale	16 16;
+
 // main is used for hiding HUD elements
 // Note that screen alert and message aren't hidden
 child Container "main"
@@ -24,8 +36,6 @@ child Container "main"
 			scaling		uniform;
 			
 			label		"#HUD_DAMAGE_TITLE";
-			font		"Cooper" 30 bold italic;
-			fontScale	16 16;
 		}
 	}
 
@@ -50,8 +60,6 @@ child Container "main"
 			textAlign	right;
 			
 			label		"#HUD_DAMAGE_TITLE";
-			font		"Cooper" 30 bold italic;
-			fontScale	16 16;
 		}
 	}
 
@@ -70,8 +78,6 @@ child Container "main"
 			scaling		uniform;
 			
 			label		"#HUD_FELONY_TITLE";
-			font		"Cooper" 30 bold italic;
-			fontScale	16 16;
 		}
 	}
 
@@ -85,7 +91,7 @@ child Container "main"
 		
 		scaling		inherit_min;
 
-		font		"Cooper" 30;
+		font		Timer;
 		fontScale	38 38;
 		
 		visible		0;
@@ -123,7 +129,7 @@ child label "messageText"
 	textalign	center;
 	
 	label		"<message>";
-	font		"Cooper" bold;
+	font		Message;
 	fontScale	15 15;
 }
 
@@ -140,7 +146,7 @@ child label "alertText"
 	textalign	center;
 	
 	label		"<ALERT TEXT>";
-	font		"Cooper" bold italic;
+	font		Alert;
 	fontScale	25 25;
 }
 

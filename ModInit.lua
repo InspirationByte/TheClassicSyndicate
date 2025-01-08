@@ -386,17 +386,21 @@ function ModInit:Init()
 	
 	MiamiMissionsIdx = table.insert(StoryGameExtraElems, MiamiMissionsElem)
 	
-	SetMissionLoadedCallback("mcdHUDInitializer", function()
+	SetHudCreateCallback("mcdHUDInitializer", function()
 		local levName = world:GetLevelName()
 		
-		if levName == MyLevelFileName then
+		if levName:lower() == MyLevelFileName:lower() then
 			DefaultHudScheme.resourceFile = "resources/hud/classichud.res"
+			
+			-- classic hud scheme already includes control
+			-- so we don't need to load some resource files
+			
 			DefaultHudScheme.felonyBar = HudFelonyBar {
-				-- classic hud scheme already includes control
-				-- so we don't need to load resource file
 				resourceFile = HUD_NIL
 			}
 			DefaultHudScheme.map = HudMap {
+				resourceFile = HUD_NIL,
+			
 				mapViewAngleTargetA = 90.0,
 				mapViewHeightTargetA = 300.0,
 				mapViewForwardTargetA = 0,

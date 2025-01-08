@@ -195,6 +195,7 @@ function MISSION.Phase1Start()
 	MISSION.metro:Enable(true)
 
 	MISSION.targetHandle = gameHUD:AddTrackingObject(MISSION.metro.object, HUD_DOBJ_IS_TARGET)
+	MISSION.PlayerAITargetPosition = MISSION.Data.targetPosition
 
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 

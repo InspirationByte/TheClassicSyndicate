@@ -127,6 +127,7 @@ MISSION.JeanPaulSartre = function()
 	end, 2.0)
 	
 	MISSION.targetHandle = gameHUD:AddTrackingObject(MISSION.opponentCar, HUD_DOBJ_IS_TARGET + HUD_DOBJ_CAR_DAMAGE)
+	MISSION.PlayerAIFollowTargetVehicle = MISSION.opponentCar
 
 	missionmanager:EnableTimeout( true, 140 ) -- enable, time
 

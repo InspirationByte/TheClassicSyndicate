@@ -131,6 +131,7 @@ function MISSION.Phase1Start()
 	missionmanager:ShowTime( true )				-- Enable countup timer
 	
 	MISSION.targetHandle = gameHUD:AddMapTargetPoint(MISSION.Data.targetPosition)
+	MISSION.PlayerAITargetPosition = MISSION.Data.targetPosition
 
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )

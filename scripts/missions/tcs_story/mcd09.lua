@@ -149,6 +149,7 @@ function MISSION.Phase1Start()
 	playerCar:Lock(false)
 	
 	MISSION.targetHandle = gameHUD:AddMapTargetPoint(MISSION.Data.targetPosition)
+	MISSION.PlayerAITargetPosition = MISSION.Data.targetPosition
 
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
@@ -275,6 +276,7 @@ function MISSION.Phase2Start()
 	
 	MISSION.safeHouseTarget = MISSION.Data.target2Position
 	MISSION.targetHandle = gameHUD:AddMapTargetPoint(MISSION.safeHouseTarget)
+	MISSION.PlayerAITargetPosition = MISSION.safeHouseTarget
 	MISSION.safeHouseCops = false
 	MISSION.finalTarget = true
 	

@@ -33,6 +33,8 @@ end
 
 MISSION.Init = function()
 
+	MISSION.Settings.ZapEnabled = false
+
 	-- init hud
 	MISSION.uiTasksList = gameHUD:FindChildElement("tasks")
 	MISSION.uiGauge = equi:Cast(gameHUD:FindChildElement("timer_gauge"), "image")

@@ -247,6 +247,8 @@ function MISSION.Phase1Start()
 	
 	MISSION.targetHandle = gameHUD:AddTrackingObject(MISSION.speedboatObject, HUD_DOBJ_IS_TARGET)
 	MISSION.targetHandle2 = gameHUD:AddMapTargetPoint(MISSION.Data.targetPosition, HUD_DOBJ_3D_ARROW)
+	
+	MISSION.PlayerAITargetPosition = MISSION.Data.targetPosition
 
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )

@@ -104,7 +104,7 @@ function MISSION.Init()
 	
 	-- setup player car (REQUIRED)
 	local playerCar = MISSION.InitPlayerCar( MISSION.Data.PlayerStart )
-	
+	MISSION.playerCar = playerCar
 	playerCar:Lock(true)
 
 	gameHUD:Enable(false)								-- HUD disabled
@@ -140,7 +140,7 @@ function MISSION.SetupFlybyCutscene()
 	end, 3.8);
 
 	local targetView = cameraAnimator:GetComputedView()
-	cameraAnimator:Update(0, gameses:GetPlayerCar())
+	cameraAnimator:Update(0, MISSION.playerCar)
 
 	local cutCameras = {
 		{
@@ -162,7 +162,7 @@ function MISSION.SetupFlybyCutscene()
 end
 
 function MISSION.StartTheMadness()
-	local playerCar = gameses:GetPlayerCar()
+	local playerCar = MISSION.playerCar
 
 	-- with slight pause
 	missionmanager:ScheduleEvent( function()
@@ -296,7 +296,7 @@ end
 
 -- generic mission state updates
 function MISSION.GenericUpdate(targetData, delta)
-	local playerCar = gameses:GetPlayerCar()
+	local playerCar = MISSION.playerCar
 
 	-- update cops
 	UpdateCops( playerCar, delta )
@@ -323,6 +323,7 @@ function MISSION.SetupTarget(targetData)
 
 	-- add target on map and 3D world
 	targetData.targetHandle = gameHUD:AddMapTargetPoint(targetData.position)
+	MISSION.PlayerAITargetPosition = targetData.position
 end
 
 -- completes target
@@ -353,7 +354,7 @@ end
 function MISSION.SetFailed(reasonText)
 	MISSION.ResetState()
 
-	local playerCar = gameses:GetPlayerCar()
+	local playerCar = MISSION.playerCar
 
 	-- lock car, signal mission failure
 	playerCar:Lock(true)
@@ -370,7 +371,7 @@ function MISSION.CompleteMission()
 	MISSION.ResetState()
 
 	-- lock car, signal mission completion
-	local playerCar = gameses:GetPlayerCar()
+	local playerCar = MISSION.playerCar
 	playerCar:Lock(true)
 	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 4.0 )
 	

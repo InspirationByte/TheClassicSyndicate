@@ -1,2 +1,2 @@
-CameraPosition 137.598 0.71913 111.132;
-CameraRotation -2.60059 36.3041 0;
+CameraPosition 119.385 1.67445 97.4921;
+CameraRotation 2.79993 -23.6952 0;

@@ -103,20 +103,20 @@ MISSION.JeanPaulSartre = function()
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 	local opponentCar = MISSION.opponentCar
 
-	MISSION.currentTarget = (math.floor(math.random(0, #MISSION.Data.AITargets)) % (#MISSION.Data.AITargets)) + 1
+	MISSION.currentTarget = MissionManager:GetRandomInt(0, #MISSION.Data.AITargets-1) + 1
 	
 	local activeLife = opponentCar:AddComponent(ActiveLifeAIComponent)
 	activeLife:SetPersonalityType("racer")
+	activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
 	MISSION.onRouteTargetReached = activeLife.OnRouteTargetReached:AddHandler(function()
 		-- switch target
+		local oldTarget = MISSION.currentTarget
+		while oldTarget == MISSION.currentTarget do
+			MISSION.currentTarget = MissionManager:GetRandomInt(0, #MISSION.Data.AITargets-1) + 1
+		end
 		Msg("new target\n")
-		MISSION.currentTarget = (math.floor(math.random(0, #MISSION.Data.AITargets)) % (#MISSION.Data.AITargets)) + 1
 		activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
 	end)
-	
-	missionmanager:ScheduleEvent( function() 
-		activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
-	end, 2.0)
 
 	missionmanager:ScheduleEvent( function() 
 		opponentCar:SetLight(CAR_LIGHT_LOWBEAMS, true);

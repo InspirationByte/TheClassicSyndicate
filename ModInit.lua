@@ -430,6 +430,8 @@ function ModInit:DeInit()
 	McdCutsceneCamera = nil
 
 -- Deinit - Missions
+	MakeDefaultMissionSettings = OldMakeDefaultMissionSettings
+	OldMakeDefaultMissionSettings = nil
 
 	table.remove(StoryGameExtraElems, MiamiMissionsIdx)
 	

@@ -306,6 +306,13 @@ function IsMyLevel()
 	return false
 end
 
+-- OVERRIDE - Change music state logic
+function MakeDefaultMissionSettings(original)
+	local settings = original()
+	settings.KeepPursuitMusic = IsMyLevel()
+	return settings
+end
+
 -- Initialization function
 function ModInit:Init()
 	
@@ -327,17 +334,6 @@ function ModInit:Init()
 	
 	CopVoiceOver[string.lower(MyLevelFileName)] = MyCopSoundsFilename;
 	
-	-- Change music state logic
-    OldMakeDefaultMissionSettings = MakeDefaultMissionSettings
-    MakeDefaultMissionSettings = function()
-    
-		local settings = OldMakeDefaultMissionSettings()
-		
-		settings.KeepPursuitMusic = IsMyLevel()
-		
-		return settings
-	end
-
 	CityTimeOfDayMusic[MyLevelFileName] = {			-- Music selection for Miami (Classic)
 		day_clear = "miami_day",
 		day_stormy = "la_day",
@@ -428,11 +424,7 @@ function ModInit:DeInit()
 	EmitterSoundRegistry.MCDObjects = nil			-- Gameplay SFX
 
 	McdCutsceneCamera = nil
-
--- Deinit - Missions
-	MakeDefaultMissionSettings = OldMakeDefaultMissionSettings
-	OldMakeDefaultMissionSettings = nil
-
+	CityTimeOfDayMusic[MyLevelFileName] = nil
 	table.remove(StoryGameExtraElems, MiamiMissionsIdx)
 	
 	-- Remove Miami (Classic) Minigames

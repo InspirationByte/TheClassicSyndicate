@@ -40,7 +40,7 @@ MISSION.Init = function()									-- Preparing Introduction
 		AITargets = {
 			vec3(12.4, 0.6, -296),
 			vec3(1419, 0.6, -288),
-			vec3(1656, 0.5, 986),
+			--vec3(1656, 0.5, 986),
 			vec3(1777, 0.5, -470),
 		},
 	}

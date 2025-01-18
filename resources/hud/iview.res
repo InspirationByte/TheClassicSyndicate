@@ -1,4 +1,4 @@
-base "defaulthud.res";
+base "classichud.res";
 
 font	"Cooper" 30;
 

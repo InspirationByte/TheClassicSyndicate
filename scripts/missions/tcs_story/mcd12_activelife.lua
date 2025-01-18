@@ -185,9 +185,11 @@ function MISSION.Phase1Start()
 
 	missionmanager:SetPluginRefreshFunc("ResiCarOBJ", function()	-- Spawn scenery when player enters % radius
 
-		if length(playerCar:GetOrigin() - MISSION.Data.targetPosition) < 100 then	-- Set up function
-			MISSION.Settings.StopCops = false
-		
+		if distance(playerCar:GetOrigin(), MISSION.Data.targetPosition) < 100 then	-- Set up function
+			
+			-- turn off cops as soon as we arrive
+			MISSION.Settings.EnableCops = false
+			
 			local opponentCar = gameses:CreateCar("m_chevelle_ios", CAR_TYPE_NORMAL)
 			MISSION.opponentCar = opponentCar
 			
@@ -235,6 +237,7 @@ MISSION.TargetCarHit = function(self, props)
 		
 		aiComponent:SetPersonalityTraits(puppyDogTraits)
 		aiComponent:SetFollowTargetVehicle(playerCar)
+		aiComponent:SetBehaviourType(AI_BEHAVIOUR_CHASE_FOLLOW)
 		
 		local hudIndicator = opponentCar:AddComponent(HudIndicatorComponent)
 		hudIndicator:SetTypeFlags(HUD_DOBJ_CAR_SIGHTCONE | HUD_DOBJ_CAR_IN_PURSUIT)
@@ -255,13 +258,7 @@ end
 
 MISSION.Phase1Update = function( delta )
 
-	local playerCar = MISSION.playerCar		-- Define player car for current phase
-	local distToTarget = length(playerCar:GetOrigin() - MISSION.Data.targetPosition)
-
-	if distToTarget < 400.0 then						-- If player enters % meters radius, then..
-		MISSION.Settings.EnableCops = false
-	end
-	
+	local playerCar = MISSION.playerCar		-- Define player car for current phase	
 	return MISSION.UpdateAll(delta)
 end
 
@@ -324,12 +321,11 @@ end
 function MISSION.Phase2Start()
 	local playerCar = MISSION.playerCar			-- Define what the player car is for this phase
 
+	-- prevent re-enabling cop spawns
+	MISSION.CopState.CopsWereEnabled = false
+	
 	gameHUD:RemoveTrackingObject(MISSION.targetHandle)		-- Remove marker
 	
-	-- disable stop cops, disable cops
-	-- and force update cops state
-	MISSION.Settings.EnableCops = false			-- Enable cops
-
 	missionmanager:EnableTimeout( false )	-- Disable countdown timer
 	missionmanager:ShowTime( true )			-- Enable countup timer
 	

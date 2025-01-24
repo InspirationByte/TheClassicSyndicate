@@ -105,7 +105,8 @@ MISSION.JeanPaulSartre = function()
 	MISSION.currentTarget = MissionManager:GetRandomInt(0, #MISSION.Data.AITargets-1) + 1
 	
 	local activeLife = opponentCar:AddComponent(ActiveLifeAIComponent)
-	activeLife:SetPersonalityType("racer")
+	activeLife:SetPersonalityType("getawayRacer")
+	activeLife:SetBehaviourType(AI_BEHAVIOUR_GETAWAY)
 	activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
 
 	MISSION.onRouteTargetReached = activeLife.OnRouteTargetReached:AddHandler(function()

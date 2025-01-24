@@ -29,6 +29,7 @@ panel
 
 	child ProgressBar "progressBar"
 	{
+		clipChilds	0;
 		position	10 20;
 		size		200 22;
 

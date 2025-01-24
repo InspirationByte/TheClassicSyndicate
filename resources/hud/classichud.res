@@ -23,6 +23,7 @@ child Container "main"
 
 	child ProgressBar "damageBar"
 	{
+		clipChilds	0;
 		position	20 30;
 		
 		size		210 17;
@@ -41,6 +42,7 @@ child Container "main"
 
 	child ProgressBar "damageBar2"
 	{
+		clipChilds	0;
 		visible		0;
 		position	20 30;
 		
@@ -65,6 +67,7 @@ child Container "main"
 
 	child ProgressBar "felonyBar"
 	{
+		clipChilds	0;
 		position	20 60;
 		
 		size		210 17;

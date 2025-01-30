@@ -3,7 +3,7 @@ panel
 	position 		0 0;
 	size 			640 480;	// map hud size to 640x480
 
-	fontScale		14 14;
+	child file "resources/ui_partial/menu_fonts.res";
 
 	child image "background"
 	{
@@ -36,7 +36,7 @@ panel
 		align		bottom hcenter;
 		textAlign	center;
 
-		font		"Cooper" italic bold;
+		font		TitleStart;
 
 		label		"#MENU_TITLE_PRESS_ENTER";
 		fontScale	18 18;
@@ -52,17 +52,8 @@ panel
 
 		textAlign	center;
 
-		font		"Roboto" 30;
+		font		TitleCopy;
 
 		label		"#INSCOPYRIGHT";
-		fontScale	12 12;
-	}
-
-	child panel "fade"
-	{
-		position 		0 0;
-		size 			640 480;	// map hud size to 640x480
-		scaling			inherit;
-		color			0 0 0 1;
 	}
 }

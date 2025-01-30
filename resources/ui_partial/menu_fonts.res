@@ -1,8 +1,18 @@
 fonts
 {
-	Default "Cooper" 30 bold
+	Default "Cooper" 30
 	{
 		fontScale	16 16;
+	}
+	
+	TitleStart "Cooper" 30 bold italic
+	{
+		fontScale	18 18;
+	}
+	
+	TitleCopy "Cooper" 30 bold italic
+	{
+		fontScale	12 12;
 	}
 	
 	Items "Cooper" 30 bold

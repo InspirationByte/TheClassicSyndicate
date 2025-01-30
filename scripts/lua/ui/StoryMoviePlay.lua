@@ -36,7 +36,7 @@ local StoryMoviePlay = class()
 		
 		self.movieIsOk = self.moviePlayer:Init("resources/media/"..self.movieName)
 
-		sounds:LoadScript(EmitterSoundRegistry.MCDMessages)
+		sounds:LoadScript(EmitterSounds.MCDMessages)
 		if self.audioName ~= nil then
 			sounds:Precache(self.audioName)
 		end

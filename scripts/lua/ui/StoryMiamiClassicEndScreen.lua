@@ -20,6 +20,13 @@ local StoryMiamiClassicEndingScreen = class()
 		self.bgChild = equi:Cast(self.control:FindChild("fade"), "panel")
 		self.bgChild:SetColor(vec4(0, 0, 0, 1))
 	end
+
+	function StoryMiamiClassicEndingScreen:OnEnter()
+		missionladder:DeleteProgress("mcd_missions")
+		McdStoreAchievementsData("McdCompletedStory", {
+			UnlockCars = true
+		})
+	end
 	
 	function StoryMiamiClassicEndingScreen:Update(delta)
 	
@@ -36,20 +43,18 @@ local StoryMiamiClassicEndingScreen = class()
 		if self.fade > 1 then
 			self.fade = 1
 		end
+
+		if self.fade <= 0 then
+			SequenceScreens.CancelAll()
+			game.ScheduleMainMenu()
+			return false
+		end
 	
-		return self.fade > 0
+		return true
 	end
 	
 	function StoryMiamiClassicEndingScreen:Close()
 		self.done = true
-		SequenceScreens.current = nil
-		EqStateMgr.ScheduleNextStateType( APP_STATE_MAINMENU )
-		
-		Msg("completed MCD story\n");
-		missionladder:DeleteProgress("mcd_missions")
-		StoreMissionCompletionData("McdStoryPreferences", {
-			UnlockCars = true
-		})
 	end
 	
 	function StoryMiamiClassicEndingScreen:KeyPress(key, down)

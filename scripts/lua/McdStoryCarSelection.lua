@@ -29,7 +29,7 @@ local function McdCarSelectionElementsFunc(equiScheme, stack)
 	local lastPreferredCar = McdGetPlayerCarName()
 	local newPreferredCar = lastPreferredCar
 
-	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
+	local storyPreferences = McdGetAchievementsData("McdCompletedStory")
 	if storyPreferences == nil then
 		-- first store for MCD
 		storyPreferences = {

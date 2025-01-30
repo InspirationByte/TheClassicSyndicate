@@ -107,6 +107,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	MISSION.SpawnSceneryCars()
 
 	-- precache sounds
+	sounds:LoadScript(EmitterSounds.MCDMessages)
 	sounds:Precache( "d3.citynoise" )
 	sounds:Precache( "wind.msg01" )
 

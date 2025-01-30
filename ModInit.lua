@@ -264,10 +264,25 @@ local UnlockableCars = {
 	{"sfd_friscodef", "TCS - Frisco PSX Car"},
 }
 
+function McdStoreAchievementsData( key, tbl )
+	local achievementsData = userProfileManager:GetProgressStore(USER_STORE_ACHIEVEMENTS)
+	achievementsData:SetTableSection(key, tbl)
+	userProfileManager:Save()
+end
+
+function McdGetAchievementsData( key )
+	local achievementsData = userProfileManager:GetProgressStore(USER_STORE_ACHIEVEMENTS)
+	local section = achievementsData:FindSection(key, 0)
+	if section == nil then
+		return {}
+	end
+	return section:ToTable()
+end
+
 function McdGetPlayerCarName()
 	local standardCarName = "m_default_ios"
 	
-	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
+	local storyPreferences = McdGetAchievementsData("McdCompletedStory")
 	if storyPreferences ~= nil then
 		return storyPreferences.PrefferedStoryCar or standardCarName
 	end
@@ -276,12 +291,12 @@ function McdGetPlayerCarName()
 end
 
 function McdSetPlayerCarName(name)
-	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
+	local storyPreferences = McdGetAchievementsData("McdCompletedStory")
 	if storyPreferences == nil then
 		storyPreferences = {}
 	end
 	storyPreferences.PrefferedStoryCar = name
-	StoreMissionCompletionData("McdStoryPreferences", storyPreferences)
+	McdStoreAchievementsData("McdCompletedStory", storyPreferences)
 end
 
 function McdGetSuperflyCarName()
@@ -324,10 +339,11 @@ function ModInit:Init()
 	include("scripts/lua/ui/StoryMiamiClassicEndScreen.lua")
 	include("scripts/lua/ui/StoryMoviePlay.lua")
 
+	EmitterSounds.MCDMessages = "scripts/sounds/mcd_missions_messages.txt"	-- Vocal messages
+
 	EmitterSoundRegistry.MCDEngine = "scripts/sounds/mcd_engine.txt"				-- Driver 1 engine sounds
 	EmitterSoundRegistry.MCDVoices = "scripts/sounds/mcd_missions_vo.txt"			-- Driver 1 original mission voices
 	EmitterSoundRegistry.MCDSfx = "scripts/sounds/mcd_csfx.txt"						-- SFX for cameras / transitions
-	EmitterSoundRegistry.MCDMessages = "scripts/sounds/mcd_missions_messages.txt"	-- Vocal messages
 	EmitterSoundRegistry.MCDObjects = "scripts/sounds/mcd_objects.txt"				-- Objects SFX
 	
 	CopVoiceOver[MyLevelFileName] = MyCopSoundsFilename;	-- Define what cop sounds script a level uses
@@ -354,7 +370,7 @@ function ModInit:Init()
 		table.insert(MenuCarsList, v)
 	end
 	
-	local storyPreferences = RestoreMissionCompletionData("McdStoryPreferences")
+	local storyPreferences = McdGetAchievementsData("McdCompletedStory")
 	if storyPreferences ~= nil and storyPreferences.UnlockCars then
 		for i,v in ipairs(UnlockableCars) do
 			table.insert(MenuCarsList, v)
@@ -416,12 +432,12 @@ end
 function ModInit:DeInit()
 	localize.RemoveTokensFile("mcd_missions")
 	
-	EmitterSoundRegistry.MCDEngine = nil			-- Driver 1 engine sounds
-	EmitterSoundRegistry.MCDIview = nil				-- Default Interview resources
-	EmitterSoundRegistry.MCDVoices = nil			-- Driver 1 missions voices
-	EmitterSoundRegistry.MCDSfx = nil				-- Cutscenes SFX
-	EmitterSoundRegistry.MCDMessages = nil			-- Vocal messages SFX
-	EmitterSoundRegistry.MCDObjects = nil			-- Gameplay SFX
+	EmitterSounds.MCDMessages = nil			-- Vocal messages SFX
+	EmitterSoundRegistry.MCDEngine = nil	-- Driver 1 engine sounds
+	EmitterSoundRegistry.MCDIview = nil		-- Default Interview resources
+	EmitterSoundRegistry.MCDVoices = nil	-- Driver 1 missions voices
+	EmitterSoundRegistry.MCDSfx = nil		-- Cutscenes SFX
+	EmitterSoundRegistry.MCDObjects = nil	-- Gameplay SFX
 
 	McdCutsceneCamera = nil
 	CityTimeOfDayMusic[MyLevelFileName] = nil

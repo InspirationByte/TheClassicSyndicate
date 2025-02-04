@@ -150,8 +150,10 @@ local MetroMover = class()
 	end
 	
 	function MetroMover:Update( delta )
-	
 		if not self.enabled and self.firstUpdate then
+			return
+		end
+		if not objects:IsValidObject(self.object) then
 			return
 		end
 		

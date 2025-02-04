@@ -15701,7 +15701,7 @@ brush 3
 	name "";
 	region 534;
 	groupId 65535;
-	visGroupId 0;
+	visGroupId 1;
 };
 brush 0
 {

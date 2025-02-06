@@ -43,6 +43,7 @@ panel
 
 	child HudElement "Menu"
 	{
+		clipChilds		0;
 		position	100 200;
 		
 		size		200 200;

@@ -116,8 +116,8 @@ local MetroMover = class()
 			end
 		end
 		
-		self.enabled = if_then_else(enabled ~= nil, enabled, true)
-		self.canReverse = if_then_else(canReverse ~= nil, canReverse, true)
+		self.enabled = iif(enabled ~= nil, enabled, true)
+		self.canReverse = iif(canReverse ~= nil, canReverse, true)
 		
 		self.strip = 1
 		self.speed = 0
@@ -365,7 +365,7 @@ local GarageDoor = class()
 		if self.gameObject == nil then
 			return
 		end
-		local targetValue = if_then_else(self.open, 1, 0)
+		local targetValue = iif(self.open, 1, 0)
 		self.openValue = approachValue(self.openValue, targetValue, sign(targetValue - self.openValue) * delta * 2) -- use approachValue instead
 		
 		local ang = VDEG2RAD(self.angles)

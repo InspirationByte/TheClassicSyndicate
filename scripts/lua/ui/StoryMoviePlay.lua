@@ -43,6 +43,7 @@ local StoryMoviePlay = class()
 	end
 	
 	function StoryMoviePlay:OnLeave()
+		sounds:FreeScript(EmitterSounds.MCDMessages)
 		self.audioObject:StopEmitter(CSoundingObject.ID_ALL, true)
 		self.audioObject = nil
 		

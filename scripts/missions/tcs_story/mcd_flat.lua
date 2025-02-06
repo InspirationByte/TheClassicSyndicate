@@ -128,7 +128,7 @@ MISSION.Init = function()									-- Preparing Introduction
 		MISSION.MessageScript = message.script
 		MISSION.MessageLength = message.length
 		MISSION.MessageDelay = message.delay
-		MISSION.AnsweringMachinePosition = if_then_else(message.flatId ~= nil, MISSION.AnsweringMachines[message.flatId], MISSION.AnsweringMachines[1])
+		MISSION.AnsweringMachinePosition = iif(message.flatId ~= nil, MISSION.AnsweringMachines[message.flatId], MISSION.AnsweringMachines[1])
 		sounds:Precache( MISSION.MessageScript )
 		
 		MISSION.Data.machineAudio = EmitParams.new(MISSION.MessageScript, MISSION.AnsweringMachinePosition)
@@ -144,4 +144,8 @@ MISSION.Init = function()									-- Preparing Introduction
 	MISSION.Data.soundObj:Emit(1, EmitParams.new("wind.msg01") )
 	MISSION.Data.soundObj:Emit(2, EmitParams.new("d3.citynoise", vec3(-88,0.77,-1143)))
 	McdCutsceneCamera.Start(cutCameras, nil, 1000) -- make wait forever
+end
+
+MISSION.Finalize = function()
+	sounds:FreeScript(EmitterSounds.MCDMessages)
 end

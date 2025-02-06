@@ -342,7 +342,7 @@ MISSION.ProcessSlalomCondition = function()
 	if missionData.slalomStartedAt == 0 then
 		return
 	else
-		local oppositeSlalomCheck = if_then_else(missionData.slalomStartedAt == 1, 2, 1)
+		local oppositeSlalomCheck = iif(missionData.slalomStartedAt == 1, 2, 1)
 	
 		if MISSION.CheckSlalomPassing( oppositeSlalomCheck ) then
 			missionData.slalomStartedAt = 0

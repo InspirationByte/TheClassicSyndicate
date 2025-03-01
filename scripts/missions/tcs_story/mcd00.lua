@@ -17,7 +17,17 @@ MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 
 sounds:LoadScript(EmitterSounds.iview)
 
-MISSION.Hud = "resources/hud/iview.res"
+MISSION.Hud = {
+	resourceFile = "resources/hud/iview.res",
+	interview = {
+		Init = function()
+			-- init hud
+			MISSION.uiTasksList = gameHUD:FindChildElement("tasks")
+			MISSION.uiGauge = equi:Cast(gameHUD:FindChildElement("timer_gauge"), "image")
+		end
+	},
+	timer = HudTimer{ }
+}
 
 MISSION.RotationCheckThreshold = 80		-- degress
 MISSION.RotationSphereRadius = 4.0

@@ -3,11 +3,27 @@ size 			640 480;	// map hud size to 640x480
 
 fonts
 {
-	Default 	"Cooper" 30;
-	FelonyBar	"Cooper" 30;
-	Timer		"Cooper" 30;
-	Message		"Cooper" 30;
-	Alert		"Cooper" 30;
+	Default 	"Cooper" 30
+	{
+		fontScale	16 16;
+	}
+	FelonyBar	"Cooper" 30
+	{
+		fontScale	16 16;
+	}
+	Timer		"Cooper" 30
+	{
+		fontScale	16 16;
+	}
+	Message		"Cooper" 30
+	{
+		fontScale	16 16;
+	}
+	Alert		"Cooper" 30
+	{
+		fontScale	30 30;
+		textCase 	upperCase;
+	}
 }
 
 font		Default;
@@ -122,34 +138,37 @@ child Container "main"
 
 child label "messageText"
 {
-	position	0 -50;
+	position	0 0;
 	visible		1;
 	
-	size		400 35;
+	size		400 75;
 	scaling		uniform;
 	
 	align		vcenter hcenter;
 	textalign	center;
 	
-	label		"<message>";
+	label		"";
 	font		Message;
-	fontScale	15 15;
 }
 
-// not used in this modbut kept for compatibility
-child label "alertText"
+child image "alert"
 {
-	position	0 -90;
-	visible		1;
-	
-	size		640 34;
-	scaling		uniform;
-	
+	visible		0;
+	path		"ui/ui_menu_title_gradient";
+	position	0 -60;
+	size		640 30;
+	scaling		aspect_min;
+	color    	1.0 0.57 0.0 1;
 	align		vcenter hcenter;
-	textalign	center;
 	
-	label		"<ALERT TEXT>";
-	font		Alert;
-	fontScale	25 25;
+	child label "text"
+	{
+		align		left vcenter;
+		position	0 8;
+		size		640 30;
+		scaling		uniform;
+		textalign	center;
+		label		"";
+		font		Alert;
+	}
 }
-

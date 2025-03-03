@@ -6,7 +6,7 @@
 skyHeight 0.28;
 skyAngle -25;
 northLocation 0;
-foreground "SKIES/tcs_foreground";
+foreground "common/no_foreground";
 
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
@@ -46,7 +46,7 @@ foreground "SKIES/tcs_foreground";
 
 	sunLensItensity 0.65;
 
-	sky		"MIAMI/Skies/skymcd_day";	// skydome texture which defines $env_cubemap
+	sky		"miami/sky/m_day";	// skydome texture which defines $env_cubemap
 
 	headlightIntensity	0.0;
 
@@ -85,7 +85,7 @@ foreground "SKIES/tcs_foreground";
 	rainBrightness	0.4;
 	rainDensity	150;
 
-	sky		"MIAMI/Skies/skymcd_daystormy";	// skydome texture which defines $env_cubemap
+	sky		"miami/sky/m_day_stormy";	// skydome texture which defines $env_cubemap
 
 	headlightIntensity	0.1;
 
@@ -125,7 +125,7 @@ foreground "SKIES/tcs_foreground";
 	// moon uses sun lens angles
 	sunLensAngles 		-5 -75 0;
 
-	sky			"MIAMI/Skies/skymcd_dawn";	// skydome texture which defines $env_cubemap
+	sky			"miami/sky/m_dawn";	// skydome texture which defines $env_cubemap
 
 	// light flags
 	lights			city;
@@ -162,7 +162,7 @@ foreground "SKIES/tcs_foreground";
 
 	brightModFactor		0.04;
 
-	sky		"MIAMI/Skies/skymcd_dusk";	// skydome texture which defines $env_cubemap
+	sky		"miami/sky/m_dusk";	// skydome texture which defines $env_cubemap
 
 	fog 1
 	{
@@ -201,7 +201,7 @@ foreground "SKIES/tcs_foreground";
 	// moon uses sun lens angles
 	sunLensAngles 		-5 31 0;
 
-	sky			"MIAMI/Skies/skymcd_dusk";	// skydome texture which defines $env_cubemap
+	sky			"miami/sky/m_dusk";	// skydome texture which defines $env_cubemap
 
 	// light flags
 	lights			city;
@@ -245,7 +245,7 @@ foreground "SKIES/tcs_foreground";
 	sunLensAngles 		-16 -30 0;
 	moonBrightness		1.2;
 
-	sky		"MIAMI/Skies/skymcd_night";	// skydome texture which defines $env_cubemap
+	sky		"miami/sky/m_night";	// skydome texture which defines $env_cubemap
 
 	// light flags
 	lights			cars lamps city;
@@ -286,7 +286,7 @@ foreground "SKIES/tcs_foreground";
 	rainBrightness	0.3;
 	rainDensity	200;
 
-	sky		"MIAMI/Skies/skymcd_nightrain";	// skydome texture which defines $env_cubemap
+	sky		"miami/sky/m_night_stormy";	// skydome texture which defines $env_cubemap
 
 	// light flags
 	lights			cars lamps city;
@@ -329,7 +329,7 @@ foreground "SKIES/tcs_foreground";
 	sunLensAngles 		-2 -30 0;
 	moonBrightness		0;
 
-	sky		"MIAMI/Skies/skymcd_nightrain";	// skydome texture which defines $env_cubemap
+	sky		"miami/sky/m_night_stormy";	// skydome texture which defines $env_cubemap
 
 	// light flags
 	lights			cars lamps city;

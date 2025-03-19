@@ -158,7 +158,7 @@ function MISSION.SetupFlybyCutscene()
 		}
 	}
 	
-	McdCutsceneCamera.Start(cutCameras, MISSION.StartTheMadness, 1)
+	TCS_CutsceneCamera.Start(cutCameras, MISSION.StartTheMadness, 1)
 end
 
 function MISSION.StartTheMadness()

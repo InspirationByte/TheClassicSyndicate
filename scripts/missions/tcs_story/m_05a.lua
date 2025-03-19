@@ -5,8 +5,8 @@
 ----------------------------------------------------------------------------------------------
 
 world:SetLevelName("miamiclassic")
-world:SetEnvironmentName("day_stormy")
-SetMusicName("nyc_day")
+world:SetEnvironmentName("caseforakey_weather")
+SetMusicName("la_night")
 
 MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 
@@ -40,21 +40,16 @@ end
 
 MISSION.Init = function()									-- Preparing Introduction
 	MISSION.Data = {
-		targetPosition = Vector3D.new(-352,0.7,-160),			-- Targets Positions
+		targetPosition = Vector3D.new(1577,0.7,-235),			-- Targets Positions
 	}
 	
 	MISSION.Settings.EnableCops = false						-- Cops are disabled
-	MISSION.Settings.MinCops = math.max(2, MISSION.Settings.MinCops)
-	MISSION.Settings.MaxCops = math.max(3, MISSION.Settings.MaxCops)
-	MISSION.Settings.CopRespawnInterval = MISSION.Settings.CopRespawnInterval * 0.75
-	MISSION.Settings.CopWantedRespawnInterval = MISSION.Settings.CopWantedRespawnInterval * 0.75
-	MISSION.Settings.CopWantedRespawnInterval2 = MISSION.Settings.CopWantedRespawnInterval2 * 0.8
+
+	MISSION.SpawnSceneryCars()
 
 	local playerCar = gameses:CreateCar(McdGetPlayerCarName(), CAR_TYPE_NORMAL)	-- Create player car
 	
 	MISSION.playerCar = playerCar	-- Define spawned car above as player car for mission
-
-	MISSION.SpawnSceneryCars()
 	
 	playerCar:SetMaxDamage(12.0)
 	playerCar:SetOrigin( Vector3D.new(-88,0.77,-1143) )						--Player car properties
@@ -64,15 +59,11 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetDriverType("ped2")
 
-	sounds:Precache( "wind.mcd13a" )
-	sounds:Precache( "wind.mcd13b" )
-	sounds:Precache( "wind.mcd13c" )
+	sounds:Precache( "car.lightswitch" )
 
-	--sounds:Precache( "door.garage" )
+	sounds:Precache( "wind.mcd05a" )
+	sounds:Precache( "wind.mcd05b" )
 
-	local metro = WorldEvents:MakeInformantMover()
-	MISSION.metro = metro 
-	
 	-- For the load time, set player car
 	gameses:SetPlayerCar( playerCar )
 	
@@ -80,7 +71,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD13_TITLE_INFORMANT", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#MCD05_TITLE_CASEFORAKEY", 3.5)				-- Classic title text (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
 end
@@ -95,37 +86,45 @@ function MISSION.SetupFlybyCutscene()
 
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
-	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd13a"), 0 )
-	end, 0.0);
-
-	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd13b"), 0 )
-	end, 3.0);
-
-	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd13c"), 0 )
-	end, 4.4);
-
 	local targetView = cameraAnimator:GetComputedView()
 	cameraAnimator:Update(0, gameses:GetPlayerCar())
 
 	local cutCameras = {
 		{
-			{ Vector3D.new(-24, 5, -1090), Vector3D.new(-10, 414, 0), -1, 60 },
-			{ Vector3D.new(-70, 5, -1090), Vector3D.new(-10, 311, 0), 3.0, 60 },
-			{ Vector3D.new(-98, 2, -1090), Vector3D.new(0, 190, 20), 3.5, 60 },
-			{ Vector3D.new(-122, 1.75, -1100), Vector3D.new(20, 227, 10), 4.0, 60 },
-			{ Vector3D.new(-118, 1.5, -1130), Vector3D.new(10, 247, 0), 4.25, 60 },
-			{ Vector3D.new(-105, 1.5, -1140), Vector3D.new(5, 228, -20), 4.5, 60 },
-			{ targetView:GetOrigin(), targetView:GetAngles(), 5.0, targetView:GetFOV() },
-			{ targetView:GetOrigin(), targetView:GetAngles(), 5.5, targetView:GetFOV() },
-			{ targetView:GetOrigin(), targetView:GetAngles(), 6.0, targetView:GetFOV() },
-			{ targetView:GetOrigin(), targetView:GetAngles(), 6.5, targetView:GetFOV() }
+			{ Vector3D.new(-250.19, 4.51, -1093.05), Vector3D.new(24, 269.85, 20), -2, 30 },
+			{ Vector3D.new(-130.23, 4.48, -1093.12), Vector3D.new(0.08, 269.85, 0), 3, 30 },
+			{ Vector3D.new(-130.23, 4.48, -1093.12), Vector3D.new(75, 269.85, 0), 3.2, 30 },
+		},
+		{
+			{ targetView:GetOrigin() - vec3(0, 1.2, 0), targetView:GetAngles() + vec3(90,0,0), -6.0, targetView:GetFOV() },
+			{ targetView:GetOrigin() - vec3(0, 1.0, 0), targetView:GetAngles(), 1.0, targetView:GetFOV() },
+			{ targetView:GetOrigin() - vec3(0, 0.0, 0), targetView:GetAngles(), 2.0, targetView:GetFOV() },
+			{ targetView:GetOrigin(), targetView:GetAngles(), 3.0, targetView:GetFOV() }
 		}
 	}
+	
+	TCS_CutsceneCamera.Start(cutCameras, MISSION.StartPause, 1)
+	
+	-- fancy sequence
+	missionmanager:ScheduleEvent( function() 
+		sounds:Emit( EmitParams.new("wind.mcd05a"), -1 )
+	end, 0.1);
 
-	McdCutsceneCamera.Start(cutCameras, MISSION.StartPause, 1)
+	missionmanager:ScheduleEvent( function() 
+		sounds:Emit( EmitParams.new("wind.mcd05b"), 0 )
+	end, 3.0);
+
+	missionmanager:ScheduleEvent( function() 
+		sounds:Emit( EmitParams.new("car.lightswitch"), -1 )
+	end, 5.0);
+
+	missionmanager:ScheduleEvent( function() 
+		playerCar:SetLight(CAR_LIGHT_LOWBEAMS, false);
+	end, 1);
+
+	missionmanager:ScheduleEvent( function() 
+		playerCar:SetLight(CAR_LIGHT_LOWBEAMS, true);
+	end, 5.0)
 
 end
 
@@ -147,61 +146,38 @@ end
 ----------------------------------------------------------------------------------------------
 -- Phase1 Start ------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
-function MISSION.CopsSpawnStart()
-	local cop1 = gameses:CreateCar("NPC_mcd_defaultpolicecar_black", CAR_TYPE_NORMAL)
-	SetupPursuerCar(cop1)
-	local settings = MISSION.Settings
-	
-	cop1:SetOrigin( Vector3D.new(-185,0.7,-1095) )
-	cop1:SetAngles( Vector3D.new(0,-90,0) )
-	
-	cop1:Spawn()
-	
-	local cop2 = gameses:CreateCar("NPC_mcd_defaultpolicecar_black", CAR_TYPE_NORMAL)
-	SetupPursuerCar(cop2)
-	
-	cop2:SetOrigin( Vector3D.new(17,0.7,-1160) )
-	cop2:SetAngles( Vector3D.new(0,0,0) )
-
-	cop2:Spawn()
-	
-	ai:TrackCar(cop1)
-	ai:TrackCar(cop2)
-	
-	missionmanager:SetRefreshFunc( function() 
-		return false 
-	end )
-end
 
 function MISSION.Phase1Start()
 	
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
-
-	MISSION.CopsSpawnStart()
 	
 	MISSION.Settings.EnableCops = true
 	MISSION.Settings.StopCops = true
-	MISSION.Settings.StopCopsRadius = 200
+	MISSION.Settings.StopCopsRadius = 300
 	MISSION.Settings.StopCopsPosition = MISSION.Data.targetPosition
 	
 	gameHUD:Enable(true)
 	playerCar:Lock(false)
 
-	--sounds:Emit( EmitParams.new("goon.go"), -1 )
+	--missionmanager:ScheduleEvent( function() 
+	--	sounds:Emit( EmitParams.new("car.lightswitch"), -1 )
+	--end, 69.8);
+
+	missionmanager:ScheduleEvent( function() 
+		playerCar:SetLight(CAR_LIGHT_LOWBEAMS, false);
+	end, 70);
 
 	MISSION.finalTarget = 1
 	
-	-- Here we start
-	MISSION.metro:Enable(true)
-
-	MISSION.targetHandle = gameHUD:AddTrackingObject(MISSION.metro.object, HUD_DOBJ_IS_TARGET)
+	MISSION.targetHandle = gameHUD:AddMapTargetPoint(MISSION.Data.targetPosition)
 	MISSION.PlayerAITargetPosition = MISSION.Data.targetPosition
 
+	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("#MCD13_OBJ_CATCHJESSE", 3.5)
+	gameHUD:ShowScreenMessage("#MCD05_OBJ_MEET", 3.5)
 	
-	missionmanager:EnableTimeout( true, 95 ) -- Enable, time
+	missionmanager:EnableTimeout( true, 120 ) -- Enable, time
 end
 
 ----------------------------------------------------------------------------------------------
@@ -212,21 +188,19 @@ MISSION.Phase1Update = function( delta )
 
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
-	--local ep = EmitParams.new( "door.garage", vec3(1461, 0.7, 892) )
-	--local sound = sounds:CreateController( ep )
-
 	local distToTarget = length(playerCar:GetOrigin() - MISSION.Data.targetPosition)
 	
 	if MISSION.finalTarget then
 	
 		if distToTarget < 50 then	-- Cops are disabled when player enters % meters objective radius
-			MISSION.Settings.EnableCops = false
-
-			if playerCar:GetPursuedCount() > 0 then
-				gameHUD:ShowScreenMessage("#LOSE_TAIL_MESSAGE", 1.5)	--.. Lost tail message on screen
 			
-			elseif distToTarget < 8 then	-- If player enters % meters radius while pursued, then..
-				MISSION.OnCompleted()		-- ..Mission completed
+			if distToTarget < 50 then	-- If player enters % meters radius while pursued, then..
+				if playerCar:GetPursuedCount() > 0 then
+					gameHUD:ShowScreenMessage("#LOSE_TAIL_MESSAGE", 1.5)	--.. Lost tail message on screen
+				elseif distToTarget < 5 then	-- If player enters % meter objective radius, then..
+					
+					MISSION.OnCompleted()		-- ..Mission completed
+				end
 			end
 		end
 	end
@@ -240,20 +214,6 @@ end
 -- Phases Mission Mechanics ------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
-function MISSION.OnFailed()
-
-	local playerCar = MISSION.playerCar		-- Define player car for current phase
-
-	gameses:SignalMissionStatus( MIS_STATUS_FAILED, 4.0 )
-	
-	MISSION.playerCar:Lock(true)
-	
-	missionmanager:SetRefreshFunc( function() 
-		return false 
-	end ) 
-
-end
-
 function MISSION.OnDone()						-- Marker disappears after reached by player
 	local playerCar = MISSION.playerCar
 	
@@ -265,20 +225,28 @@ function MISSION.OnDone()						-- Marker disappears after reached by player
 end
 
 function MISSION.OnCompleted()					-- Mission completed after all objectives are done
+
+	local playerCar = MISSION.playerCar
+
 	MISSION.OnDone()
 	
 	missionmanager:SetRefreshFunc( function() 
 		return false 
 	end ) 
 	
-	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 2.5 )
-
-	-- Trigger MissionSuccess UI
-	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
+	-- when game gets paused after completion it will store our car position
+	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 2.5, function()
+		-- setup mission completion data
+		StoreMissionCompletionData("mcd05a_playerCar", {
+			position = playerCar:GetOrigin(),
+			angles = playerCar:GetAngles(),
+			damage = playerCar:GetDamage(),
+			bodyDamage = playerCar:GetBodyDamage(),
+			--felony = playerCar:GetFelony()
+		})
+	end)
 	
-	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
 end
-
 MISSION.UpdateAll = function(delta)
 
 	local camera = world:GetView()
@@ -305,7 +273,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("#MCD13_OBJ_FAILED", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#MCD05_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		
@@ -315,13 +283,6 @@ MISSION.UpdateAll = function(delta)
 		
 		gameses:SignalMissionStatus( MIS_STATUS_FAILED, 4.0 )
 		return false
-	end
-
-	if (length(playerCar:GetOrigin() - MISSION.metro.object:GetOrigin()) > 125) then	-- Set up function
-
-		gameHUD:ShowScreenMessage("#MCD13_OBJ_LOST", 3.5)
-		
-		MISSION.OnFailed()
 	end
 	
 	return true

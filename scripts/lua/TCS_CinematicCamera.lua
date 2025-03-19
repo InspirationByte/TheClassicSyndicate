@@ -1,9 +1,9 @@
 -- Code by Matthias and Shurumov Ilya
 
-McdCutsceneCamera = {
+TCS_CutsceneCamera = {
 }
 
-local function McdCutsceneCamera_Update(delta)
+local function TCS_CutsceneCamera_Update(delta)
 	local data = CutsceneCamera.Data
 
 	-- initialize
@@ -57,7 +57,7 @@ end
 
 -- starts the camera sequence playback
 -- once completed, it calls onCompleted after extraWait
-function McdCutsceneCamera.Start(cameras, onCompleted, extraWait)
+function TCS_CutsceneCamera.Start(cameras, onCompleted, extraWait)
 	if CutsceneCamera.isPlaying then
 		CutsceneCamera.End()
 	end
@@ -84,6 +84,6 @@ function McdCutsceneCamera.Start(cameras, onCompleted, extraWait)
 	}
 	
 	-- register update
-	missionmanager:SetPluginRefreshFunc("CutsceneCamera", McdCutsceneCamera_Update)
+	missionmanager:SetPluginRefreshFunc("CutsceneCamera", TCS_CutsceneCamera_Update)
 	cameraAnimator:SetScripted(true)
 end

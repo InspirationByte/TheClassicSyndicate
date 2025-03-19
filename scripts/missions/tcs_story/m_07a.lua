@@ -4,8 +4,6 @@
 -- World Parameters --------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
--- start _testing/mcd07a_activelife
-
 world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("day_clear")
 SetMusicName("la_day")
@@ -33,19 +31,32 @@ MISSION.PlayerRubberBandingParams = {
 -- Mission Init ------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
+MISSION.replayId = 1
+
+MISSION.PursuitDEVMODE = false
+
+MISSION.DrawDebugImGui = function()
+	local Data = MISSION.Data
+	ImGui.TextColored(1.0, 1.0, 1.0, 0.5, "Replay ID " .. MISSION.replayId)
+
+	if ImGui.Button("Restart in Dev Mode") then
+		MISSION.PursuitDEVMODE = true
+		console.ExecuteString("restart")
+	end
+
+	if ImGui.Button("Restart in Game Mode") then
+		MISSION.PursuitDEVMODE = false
+		console.ExecuteString("restart")
+	end
+end
+
 MISSION.Init = function()									-- Preparing Introduction
 	MISSION.Data = {
-		targetPosition = Vector3D.new(0,0,0),
-		
-		AITargets = {
-			vec3(12.4, 0.6, -296),
-			vec3(1419, 0.6, -288),
-			--vec3(1656, 0.5, 986),
-			vec3(1777, 0.5, -470),
-		},
+		targetPosition = Vector3D.new(0,0,0),		
 	}
 	
 	MISSION.Settings.EnableCops = false						-- Cops are disabled
+	MISSION.Settings.EnableTraffic = false
 
 	local playerCar = gameses:CreateCar(McdGetPlayerCarName(), CAR_TYPE_NORMAL)	-- Create player car
 	
@@ -57,11 +68,13 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetDriverType("ped2")
-	
+
 	sounds:Precache( "wind.mcd07a" )
 	sounds:Precache( "wind.mcd07b" )
 
 	sounds:Precache( "goon.frenchcat" )
+
+	missionmanager:ScheduleEvent( MISSION.RemoveAllCars, 0 )	-- Going into Phase2Start after 2 seconds
 
 	--gameHUD:Enable(false)
 	playerCar:Lock(true)
@@ -73,18 +86,18 @@ MISSION.Init = function()									-- Preparing Introduction
 ----------------------------------------------------------------------------------------------
 -- Opponent Car ------------------------------------------------------------------------------
 
-	local opponentCar = gameses:CreateCar("m_police_ios", CAR_TYPE_NORMAL)
+	local opponentCar = gameses:CreateCar("mcd_defaultpolicecar_black", CAR_TYPE_NORMAL)
 	MISSION.opponentCar = opponentCar
-	opponentCar:SetMaxDamage(10000)
+	opponentCar:SetMaxDamage(5000)
 	
 	-- opponent initial position
 	opponentCar:SetOrigin( Vector3D.new(-393, 0.70, -90) )
 	opponentCar:SetAngles( Vector3D.new(180, -90, -180) )
-	opponentCar:SetDriver(true)
-	opponentCar:SetPassengers(2)
-	opponentCar:SetPassengerType(1, "ped1")
+
 	opponentCar:Spawn()
 	opponentCar:SetColorScheme( 1 )
+	opponentCar:SetInfiniteMass(true)
+	opponentCar:SetLight(0, false)
 	
 	opponentCar.onCarCollision = MISSION.OpponentHit
 	
@@ -94,46 +107,49 @@ MISSION.Init = function()									-- Preparing Introduction
 	gameses:SetPlayerCar( playerCar )
 	gameses:SetLeadCar( opponentCar )
 	
-	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
+	local randomSeed = {
+		2,
+		1,
+		1,
+	}
+	
+	MISSION.RandomSeed = randomSeed[MISSION.replayId]
+	MISSION.CurrentReplayId = MISSION.replayId
+	MISSION.replayId = MISSION.replayId + 1		-- Every time the suffix of replay file name will change
+	
+	if MISSION.replayId > 3 then
+		MISSION.replayId = 1					-- replay_1, replay_2, etc
+	end
+
+	if MISSION.PursuitDEVMODE then
+		gameses:SetPlayerCar( opponentCar )
+		gameHUD:Enable(true)
+		opponentCar:Lock(false)
+		missionmanager:EnableTimeout( true, 90 ) -- enable, time
+		MISSION.Settings.EnableTraffic = true
+	else
+		MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
+	end
 end
 
 MISSION.JeanPaulSartre = function()
 
+	-- replay must be reset
+	gameses:LoadCarReplay(MISSION.opponentCar, "replayData/bustout01_" .. MISSION.CurrentReplayId)
+
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 	local opponentCar = MISSION.opponentCar
-	
-	MISSION.currentTarget = MissionManager:GetRandomInt(0, #MISSION.Data.AITargets-1) + 1
-	
-	local activeLife = opponentCar:AddComponent(ActiveLifeAIComponent)
-	activeLife:SetPersonalityType("getawayRacer")
-	activeLife:SetBehaviourType(AI_BEHAVIOUR_GETAWAY)
-	activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
 
-	MISSION.onRouteTargetReached = activeLife.OnRouteTargetReached:AddHandler(function()
-		-- switch target
-		local oldTarget = MISSION.currentTarget
-		while oldTarget == MISSION.currentTarget do
-			MISSION.currentTarget = MissionManager:GetRandomInt(0, #MISSION.Data.AITargets-1) + 1
-		end
-		Msg("new target\n")
-		activeLife:SetTargetPosition(MISSION.Data.AITargets[MISSION.currentTarget])
-	end)
+	missionmanager:ScheduleEvent( MISSION.RemoveAllCars, 0 )	-- Going into Phase2Start after 2 seconds
 
 	sounds:Emit( EmitParams.new("goon.frenchcat"), -1 )
 
 	gameHUD:Enable(true)
 	playerCar:Lock(false)
 	
-	-- give initial boost but take it away shortly after start
-	opponentCar:SetTorqueScale(2.0)
-	missionmanager:ScheduleEvent(function()
-		opponentCar:SetTorqueScale(1.0)
-	end, 2.0)
-	
 	MISSION.targetHandle = gameHUD:AddTrackingObject(MISSION.opponentCar, HUD_DOBJ_IS_TARGET + HUD_DOBJ_CAR_DAMAGE)
-	MISSION.PlayerAIFollowTargetVehicle = MISSION.opponentCar
 
-	missionmanager:EnableTimeout( true, 140 ) -- enable, time
+	missionmanager:EnableTimeout( true, 90 ) -- enable, time
 
 	-- here we start
 	missionmanager:SetRefreshFunc( MISSION.Update )
@@ -143,22 +159,15 @@ end
 
 --------------------------------------------------------------------------------
 
+function MISSION.RemoveAllCars()					-- Mission completed after all objectives are done
+	ai:RemoveAllCars()
+		--ai:SetTrafficCarsEnabled(false)
+end
+
 function MISSION.OnCompleted()					-- Mission completed after all objectives are done
+
 	local playerCar = MISSION.playerCar
 	local opponentCar = MISSION.opponentCar
-	
-	MISSION.ReleaseTarget()
-	
-	-- lock all the cars
-	playerCar:Lock(true)						-- Car is locked after reaching marker
-	opponentCar:Lock(true)
-	opponentCar:RemoveComponent(ActiveLifeAIComponent)
-
-	opponentCar.onCarCollision = nil
-	
-	missionmanager:SetRefreshFunc( function() 
-		return false 
-	end )
 
 	-- show message and signal success
 	gameHUD:ShowScreenMessage("#MCD_MISSION_TOBECONT", 3.5)
@@ -183,9 +192,24 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 			}
 		})
 	end)
+
+	MISSION.ReleaseTarget()
+
+	-- lock all the cars
+	playerCar:Lock(true)						-- Car is locked after reaching marker
+	opponentCar:Lock(true)
+
+	-- stop the vehicle playing loaded frames
+	gameses:StopCarReplay(opponentCar);
+	opponentCar:SetInfiniteMass(false)
+
+	missionmanager:SetRefreshFunc( function() 
+		return false 
+	end )
 end
 
 function MISSION.OpponentHit(self, props)
+
 	local opponentCar = MISSION.opponentCar
 	local playerCar = MISSION.playerCar
 
@@ -210,7 +234,7 @@ function MISSION.OnFailed()
 
 	MISSION.ReleaseTarget()
 	
-	gameses:SetLeadCar( nil )
+	gameses:SetLeadCar( MISSION.playerCar )
 	MISSION.playerCar:Lock(true)
 	
 	missionmanager:SetRefreshFunc( function() 
@@ -229,11 +253,11 @@ function MISSION.SetupFlybyCutscene()
 
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
-	missionmanager:ScheduleEvent( function()
+	missionmanager:ScheduleEvent( function() 
 		sounds:Emit( EmitParams.new("wind.mcd07a"), -1 )
 	end, 0.0);
 
-	missionmanager:ScheduleEvent( function()
+	missionmanager:ScheduleEvent( function() 
 		sounds:Emit( EmitParams.new("wind.mcd07b"), 0 )
 	end, 2.7);
 
@@ -258,7 +282,7 @@ function MISSION.SetupFlybyCutscene()
 		}
 	}
 
-	McdCutsceneCamera.Start(cutCameras, MISSION.StartPause, 1)
+	TCS_CutsceneCamera.Start(cutCameras, MISSION.StartPause, 1)
 end
 
 function MISSION.StartPause()				-- Transition between Phase1Update and Phase2Start
@@ -288,7 +312,7 @@ MISSION.Update = function( delta )
 	local playerCar = MISSION.playerCar
 	
 	-- update player rubber banding
-	--UpdateRubberBanding(playerCar, opponentCar:GetOrigin(), MISSION.PlayerRubberBandingParams)
+	UpdateRubberBanding(playerCar, opponentCar:GetOrigin(), MISSION.PlayerRubberBandingParams)
 
 	-- check player vehicle is wrecked
 	if CheckVehicleIsWrecked( playerCar, MISSION.Data, delta ) then
@@ -306,15 +330,19 @@ MISSION.Update = function( delta )
 	
 	-- check opponent vehicle is wrecked
 	if opponentCar:IsAlive() then
+	
 		-- check the timer
 		if missionmanager:IsTimedOut() then
 			gameHUD:ShowScreenMessage("#MCD07_OBJ_FAILED", 3.5)
+			
 			MISSION.OnFailed()
 		end
 	
 		-- check distance between the car and timer
-		if (length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 240) then
+		if (length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 120) then
+
 			gameHUD:ShowScreenMessage("#MCD07_OBJ_LOST", 3.5)
+			
 			MISSION.OnFailed()
 		end
 	else -- not alive - completed

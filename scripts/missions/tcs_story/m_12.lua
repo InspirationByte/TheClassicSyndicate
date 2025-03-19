@@ -124,7 +124,7 @@ function MISSION.SetupFlybyCutscene()
 		}
 	}
 
-	McdCutsceneCamera.Start(cutCameras, MISSION.StartPause, 0)
+	TCS_CutsceneCamera.Start(cutCameras, MISSION.StartPause, 0)
 	
 	missionmanager:ScheduleEvent( function() 
 		sounds:Emit( EmitParams.new("wind.mcd09"), -1 )

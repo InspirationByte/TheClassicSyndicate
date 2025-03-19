@@ -5,20 +5,10 @@
 ----------------------------------------------------------------------------------------------
 
 world:SetLevelName("miamiclassic")
-world:SetEnvironmentName("day_clear")
-SetMusicName("miami_night")
+world:SetEnvironmentName("night_clear")
+SetMusicName("frisco_night")
 
 MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
-
-MISSION.DrawDebugImGui = function()
-	local playerCar = MISSION.playerCar
-	if ImGui.Button("Goto phase 2") then
-		playerCar:SetOrigin( Vector3D.new(-53,0.7,68) )
-		playerCar:SetAngles( Vector3D.new(180,-90,-180) )
-
-		missionmanager:SetRefreshFunc( MISSION.BankPrePause )
-	end
-end
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -48,19 +38,53 @@ end
 -- Mission Init ------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
+MISSION.PlayPassengerAnim = function(name)
+	local seq = MISSION.AnimTable[name]
+	if seq == nil then
+		return
+	end
+
+	local playerCar = MISSION.playerCar
+	local passenger = playerCar:GetPassengerOccupant(0)
+	for i, anim in ipairs(seq) do
+		missionmanager:ScheduleEvent( function() 
+			passenger:SetSequenceByName(anim.play, 0)
+		end, anim.delay or 0);
+	end
+end
+
 MISSION.Init = function()									-- Preparing Introduction
 	MISSION.Data = {
-		targetPosition = Vector3D.new(-54,0.70,69),			-- Targets Positions
-		target2Position = Vector3D.new(1719,0.70,-603),
+		targetPosition = Vector3D.new(-229,0.70,-189),			-- Targets Positions
+		target2Position = Vector3D.new(-1818,0.80,-447),
 		--DEVTESTtargetPosition = Vector3D.new(-119,0.70,-1145),		
 		--DEVTESTtarget2Position = Vector3D.new(-119,0.70,-1175),
 	}
 	
-	MISSION.AlarmSound = nil
+	MISSION.loseTailId = 0
+	MISSION.AnimTable = {
+		start = { 
+			{ play = "driver.Passenger_TalkToDriver", delay = 0.5 },
+			{ play = "driver.Passenger_Point", delay = 4.0 }
+		},
+		whatdahell = { 
+			{ play = "driver.Passenger_Agree", delay = 0.5 },
+			{ play = "driver.Passenger_LookBack", delay = 1.5 }
+		},
+		notailman = {
+			{ play = "driver.Passenger_LookAround" },
+			{ play = "driver.Passenger_Fun", delay = 1.0 }
+		},
+		ending = {
+			{ play = "driver.Passenger_Talk", delay = 1.0 }
+		}
+	}
+	
 	MISSION.Settings.EnableCops = false						-- Cops are disabled
 
+	MISSION.loseTailDelay = 20
 	MISSION.SpawnSceneryCars()
-	
+
 	local playerCar = gameses:CreateCar(McdGetPlayerCarName(), CAR_TYPE_NORMAL)	-- Create player car
 	
 	MISSION.playerCar = playerCar	-- Define spawned car above as player car for mission
@@ -73,16 +97,19 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetDriverType("ped2")
 
-	gameutil.PrecacheStudioModel( "models/characters/mcd_pedrobber.egf", {
+	gameutil.PrecacheStudioModel( "models/characters/mcd_ticco.egf", {
 		"models/characters/pedestrian.mop",
 		"models/characters/driver.mop",
 	})
-	sounds:Precache( "wind.mcd01" )
-	sounds:Precache( "bank.jobalarm" )
-	sounds:Precache( "goon.go" )
-	sounds:Precache( "goon.losetail" )
+	sounds:Precache( "car.lightswitch" )
 
-	MISSION.loseTailDelay = 20
+	sounds:Precache( "wind.mcd03a" )
+	sounds:Precache( "wind.mcd03b" )
+
+	sounds:Precache( "ticco.start" )
+	sounds:Precache( "ticco.losetail" )
+	sounds:Precache( "ticco.pewpews" )
+	sounds:Precache( "ticco.end" )
 
 	-- For the load time, set player car
 	gameses:SetPlayerCar( playerCar )
@@ -91,8 +118,9 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD01_TITLE_THEBANKJOB", 3.5)				-- Classic title text (Duration)
-	
+	gameHUD:ShowScreenMessage("#MCD03_TITLE_TICCO", 3.5)				-- Classic title text (Duration)
+	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
+
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
 end
 
@@ -104,39 +132,51 @@ end
 
 function MISSION.SetupFlybyCutscene()
 
-	local playerCar = MISSION.playerCar		-- Define player car for cu
+	local playerCar = MISSION.playerCar		-- Define player car for current phase
+
+	missionmanager:ScheduleEvent( function() 
+		sounds:Emit( EmitParams.new("wind.mcd03a"), -1 )
+	end, 0.1);
+
+	missionmanager:ScheduleEvent( function() 
+		sounds:Emit( EmitParams.new("wind.mcd03b"), 0 )
+	end, 1.72);
+
+	missionmanager:ScheduleEvent( function() 
+		sounds:Emit( EmitParams.new("car.lightswitch"), -1 )
+	end, 3.5);
+
+	missionmanager:ScheduleEvent( function() 
+		playerCar:SetLight(CAR_LIGHT_LOWBEAMS, false);
+	end, 1);
+
+	missionmanager:ScheduleEvent( function() 
+		playerCar:SetLight(CAR_LIGHT_LOWBEAMS, true);
+	end, 3.5)
 
 	local targetView = cameraAnimator:GetComputedView()
 	cameraAnimator:Update(0, gameses:GetPlayerCar())
 
 	local cutCameras = {
 		{
-			{ vec3(-90, 6, -1128), vec3(-15.88,26.68, 0), 0, 50 },
-			{ vec3(-90, 4.3, -1128), vec3(-15.88,26.68, 0), 2, 50 },
+			{ Vector3D.new(-118, 2, -1022), Vector3D.new(0,0,0), 0, 60 },
+			{ Vector3D.new(-118, 2, -1091), Vector3D.new(0,0,0), 1.8, 60 },
+			{ Vector3D.new(-118, 2, -1091), Vector3D.new(140,0,0), 2.0, 60 },
 		},
 		{
-			{ vec3(-93.16,3.83,-1141.87), vec3(5.36, 64.56, 0), -1, 40 },
-			{ vec3(-92.70,3.83,-1141.15), vec3(5.36, 57.56, 0), 1.8, 40 },
-			{ vec3(-92.70,3.83,-1141.15), vec3(32.36, 240.56, 0), 2, 40 },
-		},
-		{
-			{ vec3(-90.80,0.98,-1139.65), vec3(-22.56, 140.44, 0), -0.7, 60 },
-			{ vec3(-90.80,0.98,-1139.65), vec3(3.56, 234.44, 0), -0.5, 60 },
-			{ vec3(-89.53,0.98,-1138.33), vec3(3.56, 206.68, 0), 2, 60 },
-			{ targetView:GetOrigin(), targetView:GetAngles() + vec3(10.0, 0, 0), 2.2, targetView:GetFOV() },
-			{ targetView:GetOrigin(), targetView:GetAngles() + vec3(6.0, 0, 0), 2.6, targetView:GetFOV() },
-			{ targetView:GetOrigin(), targetView:GetAngles(), 3.0, targetView:GetFOV() },
-			{ targetView:GetOrigin(), targetView:GetAngles(), 3.5, targetView:GetFOV() }
+			{ Vector3D.new(-86,5,-1139), Vector3D.new(0, 158.25, 0), -2, 60 },
+			{ Vector3D.new(-86,5,-1139), Vector3D.new(45, 158.25, 0), 0.2, 60 },
+			{ Vector3D.new(-86,4,-1139), Vector3D.new(32, 157.75, 0), 1, 60 },
+			{ Vector3D.new(-86,2.69,-1139), Vector3D.new(20, 158, 0), 2, 60 },
+			{ Vector3D.new(-88,2.09,-1136), Vector3D.new(0, 180.02, 0), 2.5, 60 },
+			{ targetView:GetOrigin(), targetView:GetAngles(), 2.8, targetView:GetFOV() },
+			{ targetView:GetOrigin(), targetView:GetAngles(), 3.1, targetView:GetFOV() },
+			{ targetView:GetOrigin(), targetView:GetAngles(), 3.3, targetView:GetFOV() },
+			{ targetView:GetOrigin(), targetView:GetAngles(), 4.0, targetView:GetFOV() }
 		}
 	}
-		
-	McdCutsceneCamera.Start(cutCameras, MISSION.StartPause, 1)
 	
-	-- apply sound effects
-	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd01"), -1 )
-	end, 3.8)
-
+	TCS_CutsceneCamera.Start(cutCameras, MISSION.StartPause, 1)
 end
 
 function MISSION.StartPause()				-- Transition between Phase1Update and Phase2Start
@@ -162,21 +202,20 @@ function MISSION.Phase1Start()
 	
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 	
-	MISSION.Settings.EnableCops = false
+	MISSION.Settings.EnableCops = true
 	
 	gameHUD:Enable(true)
 	playerCar:Lock(false)
 	
 	MISSION.targetHandle = gameHUD:AddMapTargetPoint(MISSION.Data.targetPosition)
-	
 	MISSION.PlayerAITargetPosition = MISSION.Data.targetPosition
 
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("#MCD01_OBJ_GETTOBANK", 3.5)
+	gameHUD:ShowScreenMessage("#MCD03_OBJ_PICKUP", 3.5)
 	
-	missionmanager:EnableTimeout( true, 70 ) -- Enable, time
+	missionmanager:EnableTimeout( true, 80 ) -- Enable, time
 end
 
 ----------------------------------------------------------------------------------------------
@@ -187,20 +226,16 @@ MISSION.Phase1Update = function( delta )
 
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
-	local remainingTime = missionmanager:GetMissionTime()
 	local distToTarget = length(playerCar:GetOrigin() - MISSION.Data.targetPosition)
 	local playerSpeed = playerCar:GetSpeed()		-- Check for Player speed
 
-	if distToTarget < 15.0 then						-- If player enters % meters radius, then..
+	if distToTarget < 30.0 then						-- *If player enters % meters radius while pursued, then..
 	
-		if remainingTime > 15 then					-- ..If timer is above 15 seconds, then..
-			gameHUD:ShowScreenMessage("#MCD01_OBJ_TOOEARLY", 1.5)	-- .. Too early message on screen
-			playerCar:SetFelony(playerCar:GetFelony() + 0.1 * delta) -- 10 percent per second
+		if playerCar:GetPursuedCount() > 0 then
+			gameHUD:ShowScreenMessage("#LOSE_TAIL_MESSAGE", 1.5)	-- .. Lose tail message on screen*
 		elseif playerSpeed < 60 then				-- **If player speed is higher than %, then ..
 
 			if distToTarget < 4.0 then
-
-				if remainingTime < 15 then
 			
 				gameHUD:RemoveTrackingObject(MISSION.targetHandle)		-- Remove marker
 				
@@ -208,11 +243,16 @@ MISSION.Phase1Update = function( delta )
 
 				missionmanager:EnableTimeout( false, 80 )	-- Disable countdown timer
 				
-				missionmanager:SetRefreshFunc( MISSION.BankPrePause )	-- Going to transition step immediately
-				end
+				missionmanager:ScheduleEvent( MISSION.TiccoPause, 0.0 )	-- Going to transition step immediately
+																		-- (See MISSION.BankPause below)
+				missionmanager:SetRefreshFunc( function() 
+					return false 
+				end ) 
+			
+				return false
 			end
 		else
-			gameHUD:ShowScreenMessage("#MCD_SLOWDOWN", 1.0) -- .. Slow down message on screen**
+			gameHUD:ShowScreenMessage("#SLOW_DOWN_MESSAGE", 1.0) -- .. Slow down message on screen**
 		end
 	end
 	
@@ -242,99 +282,143 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 		return false 
 	end ) 
 	
-	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 4.0 )
-
-	-- Trigger MissionSuccess UI
-	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
-	
-	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
+	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 3.3 )
 end
 
 ----------------------------------------------------------------------------------------------
--- Bank PrePause -----------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
-function MISSION.BankPrePause()
+function MISSION.TiccoPause()				-- Transition between Phase1Update and Phase2Start
+	local playerCar = MISSION.playerCar
+    local pedestrian = gameses:CreatePedestrian("models/characters/mcd_ticco.egf", -1)
+    pedestrian:SetOrigin(vec3(-217.17,0.7,-182.11))
+    pedestrian:Spawn()
+    pedestrian:SetBodyGroups(1)        -- 2 to make briefcase
+    
+	missionmanager:SetRefreshFunc( function() 
+		return false 
+	end ) 
+	
+    missionmanager:SetPluginRefreshFunc( "pedswalk", function()
+        local run = true
+        if PedWalkToTarget(pedestrian, gameses:GetPlayerCar():GetOrigin(), run) < 1.2 then
+			missionmanager:SetPluginRefreshFunc( "pedswalk", nil)
+			pedestrian:Remove()
+			
+			playerCar:SetPassengerType(0, "ticco")
+			playerCar:SetPassengers(1)
+			
+			MISSION.Phase2Start()
+			
+			missionmanager:ScheduleEvent( function() MISSION.PlayPassengerAnim("start") end, 0.5 )
+        end
+    end)
+
+
+end
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+
+function MISSION.TiccoPewPewPREPAUSE()
 
 	local playerCar = MISSION.playerCar
-
-	local ep = EmitParams.new( "bank.jobalarm", vec3(-53, 1.0, 58) )
-	MISSION.AlarmSound = CSoundingObject.new()
-	MISSION.AlarmSound:Emit( 0, ep )
 
 	gameHUD:Enable(false)
 	playerCar:Lock(true)
 
+	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
+	
 	missionmanager:SetRefreshFunc( function() 
 		return false 
 	end ) 
 
-	missionmanager:ScheduleEvent( MISSION.BankPause, 2 )	-- Going into Phase2Start after 2 seconds
+	missionmanager:ScheduleEvent( MISSION.TiccoPewPewPRECAM, 1.5 )	-- Going into Phase2Start after 2 seconds
 end
 
 ----------------------------------------------------------------------------------------------
--- Bank Pause --------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
-function MISSION.BankPause()				-- Transition between Phase1Update and Phase2Start
+function MISSION.TiccoPewPewPRECAM()				-- Transition between Phase1Update and Phase2Start
 
-	local playerCar = MISSION.playerCar
+	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
-	playerCar:SetOrigin( Vector3D.new(-53,0.7,68) )	
-	playerCar:SetAngles( Vector3D.new(180,-90,-180) )
+	playerCar:SetOrigin( Vector3D.new(-1820,0.7,-436) )						--Player car properties
+	playerCar:SetAngles( Vector3D.new(180,180,180) )
+	playerCar:SetPassengers(0)
 
-	local ped1 = gameses:CreatePedestrian("models/characters/mcd_pedrobber.egf", -1)
-	ped1:SetOrigin(vec3(-54.02,0.7,60.87))
-	ped1:Spawn()
-	ped1:SetBodyGroups(1 + 2)		-- 2 to make briefcase
-	
-	-- two ways of initialize array
-	local walkingPeds = {
-		--ped1,
-		--ped2
-	}
-	
-	table.insert(walkingPeds, ped1)
-	
-	for i in range(1,2) do 
-		missionmanager:ScheduleEvent( function() 
-			local ped = gameses:CreatePedestrian("models/characters/mcd_pedrobber.egf", -1)
-			ped:SetOrigin(vec3(-54.02,0.7,60.87))
-			ped:Spawn()
-			ped:SetBodyGroups(1)		-- 2 to make briefcase
-			
-			table.insert(walkingPeds, ped)
-		end, 0.4 * i )
-	end
-	
-	missionmanager:SetPluginRefreshFunc( "pedswalk", function()
-	
-		local run = true
-		
-		for i,ped in ipairs(walkingPeds) do 
-			if PedWalkToTarget(ped, gameses:GetPlayerCar():GetOrigin(), run) < 1.2 then
-				
-				-- remove pedestrian from world and table
-				ped:Remove()
-				table.remove(walkingPeds, i)
-			end
-			
-			-- no more pedestrians to walk?
-			if #walkingPeds == 0 then
-				missionmanager:SetPluginRefreshFunc( "pedswalk", nil)
-			end
-		end
-
-	end)
+	-- Setup cameras
+	cameraAnimator:SetScripted(true)
 
 	local cutCameras = {
 		{
-			{ Vector3D.new(-62.37,1.80,61.60), Vector3D.new(4.48, 277.43, 0), 0, 40 },
-			{ Vector3D.new(-62.25,1.80,63.53), Vector3D.new(3.76, 300.03, 0), 2, 40 },
+			{ Vector3D.new(-1821, 2, -462), Vector3D.new(-2, 320, 0), 0, 40 },
+			{ Vector3D.new(-1824, 3, -440), Vector3D.new(2.5, 289, 0), 5, 40 },
 		}
 	}
+	TCS_CutsceneCamera.Start(cutCameras, MISSION.TiccoPewPew, 0)
+
+	missionmanager:ScheduleEvent( function() 
+		sounds:Emit( EmitParams.new("ticco.pewpews"), -1 )
+	end, 1.0);
+
+end
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+
+function MISSION.TiccoPewPew()				-- Transition between Phase1Update and Phase2Start
+
+	local playerCar = MISSION.playerCar
 	
-	McdCutsceneCamera.Start(cutCameras, MISSION.Phase2Start, 1)
+    local pedestrian1 = gameses:CreatePedestrian("models/characters/mcd_ticco.egf", -1)
+    pedestrian1:SetOrigin(vec3(-1806, 0.7, -433))
+    pedestrian1:Spawn()
+    pedestrian1:SetBodyGroups(1)        -- 2 to make briefcase
+
+    
+    missionmanager:SetPluginRefreshFunc( "pedswalk2", function()
+        local run = true
+        if PedWalkToTarget(pedestrian1, gameses:GetPlayerCar():GetOrigin(), run) < 1.2 then
+			missionmanager:SetPluginRefreshFunc( "pedswalk2", nil)
+			pedestrian1:Remove()
+			
+			playerCar:SetPassengers(1)
+        end
+	end)
+	
+	local playerCar = MISSION.playerCar		-- Define player car for current phase
+
+	local cutCameras = {
+		{
+			{ Vector3D.new(-1822, 1, -425), Vector3D.new(0, 260, 0), 0, 40 },
+			{ Vector3D.new(-1823, 1, -432), Vector3D.new(2, 220, 0), 3, 40 },
+			{ Vector3D.new(-1823, 1, -432), Vector3D.new(2, 220, 0), 3.5, 40 },
+		}
+	}
+	TCS_CutsceneCamera.Start(cutCameras, MISSION.PostTiccoPewPew, 1)
+
+end
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+
+function MISSION.PostTiccoPewPew()
+	MISSION.OnCompleted()
+
+	local playerCar = MISSION.playerCar
+
+	gameHUD:Enable(true)
+	playerCar:Lock(true)
+
+	missionmanager:ScheduleEvent( function() 
+		sounds:Emit( EmitParams.new("ticco.end"), -1 )
+		MISSION.PlayPassengerAnim("ending")
+	end, 0);
+
+	missionmanager:SetRefreshFunc( function() 
+		return false 
+	end ) 
 end
 
 ----------------------------------------------------------------------------------------------
@@ -345,34 +429,25 @@ end
 
 function MISSION.Phase2Start()
 	local playerCar = MISSION.playerCar			-- Define what the player car is for this phase
-
-	local felony = playerCar:GetFelony()
-	if felony < 0.5 then
-	  felony = 0.5
-	end
-	playerCar:SetFelony(felony)
-
 	playerCar:Lock(false)						-- Unlock player's car after robbery (MISSION.BankPause)
 	
 	MISSION.Settings.EnableCops = true			-- Enable cops
-	MISSION.Settings.MaxCops = 1
 	
-	sounds:Emit( EmitParams.new("goon.go"), -1 )
-
-	SetMusicState(MUSIC_STATE_PURSUIT)			-- Force PURSUIT Music
+	sounds:Emit( EmitParams.new("ticco.start"), -1 )
 
 	gameHUD:Enable(true)						-- HUD enabled
-		
+	
 	missionmanager:EnableTimeout(false, 0)		-- Disable countdown timer
 	missionmanager:ShowTime( true )				-- Enable countup timer
 	
 	MISSION.safeHouseTarget = MISSION.Data.target2Position
 	MISSION.targetHandle = gameHUD:AddMapTargetPoint(MISSION.safeHouseTarget)
-	
 	MISSION.PlayerAITargetPosition = MISSION.safeHouseTarget
+	MISSION.safeHouseCops = false
+	MISSION.finalTarget = true
 	
 	-- Show objective message (Duration)
-	gameHUD:ShowScreenMessage("#MCD01_OBJ_GETTOLOCKUP", 3.5)
+	gameHUD:ShowScreenMessage("#MCD03_OBJ_TAKEHIM", 3.5)
 	
 	missionmanager:SetRefreshFunc( MISSION.Phase2Update )
 end
@@ -403,7 +478,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("#MCD01_OBJ_FAILED", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#MCD03_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		
@@ -425,28 +500,40 @@ end
 MISSION.Phase2Update = function( delta )
 
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
-	
 
-    -- tell player every 20 seconds to lose tail
+	local distToTarget = length(playerCar:GetOrigin() - MISSION.safeHouseTarget)
+
+	-- tell player every 20 seconds to lose tail
 	MISSION.loseTailDelay = MISSION.loseTailDelay - delta
 	if playerCar:GetPursuedCount() > 0 and MISSION.loseTailDelay <= 0 then
-		MISSION.loseTailDelay = 20
-		sounds:Emit( EmitParams.new("goon.losetail"), -1 )
+		MISSION.loseTailDelay = 20.0
+		
+		local ep = EmitParams.new("ticco.losetail")
+		ep.sampleId = MISSION.loseTailId
+		MISSION.loseTailId = (MISSION.loseTailId + 1) % 2
+		if ep.sampleId == 0 then
+			MISSION.PlayPassengerAnim("whatdahell")
+		else
+			MISSION.PlayPassengerAnim("notailman")
+		end
+		sounds:Emit(ep)
 	end
 	
-	local distToTarget = length(playerCar:GetOrigin() - MISSION.safeHouseTarget)
+	if MISSION.finalTarget then
 	
-	if distToTarget < 300 then	-- Cops are disabled when player enters % meters objective radius
-		MISSION.Settings.EnableCops = false
-	end
-	
-	if distToTarget < 50 then	-- If player enters % meters radius while pursued, then..
-		if playerCar:GetPursuedCount() > 0 then
-			gameHUD:ShowScreenMessage("#LOSE_TAIL_MESSAGE", 1.5)	--.. Lost tail message on screen
-		elseif distToTarget < 5 then	-- If player enters % meter objective radius, then..
-			MISSION.OnCompleted()		-- ..Mission completed
+		if distToTarget < 300 then	-- Cops are disabled when player enters % meters objective radius
+			MISSION.Settings.EnableCops = false
+			
+			if distToTarget < 50 then	-- If player enters % meters radius while pursued, then..
+				if playerCar:GetPursuedCount() > 0 then
+					gameHUD:ShowScreenMessage("#LOSE_TAIL_MESSAGE", 1.5)	--.. Lost tail message on screen
+				elseif distToTarget < 5 then	-- If player enters % meter objective radius, then..
+					
+					MISSION.TiccoPewPewPREPAUSE()		-- ..Mission completed
+				end
+			end
 		end
 	end
-
+	
 	return MISSION.UpdateAll(delta)
 end

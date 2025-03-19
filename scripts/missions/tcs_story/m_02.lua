@@ -90,7 +90,7 @@ function MISSION.SetupFlybyCutscene()
 		}
 	}
 	
-	McdCutsceneCamera.Start(cutCameras, MISSION.StartPause, 1)
+	TCS_CutsceneCamera.Start(cutCameras, MISSION.StartPause, 1)
 end
 
 function MISSION.StartPause()				-- Transition between Phase1Update and Phase2Start

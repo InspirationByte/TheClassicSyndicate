@@ -36,14 +36,14 @@ local StoryMoviePlay = class()
 		
 		self.movieIsOk = self.moviePlayer:Init("resources/media/"..self.movieName)
 
-		sounds:LoadScript(EmitterSounds.MCDMessages)
+		sounds:LoadScript(EmitterSounds.Messages)
 		if self.audioName ~= nil then
 			sounds:Precache(self.audioName)
 		end
 	end
 	
 	function StoryMoviePlay:OnLeave()
-		sounds:FreeScript(EmitterSounds.MCDMessages)
+		sounds:FreeScript(EmitterSounds.Messages)
 		self.audioObject:StopEmitter(CSoundingObject.ID_ALL, true)
 		self.audioObject = nil
 		

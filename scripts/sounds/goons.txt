@@ -1,0 +1,57 @@
+default is2d 	1;
+default channel	CHAN_VOICE;
+default volume 	2.0;
+
+"goon.losetail"
+{
+	rndwave
+	{
+		wave		"goons/goon_losetail01.wav";
+		wave 		"goons/goon_losetail02.wav";
+		wave		"goons/goon_losetail03.wav";
+	}
+};
+
+"goon.go"
+{
+	rndwave
+	{
+		wave 		"goons/goon_go.wav";
+		wave 		"goons/goon_go_alt.wav";
+	}
+
+};
+
+"goon.wat"
+{
+	wave			"goons/good_wat.wav";
+};
+
+"ticco.start"
+{
+	wave			"goons/ticco_start.wav";
+};
+
+"ticco.end"
+{
+	wave			"goons/ticco_end.wav";
+};
+
+"ticco.losetail"
+{
+	rndwave
+	{
+		wave		"goons/ticco_losetail01.wav";
+		wave 		"goons/ticco_losetail02.wav";
+	}
+};
+
+"ticco.pewpews"
+{
+	wave			"goons/ticco_pewpews.wav";
+};
+
+"goon.frenchcat"
+{
+	wave			"goons/goon_frenchcat.wav";
+};

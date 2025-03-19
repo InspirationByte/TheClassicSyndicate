@@ -1,0 +1,63 @@
+default channel CHAN_VOICE;
+default is2d	1;
+default volume	1.0;
+
+"cop.pursuit"
+{
+	wave 	"cops/state_pursuit.wav";
+}
+
+"cop.redlight"
+{
+	wave 	"cops/state_traffic.wav";
+}
+
+"cop.hitvehicle"
+{
+	wave 	"cops/state_hit_vehicle.wav";
+}
+
+"cop.lost"
+{
+	rndwave
+	{
+		wave 	"cops/state_lost.wav";
+		wave	"cops/state_lost_alt.wav";
+	}
+
+}
+
+"cop.heading"
+{
+	wave 	"cops/state_heading.wav";
+}
+
+"cop.heading_north"
+{
+	wave 	"cops/dir_north.wav";
+}
+
+"cop.heading_east"
+{
+	wave 	"cops/dir_east.wav";
+}
+
+"cop.heading_south"
+{
+	wave 	"cops/dir_south.wav";
+}
+
+"cop.heading_west"
+{
+	wave 	"cops/dir_west.wav";
+}
+
+"cop.takehimup"
+{
+	wave 	"cops/state_heading.wav";
+}
+
+"cop.taunt"
+{
+	wave 	"cops/blank.wav";
+}

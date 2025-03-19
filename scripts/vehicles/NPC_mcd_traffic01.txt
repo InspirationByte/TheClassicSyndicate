@@ -11,11 +11,11 @@ wheelBodyGroup	"unc_classic" 	"cpd_classic" 	"cap_classic";
 allowMusic 0;
 sounds
 {
-	engine		"MCD_DefaultNPC.engine";
-	engine_low	"MCD_DefaultNPC.engine_low";
-	engine_idle	"MCD_DefaultNPC.engine_idle";
+	engine		"npc.engine";
+	engine_low	"npc.engine_low";
+	engine_idle	"npc.engine_idle";
 
-	horn 		"MCD_DefaultNPC.horn";
+	horn 		"npc.horn";
 	// use single engine sound
 	//engine_off	"sounds/engines/engine2_off.wav"
 };

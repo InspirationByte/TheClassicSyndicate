@@ -1,0 +1,88 @@
+// NOTE: Answering machine is a 3D object
+
+default channel 	CHAN_VOICE;
+default distance 	45;
+default volume 		1.5;
+
+"message.story_movie"
+{
+	wave		"$story_movie";
+}
+
+"message.bankjob"
+{
+	wave		"sfx/vocal_bankjob.wav";
+};
+
+"message.hidetheevidence"
+{
+	wave		"sfx/vocal_evidence.wav";
+};
+
+"message.ticcosride"
+{
+	wave		"sfx/vocal_ticco.wav";
+};
+
+"message.caseforakey"
+{
+	wave		"sfx/vocal_caseforakey.wav";
+};
+
+"message.meetrufus"
+{
+	wave		"sfx/vocal_rufus.wav";
+};
+
+"message.payback"
+{
+	wave		"sfx/vocal_payback.wav";
+};
+
+"message.shipmentcomingin"
+{
+	wave		"sfx/vocal_shipment.wav";
+};
+
+"message.superflydrive"
+{
+	wave		"sfx/vocal_superfly.wav";
+};
+
+"message.diangio"
+{
+	wave		"sfx/vocal_diangio.wav";
+};
+
+"message.baitforatrap"
+{
+	wave		"sfx/vocal_baitforatrap.wav";
+};
+
+//-----------------------------------------
+
+"message.call_cleanup"
+{
+	wave		"sfx/call_cleanup.wav";
+};
+
+"message.call_payback"
+{
+	wave		"sfx/call_payback.wav";
+};
+
+"message.call_shipment"
+{
+	wave		"sfx/call_shipment.wav";
+};
+
+"message.call_diangio"
+{
+	wave		"sfx/call_diangio.wav";
+};
+
+"message.call_baitforatrap"
+{
+	wave		"sfx/call_baitforatrap.wav";
+};
+

@@ -1,7 +1,5 @@
 -- ModInit for Syndicate's Classic Mod
 
--- Hey man, good luck in the future, both for your game and your own future, see ya ! #_matti
-
 local ModInit = {
 	Title = "The Classic Syndicate",
 
@@ -250,18 +248,8 @@ local UnlockableCars = {
 	{"m_police_ios", "TCS - Police"},
 	{"m_250gt_ios", "TCS - 250 GT"},
 
-	-- Old Bonus cars
-	{"mcd_miamidef", "TCS - Miami PSX Car"},
-	{"mcd_superflydrive", "TCS - Superfly Drive Car"},			
-	{"mcd_defaultpolicecar_black", "TCS - NYC Police"},
 	{"NPC_mcd_traffic01", "TCS - Traffic 1"},
 	{"NPC_mcd_traffic02", "TCS - Traffic 2"},
-	{"mcd_miamibetagsx", "TCS - Yellow GSX Car"},
-	{"mcd_miamievidence", "TCS - NYC PC Car"},	
-	{"mcd_miamidef_PC", "TCS - Miami PC Car"},
-	{"mcd_miamicleanup", "TCS - The Clean Up Car"},
-	{"mcd_miamidef_mini", "TCS - Miami PSX Car (MINI)"},
-	{"sfd_friscodef", "TCS - Frisco PSX Car"},
 }
 
 function McdStoreAchievementsData( key, tbl )
@@ -307,7 +295,7 @@ function McdGetSuperflyCarName()
 	return standardCarName
 end
 
-local MyCopSoundsFilename = "scripts/sounds/mcd_cops.txt"
+local MyCopSoundsFilename = "scripts/sounds/cops.txt"
 
 function IsMyLevel()
 	local levName = string.lower(world:GetLevelName())
@@ -339,18 +327,16 @@ function ModInit:Init()
 	include("scripts/lua/ui/StoryMiamiClassicEndScreen.lua")
 	include("scripts/lua/ui/StoryMoviePlay.lua")
 
-	EmitterSounds.MCDMessages = "scripts/sounds/mcd_missions_messages.txt"	-- Vocal messages
+	EmitterSounds.Messages 				= 	"scripts/sounds/messages.txt"
+	EmitterSoundRegistry.Goons 			= 	"scripts/sounds/goons.txt"
+	EmitterSoundRegistry.SFX 			= 	"scripts/sounds/sfx.txt"
+	EmitterSoundRegistry.Vehicles 		= 	"scripts/sounds/vehicles.txt"
 
-	EmitterSoundRegistry.MCDEngine = "scripts/sounds/mcd_engine.txt"				-- Driver 1 engine sounds
-	EmitterSoundRegistry.MCDVoices = "scripts/sounds/mcd_missions_vo.txt"			-- Driver 1 original mission voices
-	EmitterSoundRegistry.MCDSfx = "scripts/sounds/mcd_csfx.txt"						-- SFX for cameras / transitions
-	EmitterSoundRegistry.MCDObjects = "scripts/sounds/mcd_objects.txt"				-- Objects SFX
-	
-	CopVoiceOver[MyLevelFileName] = MyCopSoundsFilename;	-- Define what cop sounds script a level uses
+	CopVoiceOver[MyLevelFileName] = MyCopSoundsFilename;
 	
 	CopVoiceOver[string.lower(MyLevelFileName)] = MyCopSoundsFilename;
 	
-	CityTimeOfDayMusic[MyLevelFileName] = {			-- Music selection for Miami (Classic)
+	CityTimeOfDayMusic[MyLevelFileName] = {
 		day_clear = "miami_day",
 		day_stormy = "la_day",
 		dawn_clear = "frisco_night",
@@ -363,7 +349,7 @@ function ModInit:Init()
 	-----------------------------------------------------------
 	
 	-- add levels
-	table.insert(MenuCityList, {MyLevelFileName, "Miami (Classic)"})			-- Miami Classic
+	table.insert(MenuCityList, {MyLevelFileName, "Miami (Classic)"})
 
 	-- add cars
 	for i,v in ipairs(ClassicCars) do
@@ -432,12 +418,11 @@ end
 function ModInit:DeInit()
 	localize.RemoveTokensFile("mcd_missions")
 	
-	EmitterSounds.MCDMessages = nil			-- Vocal messages SFX
-	EmitterSoundRegistry.MCDEngine = nil	-- Driver 1 engine sounds
-	EmitterSoundRegistry.MCDIview = nil		-- Default Interview resources
-	EmitterSoundRegistry.MCDVoices = nil	-- Driver 1 missions voices
-	EmitterSoundRegistry.MCDSfx = nil		-- Cutscenes SFX
-	EmitterSoundRegistry.MCDObjects = nil	-- Gameplay SFX
+	EmitterSounds.Messages 				= 	nil
+	EmitterSoundRegistry.MCDIview 		= 	nil
+	EmitterSoundRegistry.Goons 			= 	nil
+	EmitterSoundRegistry.SFX 			= 	nil
+	EmitterSoundRegistry.Vehicles 		= 	nil
 
 	McdCutsceneCamera = nil
 	CityTimeOfDayMusic[MyLevelFileName] = nil

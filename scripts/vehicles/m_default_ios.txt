@@ -11,11 +11,11 @@ wheelBodyGroup	"ios_uncapped" 	"ios_capped" 	"ios_cap";
 allowMusic 0;
 sounds
 {
-	engine		"MCD_Default.engine";
-	engine_low	"MCD_Default.engine_low";
-	engine_idle	"MCD_Default.engine_idle";
+	engine		"default.engine";
+	engine_low	"default.engine_low";
+	engine_idle	"default.engine_idle";
 
-	horn 		"MCD_DefaultPlayer.horn";
+	horn 		"default.horn";
 	// use single engine sound
 	//engine_off	"sounds/engines/engine2_off.wav"
 };

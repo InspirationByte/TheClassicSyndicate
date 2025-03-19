@@ -1,8 +1,28 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+"d3.glasshit"
+{
+	rndwave
+	{
+		wave 		"sfx/event_glass_hit.wav";
+		wave 		"sfx/event_glass_hit_alt.wav";
+	}
+
+	pitch		1.0;
+	volume		0.5;
+	distance	5.0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+"alarm.bank"
+{
+	wave		"sfx/event_alarm_bank.wav";
+};
+
 "bank.jobalarm"
 {
-	wave		"sirens/mcd_default_siren.wav";
+	wave		"vehicles/npc_hn0.wav";
 
 	volume		0.3;
 	pitch		1.5;
@@ -11,7 +31,7 @@
 
 "d3.citynoise"
 {
-	wave		"cutscenes_sfx/d3_ambientcitynoise.wav";
+	wave		"sfx/event_city_ambient.wav";
 
 	volume		0.05;
 	pitch		0.75;
@@ -20,7 +40,7 @@
 
 "wind.msg01"
 {
-	wave		"cutscenes_sfx/twind01_short.wav";
+	wave		"sfx/event_twind01_short.wav";
 
 	is2d		1;
 	volume		0.3;
@@ -29,7 +49,7 @@
 
 "door.garage"
 {
-	wave		"cutscenes_sfx/garagedoor_d2.wav";
+	wave		"sfx/event_garagedoor_d2.wav";
 
 	volume		0.6;
 	pitch		1.0;
@@ -39,7 +59,7 @@
 
 "wind.mcd01"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	volume		0.6;
@@ -50,7 +70,7 @@
 
 "wind.mcd02a"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	volume		0.6;
@@ -59,7 +79,7 @@
 
 "wind.mcd02b"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	volume		0.6;
@@ -70,7 +90,7 @@
 
 "car.lightswitch"
 {
-	wave		"cutscenes_sfx/car_lightswitch01.wav";
+	wave		"sfx/event_carbeams.wav";
 
 	is2d		1;
 	"volume"	"0.5";
@@ -81,7 +101,7 @@
 
 "wind.mcd03a"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	volume		0.6;
@@ -90,7 +110,7 @@
 
 "wind.mcd03b"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -101,7 +121,7 @@
 
 "wind.mcd04a1"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -112,7 +132,7 @@
 
 "wind.mcd05a"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -121,7 +141,7 @@
 
 "wind.mcd05b"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 	is2d		1;
 	"volume"	"0.6";
 	pitch		"0.8";
@@ -131,7 +151,7 @@
 
 "wind.mcd06a"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -140,7 +160,7 @@
 
 "wind.mcd06b"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -151,7 +171,7 @@
 
 "wind.mcd07a"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -160,7 +180,7 @@
 
 "wind.mcd07b"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -171,7 +191,7 @@
 
 "wind.mcd08a"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -180,7 +200,7 @@
 
 "wind.mcd08b"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -189,7 +209,7 @@
 
 "wind.mcd08c"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -198,7 +218,7 @@
 
 "wind.mcd08d"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -209,7 +229,7 @@
 
 "wind.mcd09"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -220,7 +240,7 @@
 
 "wind.mcd10a"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -229,7 +249,7 @@
 
 "wind.mcd10b"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -240,7 +260,7 @@
 
 "wind.mcd11a"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -251,7 +271,7 @@
 
 "wind.mcd13a"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -260,7 +280,7 @@
 
 "wind.mcd13b"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";
@@ -269,7 +289,7 @@
 
 "wind.mcd13c"
 {
-	wave		"cutscenes_sfx/twind01.wav";
+	wave		"sfx/event_twind01.wav";
 
 	is2d		1;
 	"volume"	"0.6";

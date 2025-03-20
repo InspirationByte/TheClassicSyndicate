@@ -3,10 +3,10 @@ name		"MIAMI - NPC 02";
 cleanmodel		"models/vehicles/mcd_miaminpc02.egf";
 damagedmodel	"models/vehicles/mcd_miaminpc02_dam.egf";
 
-wheelmodel	"models/vehicles/d1m_wheelold.egf";
+wheelmodel		"models/vehicles/common/x_wheels.egf";
 
-//		damaged 	hubcapped 	hubcap
-wheelBodyGroup	"unc_classic" 	"cpd_classic" 	"cap_classic";
+//				damaged 		hubcapped 		hubcap
+wheelBodyGroup	"ios_uncapped" 	"ios_capped" 	"ios_cap";
 
 allowMusic 0;
 sounds

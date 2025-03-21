@@ -6,7 +6,7 @@
 ----------------------------------------------------------------------------------------------
 
 local EQUI_CARSSELECTION_SCHEME_NAME = "ui_mainmenu_mcdmissioncar"
-local carSelectionItems = include("scripts/lua/McdStoryCarSelection.lua")
+local carSelectionItems = include("scripts/lua/TCS_StoryCarSelection.lua")
 
 world:SetLevelName("flatsclassic")
 world:SetEnvironmentName("day_clear")
@@ -17,7 +17,7 @@ MISSION.EnableReplay = false
 MISSION.Pausable = false
 
 function MISSION.SpawnPlayerCar(carName)
-	local car = gameses:CreateCar(carName or McdGetPlayerCarName(), CAR_TYPE_NORMAL)
+	local car = gameses:CreateCar(carName or TCS_GetPlayerCarName(), CAR_TYPE_NORMAL)
 	car:SetOrigin( Vector3D.new(-60.5,0.77,44.5) )
 	car:SetAngles( Vector3D.new(180,0,180) )
 	car:Enable(false)

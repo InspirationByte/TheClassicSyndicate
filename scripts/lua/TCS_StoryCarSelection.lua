@@ -22,14 +22,14 @@ local UnlockableStoryCarsList = {
 	{"m_police_ios", "Police"},
 }
 
-local function McdCarSelectionElementsFunc(equiScheme, stack)
+local function TCS_CarSelectionElementsFunc(equiScheme, stack)
 
 	local fadeElem = equi:Cast(equiScheme:FindChild("fade"), "panel")
 
-	local lastPreferredCar = McdGetPlayerCarName()
+	local lastPreferredCar = TCS_GetPlayerCarName()
 	local newPreferredCar = lastPreferredCar
 
-	local storyPreferences = McdGetAchievementsData("McdCompletedStory")
+	local storyPreferences = TCS_GetAchievementsData("TCS_CompletedStory")
 	if storyPreferences == nil then
 		-- first store for MCD
 		storyPreferences = {
@@ -53,7 +53,7 @@ local function McdCarSelectionElementsFunc(equiScheme, stack)
 
 	-- reset car type if mods were disabled
 	if MenuStack.FindChoiceIndex(StoryCarsList, lastPreferredCar) == -1 then
-		McdSetPlayerCarName(StoryCarsList[1][1])
+		TCS_SetPlayerCarName(StoryCarsList[1][1])
 	end
 	
 	local fade = 0.0
@@ -116,7 +116,7 @@ local function McdCarSelectionElementsFunc(equiScheme, stack)
 			isFinal = false,
 			onEnter = function(self, stack)
 				lastPreferredCar = newPreferredCar
-				McdSetPlayerCarName(newPreferredCar)
+				TCS_SetPlayerCarName(newPreferredCar)
 				return { menuCommand = "Pop" }
 			end,
 		},
@@ -126,4 +126,4 @@ local function McdCarSelectionElementsFunc(equiScheme, stack)
 end
 
 -- return entire menu item function
-return McdCarSelectionElementsFunc
+return TCS_CarSelectionElementsFunc

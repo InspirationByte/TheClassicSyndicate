@@ -40,7 +40,7 @@ function MISSION.Init()
 		PlayerStart = {
 			position = vec3(-88,0.77,-1143),
 			angles = vec3(0,180,0),
-			car = McdGetPlayerCarName(),
+			car = TCS_GetPlayerCarName(),
 			colorId = 1,
 			maxDamage = 12,
 			lock = false

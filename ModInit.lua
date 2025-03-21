@@ -223,7 +223,7 @@ local MiamiMissionsList = {
 
 local MyLevelFileName = "MiamiClassic"
 
-local McdLevelNames = {
+local ClassicLevels = {
 	MyLevelFileName,
 }
 
@@ -252,13 +252,13 @@ local UnlockableCars = {
 	{"NPC_mcd_traffic02", "TCS - Traffic 2"},
 }
 
-function McdStoreAchievementsData( key, tbl )
+function TCS_StoreAchievementsData( key, tbl )
 	local achievementsData = userProfileManager:GetProgressStore(USER_STORE_ACHIEVEMENTS)
 	achievementsData:SetTableSection(key, tbl)
 	userProfileManager:Save()
 end
 
-function McdGetAchievementsData( key )
+function TCS_GetAchievementsData( key )
 	local achievementsData = userProfileManager:GetProgressStore(USER_STORE_ACHIEVEMENTS)
 	local section = achievementsData:FindSection(key, 0)
 	if section == nil then
@@ -267,10 +267,10 @@ function McdGetAchievementsData( key )
 	return section:ToTable()
 end
 
-function McdGetPlayerCarName()
+function TCS_GetPlayerCarName()
 	local standardCarName = "m_default_ios"
 	
-	local storyPreferences = McdGetAchievementsData("McdCompletedStory")
+	local storyPreferences = TCS_GetAchievementsData("TCS_CompletedStory")
 	if storyPreferences ~= nil then
 		return storyPreferences.PrefferedStoryCar or standardCarName
 	end
@@ -278,18 +278,18 @@ function McdGetPlayerCarName()
 	return standardCarName
 end
 
-function McdSetPlayerCarName(name)
-	local storyPreferences = McdGetAchievementsData("McdCompletedStory")
+function TCS_SetPlayerCarName(name)
+	local storyPreferences = TCS_GetAchievementsData("TCS_CompletedStory")
 	if storyPreferences == nil then
 		storyPreferences = {}
 	end
 	storyPreferences.PrefferedStoryCar = name
-	McdStoreAchievementsData("McdCompletedStory", storyPreferences)
+	TCS_StoreAchievementsData("TCS_CompletedStory", storyPreferences)
 end
 
-function McdGetSuperflyCarName()
+function TCS_GetSuperflyCarName()
 	local standardCarName = "m_superfly_ios"
-	if McdGetPlayerCarName() == standardCarName then
+	if TCS_GetPlayerCarName() == standardCarName then
 		return "m_250gt_ios"
 	end
 	return standardCarName
@@ -300,7 +300,7 @@ local MyCopSoundsFilename = "scripts/sounds/cops.txt"
 function IsMyLevel()
 	local levName = string.lower(world:GetLevelName())
 
-	for i,n in ipairs(McdLevelNames) do
+	for i,n in ipairs(ClassicLevels) do
 		if string.lower(n) == levName then
 			return true
 		end
@@ -356,7 +356,7 @@ function ModInit:Init()
 		table.insert(MenuCarsList, v)
 	end
 	
-	local storyPreferences = McdGetAchievementsData("McdCompletedStory")
+	local storyPreferences = TCS_GetAchievementsData("TCS_CompletedStory")
 	if storyPreferences ~= nil and storyPreferences.UnlockCars then
 		for i,v in ipairs(UnlockableCars) do
 			table.insert(MenuCarsList, v)
@@ -384,7 +384,7 @@ function ModInit:Init()
 	
 	MiamiMissionsIdx = table.insert(StoryGameExtraElems, MiamiMissionsElem)
 	
-	SetHudCreateCallback("mcdHUDInitializer", function(scheme)
+	SetHudCreateCallback("TCS_HUDInitializer", function(scheme)
 		local levName = world:GetLevelName()
 		
 		if levName:lower() == MyLevelFileName:lower() then
@@ -440,7 +440,7 @@ function ModInit:DeInit()
 	-- Deinit - Maps
 	for i,v in ipairs(MenuCityList) do
 	
-		for ii,vv in ipairs(McdLevelNames) do
+		for ii,vv in ipairs(ClassicLevels) do
 			if v[1] == vv then
 				--table.remove( MenuCityList, i)
 				MenuCityList[i] = nil
@@ -465,7 +465,7 @@ function ModInit:DeInit()
 		end
 	end
 	
-	SetMissionLoadedCallback("mcdHUDInitializer", nil)
+	SetMissionLoadedCallback("TCS_HUDInitializer", nil)
 end
 
 return ModInit

@@ -74,7 +74,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	MISSION.SpawnSceneryCars()
 
-	local playerCar = gameses:CreateCar(McdGetPlayerCarName(), CAR_TYPE_NORMAL)	-- Create player car
+	local playerCar = gameses:CreateCar(TCS_GetPlayerCarName(), CAR_TYPE_NORMAL)	-- Create player car
 	
 	MISSION.playerCar = playerCar	-- Define spawned car above as player car for mission
 	

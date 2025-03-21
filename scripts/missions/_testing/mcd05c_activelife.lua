@@ -195,7 +195,7 @@ MISSION.Init = function()
 	
 	MISSION.Settings.EnableCops = true						-- Cops are disabled
 
-	local playerCar = gameses:CreateCar(McdGetPlayerCarName(), CAR_TYPE_NORMAL)	-- Create player car
+	local playerCar = gameses:CreateCar(TCS_GetPlayerCarName(), CAR_TYPE_NORMAL)	-- Create player car
 	
 	MISSION.playerCar = playerCar	-- Define spawned car above as player car for mission
 
@@ -218,7 +218,7 @@ MISSION.Init = function()
 		playerCar:SetFelony(restoreData.felony)
 	end
 	
-	local tempCar = gameses:CreateCar(McdGetPlayerCarName(), CAR_TYPE_NORMAL)
+	local tempCar = gameses:CreateCar(TCS_GetPlayerCarName(), CAR_TYPE_NORMAL)
 	tempCar:SetOrigin( vec3(237.40, 0.61, -402.79) )
 	tempCar:SetAngles( vec3(-178.88, 42.94, -178.71) )
 	tempCar:Spawn()

@@ -4,13 +4,13 @@
 -- World Parameters --------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
--- start _testing/mcd07a_activelife
+-- start _testing/m_07a_activelife
 
 world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("day_clear")
 SetMusicName("la_day")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 MISSION.PlayerRubberBandingParams = {
 	[15.0] = {
@@ -58,8 +58,8 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetDriverType("ped2")
 	
-	sounds:Precache( "wind.mcd07a" )
-	sounds:Precache( "wind.mcd07b" )
+	sounds:Precache( "wind.m_07a" )
+	sounds:Precache( "wind.m_07b" )
 
 	sounds:Precache( "goon.frenchcat" )
 
@@ -68,7 +68,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD07_TITLE_JEANPAUL", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#M_07_TITLE_JEANPAUL", 3.5)				-- Classic title text (Duration)
 
 ----------------------------------------------------------------------------------------------
 -- Opponent Car ------------------------------------------------------------------------------
@@ -138,7 +138,7 @@ MISSION.JeanPaulSartre = function()
 	-- here we start
 	missionmanager:SetRefreshFunc( MISSION.Update )
 	
-	gameHUD:ShowScreenMessage("#MCD07_OBJ_RAM", 3.5)
+	gameHUD:ShowScreenMessage("#M_07_OBJ_RAM", 3.5)
 end
 
 --------------------------------------------------------------------------------
@@ -161,12 +161,12 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	end )
 
 	-- show message and signal success
-	gameHUD:ShowScreenMessage("#MCD_MISSION_TOBECONT", 3.5)
+	gameHUD:ShowScreenMessage("#M_MISSION_TOBECONT", 3.5)
 
 	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 2.5, function()
 		-- setup mission completion data
 
-		StoreMissionCompletionData("mcd07a_endData", {
+		StoreMissionCompletionData("m_07a_endData", {
 			playerCarData = {
 				position = playerCar:GetOrigin(),
 				angles = playerCar:GetAngles(),
@@ -230,11 +230,11 @@ function MISSION.SetupFlybyCutscene()
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
 	missionmanager:ScheduleEvent( function()
-		sounds:Emit( EmitParams.new("wind.mcd07a"), -1 )
+		sounds:Emit( EmitParams.new("wind.m_07a"), -1 )
 	end, 0.0);
 
 	missionmanager:ScheduleEvent( function()
-		sounds:Emit( EmitParams.new("wind.mcd07b"), 0 )
+		sounds:Emit( EmitParams.new("wind.m_07b"), 0 )
 	end, 2.7);
 
 	local targetView = cameraAnimator:GetComputedView()
@@ -308,13 +308,13 @@ MISSION.Update = function( delta )
 	if opponentCar:IsAlive() then
 		-- check the timer
 		if missionmanager:IsTimedOut() then
-			gameHUD:ShowScreenMessage("#MCD07_OBJ_FAILED", 3.5)
+			gameHUD:ShowScreenMessage("#M_07_OBJ_FAILED", 3.5)
 			MISSION.OnFailed()
 		end
 	
 		-- check distance between the car and timer
 		if (length(playerCar:GetOrigin() - opponentCar:GetOrigin()) > 240) then
-			gameHUD:ShowScreenMessage("#MCD07_OBJ_LOST", 3.5)
+			gameHUD:ShowScreenMessage("#M_07_OBJ_LOST", 3.5)
 			MISSION.OnFailed()
 		end
 	else -- not alive - completed

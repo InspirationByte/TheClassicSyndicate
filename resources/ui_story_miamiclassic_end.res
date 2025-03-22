@@ -10,7 +10,7 @@ panel
 	
 	child image "background"
 	{
-		path		"ui/syndiclassic_bg";
+		path		"ui/ui_menu_bg0";
 		position	0 15;
 		size		1000  500;
 		align		vcenter hcenter;

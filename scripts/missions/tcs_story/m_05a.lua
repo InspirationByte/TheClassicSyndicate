@@ -8,7 +8,7 @@ world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("caseforakey_weather")
 SetMusicName("la_night")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -17,14 +17,14 @@ MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 ----------------------------------------------------------------------------------------------
 
 function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
-	local car1 = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	local car1 = gameses:CreateCar("n_traffic_01", CAR_TYPE_NORMAL)
 	car1:SetOrigin( Vector3D.new(-84.5,0.77,-1143) )
 	car1:SetAngles( Vector3D.new(180,0,180) )			-- Scenery items coords
 	car1:Enable(false)
 	car1:Spawn()
 	car1:SetColorScheme(2)
 	
-	local car2 = gameses:CreateCar("NPC_mcd_traffic02", CAR_TYPE_NORMAL)
+	local car2 = gameses:CreateCar("n_traffic_02", CAR_TYPE_NORMAL)
 	car2:SetOrigin( Vector3D.new(-91.5,0.77,-1143) )
 	car2:SetAngles( Vector3D.new(180,0,180) )
 	car2:Enable(false)
@@ -61,8 +61,8 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	sounds:Precache( "car.lightswitch" )
 
-	sounds:Precache( "wind.mcd05a" )
-	sounds:Precache( "wind.mcd05b" )
+	sounds:Precache( "wind.m_05a" )
+	sounds:Precache( "wind.m_05b" )
 
 	-- For the load time, set player car
 	gameses:SetPlayerCar( playerCar )
@@ -71,7 +71,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD05_TITLE_CASEFORAKEY", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#M_05_TITLE_CASEFORAKEY", 3.5)				-- Classic title text (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
 end
@@ -107,11 +107,11 @@ function MISSION.SetupFlybyCutscene()
 	
 	-- fancy sequence
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd05a"), -1 )
+		sounds:Emit( EmitParams.new("wind.m_05a"), -1 )
 	end, 0.1);
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd05b"), 0 )
+		sounds:Emit( EmitParams.new("wind.m_05b"), 0 )
 	end, 3.0);
 
 	missionmanager:ScheduleEvent( function() 
@@ -175,7 +175,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("#MCD05_OBJ_MEET", 3.5)
+	gameHUD:ShowScreenMessage("#M_05_OBJ_MEET", 3.5)
 	
 	missionmanager:EnableTimeout( true, 120 ) -- Enable, time
 end
@@ -237,7 +237,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- when game gets paused after completion it will store our car position
 	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 2.5, function()
 		-- setup mission completion data
-		StoreMissionCompletionData("mcd05a_playerCar", {
+		StoreMissionCompletionData("m_05a_playerCar", {
 			position = playerCar:GetOrigin(),
 			angles = playerCar:GetAngles(),
 			damage = playerCar:GetDamage(),
@@ -273,7 +273,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("#MCD05_OBJ_FAILED", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#M_05_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

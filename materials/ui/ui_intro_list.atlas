@@ -1,4 +1,4 @@
-atlasgroup "ui/mcd_pkd"
+atlasgroup "ui/ui_intro_list"
 {
 	tasklist "0" "0" "0.5" "1";
 	marker_strike "0.5625" "0" "0.794922" "0.0253906";

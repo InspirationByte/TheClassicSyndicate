@@ -4,7 +4,7 @@ world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("day_clear")
 SetMusicName("miami_day")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -13,14 +13,14 @@ MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 ----------------------------------------------------------------------------------------------
 
 function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
-	local car1 = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	local car1 = gameses:CreateCar("n_traffic_01", CAR_TYPE_NORMAL)
 	car1:SetOrigin( Vector3D.new(-84.5,0.77,-1143) )
 	car1:SetAngles( Vector3D.new(180,0,180) )			-- Scenery items coords
 	car1:Enable(false)
 	car1:Spawn()
 	car1:SetColorScheme(2)
 	
-	local car2 = gameses:CreateCar("NPC_mcd_traffic02", CAR_TYPE_NORMAL)
+	local car2 = gameses:CreateCar("n_traffic_02", CAR_TYPE_NORMAL)
 	car2:SetOrigin( Vector3D.new(-91.5,0.77,-1143) )
 	car2:SetAngles( Vector3D.new(180,0,180) )
 	car2:Enable(false)
@@ -30,10 +30,10 @@ end
 
 function MISSION.Init()
 
-	sounds:Precache( "wind.mcd08a" )
-	sounds:Precache( "wind.mcd08b" )
-	sounds:Precache( "wind.mcd08c" )
-	sounds:Precache( "wind.mcd08d" )
+	sounds:Precache( "wind.m_08a" )
+	sounds:Precache( "wind.m_08b" )
+	sounds:Precache( "wind.m_08c" )
+	sounds:Precache( "wind.m_08d" )
 
 	-- setup mission targets
 	MISSION.Data = {
@@ -54,7 +54,7 @@ function MISSION.Init()
 		{
 			position = vec3(-143, 0.7, -453),
 			radius = 5,	-- meters
-			startMessage = "#MCD08_OBJ_RESTAURANT1",
+			startMessage = "#M_08_OBJ_RESTAURANT1",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.015,
@@ -64,7 +64,7 @@ function MISSION.Init()
 		{
 			position = vec3(78, 0.7, -447),
 			radius = 5,	-- meters
-			startMessage = "#MCD08_OBJ_RESTAURANT2",
+			startMessage = "#M_08_OBJ_RESTAURANT2",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.015,
@@ -74,7 +74,7 @@ function MISSION.Init()
 		{
 			position = vec3(-336, 0.7, 34),
 			radius = 5,	-- meters
-			startMessage = "#MCD08_OBJ_RESTAURANT3",
+			startMessage = "#M_08_OBJ_RESTAURANT3",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.01,
@@ -83,7 +83,7 @@ function MISSION.Init()
 		{
 			position = vec3(-1672, 0.7, -115),
 			radius = 5,	-- meters
-			startMessage = "#MCD08_OBJ_RESTAURANT4",
+			startMessage = "#M_08_OBJ_RESTAURANT4",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.01,
@@ -92,7 +92,7 @@ function MISSION.Init()
 		{
 			position = vec3(-1384, 0.7, -680),
 			radius = 5,	-- meters
-			startMessage = "#MCD08_OBJ_RESTAURANT5",
+			startMessage = "#M_08_OBJ_RESTAURANT5",
 			timedOutMessage = "#TIME_UP_MESSAGE",
 			wreckedMessage = "#WRECKED_VEHICLE_MESSAGE",
 			addFelony = 0.01,
@@ -109,7 +109,7 @@ function MISSION.Init()
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD08_TITLE_PAYBACK", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#M_08_TITLE_PAYBACK", 3.5)				-- Classic title text (Duration)
 
 	-- setup initial state/phase
 	MISSION.SetupFlybyCutscene()
@@ -120,23 +120,23 @@ function MISSION.SetupFlybyCutscene()
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd08a"), -1 )
+		sounds:Emit( EmitParams.new("wind.m_08a"), -1 )
 	end, 0.0);
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd08b"), 0 )
+		sounds:Emit( EmitParams.new("wind.m_08b"), 0 )
 	end, 1.3);
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd08c"), -1 )
+		sounds:Emit( EmitParams.new("wind.m_08c"), -1 )
 	end, 1.5);
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd08d"), 0 )
+		sounds:Emit( EmitParams.new("wind.m_08d"), 0 )
 	end, 3.0);
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd08b"), -1 )
+		sounds:Emit( EmitParams.new("wind.m_08b"), -1 )
 	end, 3.8);
 
 	local targetView = cameraAnimator:GetComputedView()
@@ -376,5 +376,5 @@ function MISSION.CompleteMission()
 	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 4.0 )
 	
 	-- show messages etc
-	gameHUD:ShowScreenMessage("#MCD_GOODJOB", 3.5)
+	gameHUD:ShowScreenMessage("#M_GOODJOB", 3.5)
 end

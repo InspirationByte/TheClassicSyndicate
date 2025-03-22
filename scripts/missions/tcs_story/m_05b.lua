@@ -8,7 +8,7 @@ world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("day_clear")
 SetMusicName("la_day")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -17,21 +17,21 @@ MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 ----------------------------------------------------------------------------------------------
 
 function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
-	local car1 = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	local car1 = gameses:CreateCar("n_traffic_01", CAR_TYPE_NORMAL)
 	car1:SetOrigin( Vector3D.new(1577,0.7,-230) )
 	car1:SetAngles( Vector3D.new(180,90,180) )			-- Scenery items coords
 	car1:Enable(false)
 	car1:Spawn()
 	car1:SetColorScheme(5)
 	
-	local car2 = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	local car2 = gameses:CreateCar("n_traffic_01", CAR_TYPE_NORMAL)
 	car2:SetOrigin( Vector3D.new(1577,0.7,-223) )
 	car2:SetAngles( Vector3D.new(180,-90,180) )
 	car2:Enable(false)
 	car2:Spawn()
 	car2:SetColorScheme(3)
 
-	local car3 = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	local car3 = gameses:CreateCar("n_traffic_01", CAR_TYPE_NORMAL)
 	car3:SetOrigin( Vector3D.new(1577,0.7,-239) )
 	car3:SetAngles( Vector3D.new(180,-90,180) )
 	car3:Enable(false)
@@ -66,7 +66,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetDriverType("ped2")
 
-	local restoreData = RestoreMissionCompletionData("mcd05a_playerCar")
+	local restoreData = RestoreMissionCompletionData("m_05a_playerCar")
 	
 	if restoreData ~= nil then	
 		playerCar:SetOrigin(toVector(restoreData.position))
@@ -83,7 +83,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 0.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD05_TITLE_CASEFORAKEY_CNTD", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#M_05_TITLE_CASEFORAKEY_CNTD", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 	MISSION.StartPause()	-- Starting Introduction FlyBy Cutscene 
@@ -117,7 +117,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("#MCD05_OBJ_EXCHANGE", 3.5)
+	gameHUD:ShowScreenMessage("#M_05_OBJ_EXCHANGE", 3.5)
 	
 	missionmanager:EnableTimeout( true, 95 ) -- Enable, time
 end
@@ -179,7 +179,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- when game gets paused after completion it will store our car position
 	gameses:SignalMissionStatus( MIS_STATUS_SUCCESS, 2.5, function()
 		-- setup mission completion data
-		StoreMissionCompletionData("mcd05b_playerCar", {
+		StoreMissionCompletionData("m_05b_playerCar", {
 			position = playerCar:GetOrigin(),
 			angles = playerCar:GetAngles(),
 			damage = playerCar:GetDamage(),
@@ -228,7 +228,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("#MCD05_OBJ_FAILED", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#M_05_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

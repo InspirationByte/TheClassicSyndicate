@@ -1,0 +1,81 @@
+M_FLAT_PLAYAGAIN	                "Play message";
+M_FLAT_CHOOSECAR	                "Choose car";
+M_FLAT_CONFIRMCAR	                "Confirm car";
+
+M_SLOWDOWN			                "Slow down!";
+M_WELLDONE			                "Well done!";
+M_GOODJOB				            "Good job!";
+
+M_MISSION_TOBECONT	                "to be continued..";
+
+M_01_TITLE_THEBANKJOB 	            "THE BANK JOB";
+M_01_OBJ_FAILED				        "Too late. Mission is failed.";
+M_01_OBJ_GETTOBANK				    "Get to the bank.";
+M_01_OBJ_TOOEARLY				    "Too early. Come back later.";
+M_01_OBJ_GETTOLOCKUP			    "Get to the lock up.";
+
+M_02_TITLE_HIDEEVIDENCE	            "HIDE THE EVIDENCE";
+M_02_OBJ_BREAKERS					"Take it to the breakers.";
+
+M_03_TITLE_TICCO			        "TICCO'S RIDE";
+M_03_OBJ_PICKUP			            "Pick up Ticco.";
+M_03_OBJ_TAKEHIM			        "Take him where he wants to go.";
+M_03_OBJ_FAILED			            "Too late. Mission is failed.";
+
+M_04_TITLE_CLEANUP			        "THE CLEAN UP";
+M_04_TITLE_CLEANUP_CNTD	            "THE CLEAN UP (continued..)";
+M_04_OBJ_PICKUP			            "Pick up the car.";
+M_04_OBJ_FAILED			            "Too late. Mission is failed.";
+M_04_OBJ_GETOUT			            "Get the hell out of there!";
+
+M_05_TITLE_CASEFORAKEY		        "CASE FOR A KEY";
+M_05_TITLE_CASEFORAKEY_CNTD	        "CASE FOR A KEY (continued..)";
+M_05_OBJ_MEET				        "Go meet them.";
+M_05_OBJ_FAILED			            "Too late. Mission is failed.";
+M_05_OBJ_EXCHANGE			        "Make the exchange.";
+M_05_OBJ_CHASE				        "Chase the boat.";
+M_05_OBJ_LOST				        "You lost him.";
+
+M_06_TITLE_RUFUS			        "TANNER MEETS RUFUS";
+M_06_OBJ_MEET				        "Go and meet Rufus.";
+M_06_OBJ_FAILED			            "Too late. Mission is failed.";
+
+M_07_TITLE_JEANPAUL		            "BUST OUT JEAN PAUL";
+M_07_TITLE_JEANPAUL_CNTD	        "BUST OUT JEAN PAUL (continued..)";
+M_07_OBJ_RAM				        "Ram the armoured car.";
+M_07_OBJ_FAILED			            "Too late. Mission is failed.";
+M_07_OBJ_LOST				        "You lost him.";
+M_07_OBJ_GETOUT			            "Get Jean-Paul out of there.";
+
+M_08_TITLE_PAYBACK			        "PAYBACK";
+M_08_OBJ_RESTAURANT1		        "Get to the first restaurant.";
+M_08_OBJ_RESTAURANT2		        "Take out restaurant two.";
+M_08_OBJ_RESTAURANT3		        "Smash restaurant three.";
+M_08_OBJ_RESTAURANT4		        "Wreck the fourth restaurant.";
+M_08_OBJ_RESTAURANT5		        "Ram the last restaurant.";
+
+M_09_TITLE_SHIPMENT		            "A SHIPMENT'S COMING IN";
+M_09_OBJ_PICK				        "Pick up the hardware.";
+M_09_OBJ_GETOUT			            "Get out of there and back to the motel.";
+M_09_OBJ_FAILED			            "Too late. Mission is failed.";
+
+M_10_TITLE_SUPERFLY		            "SUPERFLY DRIVE";
+M_10_OBJ_TAKEITHOME		            "Take this puppy home.";
+M_10_OBJ_FAILED			            "Too late. Mission is failed.";
+
+M_11_TITLE_DIANGIO			        "TAKE OUT DI'ANGIO'S CAR";
+M_11_OBJ_RAM				        "Ram him!";
+M_11_OBJ_FAILED			            "Too late. Mission is failed.";
+M_11_OBJ_LOST				        "You lost him.";
+
+M_12_TITLE_BAIT			            "BAIT FOR A TRAP";
+M_12_OBJ_WRECK				        "Wreck his car.";
+M_12_OBJ_GETOUT			            "Get out of here, you've been double crossed!";
+M_12_OBJ_DONTLOSE			        "Don't lose him.";
+M_12_OBJ_FAILED			            "Too late. Mission is failed.";
+M_12_OBJ_LOST				        "You've lost him.";
+
+M_13_TITLE_INFORMANT		        "THE INFORMANT";
+M_13_OBJ_CATCHJESSE		            "Catch Jesse.";
+M_13_OBJ_FAILED			            "Too late. Mission is failed.";
+M_13_OBJ_LOST				        "You lost her.";

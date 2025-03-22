@@ -1,6 +1,6 @@
 BaseUnlit
 {
-	BaseTexture "ui/mcd_pkd";
+	BaseTexture "ui/ui_intro_list";
 	address "clamp";
 	translucent "1";
 };

@@ -3,8 +3,8 @@ copcar m_police_ios;
 default
 {		
 	// CIVILIANS
-	npc_mcd_traffic01				0;
-	npc_mcd_traffic02				0;
+	n_traffic_01						0;
+	n_traffic_02						0;
 	
 	// HOSTILES
 	m_police_ios					20;	// only parked

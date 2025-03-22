@@ -5,14 +5,14 @@
 -- World Parameters --------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 
-local EQUI_CARSSELECTION_SCHEME_NAME = "ui_mainmenu_mcdmissioncar"
+local EQUI_CARSSELECTION_SCHEME_NAME = "ui_tcs_mainmenu_missioncar"
 local carSelectionItems = include("scripts/lua/TCS_StoryCarSelection.lua")
 
 world:SetLevelName("flatsclassic")
 world:SetEnvironmentName("day_clear")
 SetMusicName("")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 MISSION.EnableReplay = false
 MISSION.Pausable = false
 
@@ -30,7 +30,7 @@ function MISSION.SpawnPlayerCar(carName)
 end
 
 function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
-	local car = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	local car = gameses:CreateCar("n_traffic_01", CAR_TYPE_NORMAL)
 	car:SetOrigin( Vector3D.new(-62.8,0.77,44.5) )
 	car:SetAngles( Vector3D.new(180,0,180) )
 	car:Enable(false)
@@ -63,13 +63,13 @@ local FlatGameMenuElements = function()
 				return { command = "nextState" }
 			end,
 		}),
-		MenuStack.MakeItem("#MCD_FLAT_PLAYAGAIN", false, {
+		MenuStack.MakeItem("#M_FLAT_PLAYAGAIN", false, {
 			onEnter = function(self, stack)
 				MISSION.PlayMessage()
 				return {}
 			end,
 		}),
-		MenuStack.MakeSubMenu("#MCD_FLAT_CHOOSECAR", carSelectionItems, nil, EQUI_CARSSELECTION_SCHEME_NAME),
+		MenuStack.MakeSubMenu("#M_FLAT_CHOOSECAR", carSelectionItems, nil, EQUI_CARSSELECTION_SCHEME_NAME),
 		MenuStack.MakeCommand("#MENU_GAME_EXIT", "quitToMainMenu", true)
 	}
 end
@@ -108,7 +108,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	-- precache sounds
 	sounds:LoadScript(EmitterSounds.Messages)
-	sounds:Precache( "d3.citynoise" )
+	sounds:Precache( "world.citynoise" )
 	sounds:Precache( "wind.msg01" )
 
 	gameHUD:Enable(false)								-- HUD disabled
@@ -142,7 +142,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	end, 0)
 
 	MISSION.Data.soundObj:Emit(1, EmitParams.new("wind.msg01") )
-	MISSION.Data.soundObj:Emit(2, EmitParams.new("d3.citynoise", vec3(-88,0.77,-1143)))
+	MISSION.Data.soundObj:Emit(2, EmitParams.new("world.citynoise", vec3(-88,0.77,-1143)))
 	TCS_CutsceneCamera.Start(cutCameras, nil, 1000) -- make wait forever
 end
 

@@ -8,7 +8,7 @@ world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("night_stormy_norain")
 SetMusicName("frisco_day")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -17,14 +17,14 @@ MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 ----------------------------------------------------------------------------------------------
 
 function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
-	local car1 = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	local car1 = gameses:CreateCar("n_traffic_01", CAR_TYPE_NORMAL)
 	car1:SetOrigin( Vector3D.new(-84.5,0.77,-1143) )
 	car1:SetAngles( Vector3D.new(180,0,180) )			-- Scenery items coords
 	car1:Enable(false)
 	car1:Spawn()
 	car1:SetColorScheme(2)
 	
-	local car2 = gameses:CreateCar("NPC_mcd_traffic02", CAR_TYPE_NORMAL)
+	local car2 = gameses:CreateCar("n_traffic_02", CAR_TYPE_NORMAL)
 	car2:SetOrigin( Vector3D.new(-91.5,0.77,-1143) )
 	car2:SetAngles( Vector3D.new(180,0,180) )
 	car2:Enable(false)
@@ -62,7 +62,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetDriverType("ped2")
 
-	sounds:Precache( "wind.mcd09" )
+	sounds:Precache( "wind.m_09" )
 	sounds:Precache( "car.lightswitch" )
 
 	-- For the load time, set player car
@@ -72,7 +72,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD09_TITLE_SHIPMENT", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#M_09_TITLE_SHIPMENT", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
@@ -113,7 +113,7 @@ function MISSION.SetupFlybyCutscene()
 	TCS_CutsceneCamera.Start(cutCameras, MISSION.StartPause, 1)
 	
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd09"), -1 )
+		sounds:Emit( EmitParams.new("wind.m_09"), -1 )
 	end, 0.0);
 end
 
@@ -154,7 +154,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("#MCD09_OBJ_PICK", 3.5)
+	gameHUD:ShowScreenMessage("#M_09_OBJ_PICK", 3.5)
 	
 	missionmanager:EnableTimeout( true, 200 ) -- Enable, time
 end
@@ -187,7 +187,7 @@ MISSION.Phase1Update = function( delta )
 				missionmanager:SetRefreshFunc( MISSION.KalashPrePause, 2 )	-- Going to transition step immediately
 			end
 		else
-			gameHUD:ShowScreenMessage("#MCD_SLOWDOWN", 1.0) -- .. Slow down message on screen**
+			gameHUD:ShowScreenMessage("#M_SLOWDOWN", 1.0) -- .. Slow down message on screen**
 		end
 	end
 	
@@ -222,7 +222,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
+	gameHUD:ShowScreenMessage("#M_WELLDONE", 3.5)
 end
 
 ----------------------------------------------------------------------------------------------
@@ -281,7 +281,7 @@ function MISSION.Phase2Start()
 	MISSION.finalTarget = true
 	
 	-- Show objective message (Duration)
-	gameHUD:ShowScreenMessage("#MCD09_OBJ_GETOUT", 3.5)
+	gameHUD:ShowScreenMessage("#M_09_OBJ_GETOUT", 3.5)
 	
 	missionmanager:SetRefreshFunc( MISSION.Phase2Update )
 end
@@ -312,7 +312,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("#MCD09_OBJ_FAILED", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#M_09_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

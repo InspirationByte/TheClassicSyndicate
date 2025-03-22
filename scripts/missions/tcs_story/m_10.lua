@@ -8,7 +8,7 @@ world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("night_clear")
 SetMusicName("miami_night")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -37,8 +37,8 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetDriverType("ped2")
 
 	sounds:Precache( "car.lightswitch" )
-	sounds:Precache( "wind.mcd10a" )
-	sounds:Precache( "wind.mcd10b" )
+	sounds:Precache( "wind.m_10a" )
+	sounds:Precache( "wind.m_10b" )
 
 	-- For the load time, set player car
 	gameses:SetPlayerCar( playerCar )
@@ -47,7 +47,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD10_TITLE_SUPERFLY", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#M_10_TITLE_SUPERFLY", 3.5)				-- Classic title text (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
 end
@@ -101,15 +101,15 @@ function MISSION.SetupFlybyCutscene()
 	end, 2.0);
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd10a"), 0 )
+		sounds:Emit( EmitParams.new("wind.m_10a"), 0 )
 	end, 0.1);
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd10b"), -1 )
+		sounds:Emit( EmitParams.new("wind.m_10b"), -1 )
 	end, 2.6);
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd10a"), 0 )
+		sounds:Emit( EmitParams.new("wind.m_10a"), 0 )
 	end, 4.2);
 
 end
@@ -156,7 +156,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("#MCD10_OBJ_TAKEITHOME", 3.5)
+	gameHUD:ShowScreenMessage("#M_10_OBJ_TAKEITHOME", 3.5)
 	
 	missionmanager:EnableTimeout( true, 165 ) -- Enable, time
 end
@@ -217,7 +217,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("#MCD_GOODJOB", 3.5)
+	gameHUD:ShowScreenMessage("#M_GOODJOB", 3.5)
 end
 
 MISSION.UpdateAll = function(delta)
@@ -246,7 +246,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("#MCD10_OBJ_FAILED", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#M_10_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

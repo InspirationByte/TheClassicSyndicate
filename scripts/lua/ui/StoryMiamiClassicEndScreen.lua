@@ -22,7 +22,7 @@ local StoryMiamiClassicEndingScreen = class()
 	end
 
 	function StoryMiamiClassicEndingScreen:OnEnter()
-		missionladder:DeleteProgress("mcd_missions")
+		missionladder:DeleteProgress("tcs_missions")
 		TCS_StoreAchievementsData("TCS_CompletedStory", {
 			UnlockCars = true
 		})

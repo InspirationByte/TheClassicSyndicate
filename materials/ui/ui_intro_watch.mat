@@ -1,6 +1,6 @@
 BaseUnlit
 {
-	BaseTexture  "ui/syndiclassic_logo";
+	BaseTexture "ui/ui_intro_watch";
 	address "clamp";
 	translucent "1";
-}
+};

@@ -8,7 +8,7 @@ world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("day_clear")
 SetMusicName("frisco_night")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -17,14 +17,14 @@ MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 ----------------------------------------------------------------------------------------------
 
 function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
-	local car1 = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	local car1 = gameses:CreateCar("n_traffic_01", CAR_TYPE_NORMAL)
 	car1:SetOrigin( Vector3D.new(-84.5,0.77,-1143) )
 	car1:SetAngles( Vector3D.new(180,0,180) )			-- Scenery items coords
 	car1:Enable(false)
 	car1:Spawn()
 	car1:SetColorScheme(2)
 	
-	local car2 = gameses:CreateCar("NPC_mcd_traffic02", CAR_TYPE_NORMAL)
+	local car2 = gameses:CreateCar("n_traffic_02", CAR_TYPE_NORMAL)
 	car2:SetOrigin( Vector3D.new(-91.5,0.77,-1143) )
 	car2:SetAngles( Vector3D.new(180,0,180) )
 	car2:Enable(false)
@@ -36,12 +36,12 @@ end
 function MISSION.SpawnTrapCars()						-- Spawning NPC cars for trap
 
 	local carDefs = {
-		{"NPC_mcd_traffic01", 1, vec3(1720.20, 0.81, -2.77),vec3(179.77, 6.71, 179.97)},
-		{"NPC_mcd_traffic02", 2, vec3(1707.65, 0.81, -10.81),vec3(-179.07, -63.55, 179.20)},
-		{"NPC_mcd_traffic02", 0, vec3(1708.42, 0.81, -22.87),vec3(-0.05, -52.63, 0.06) },
-		{"NPC_mcd_traffic02", 1, vec3(1732.00, 0.81, -18.50),vec3(-1.22, 82.14, -1.22)},
-		{"NPC_mcd_traffic01", 2, vec3(1727.43, 0.81, -3.09),vec3(-179.34, 39.84, -179.57)},
-		{"NPC_mcd_traffic02", 0, vec3(1723.88, 0.81, -30.89),vec3(-0.32, 15.25, -0.09)}
+		{"n_traffic_01", 1, vec3(1720.20, 0.81, -2.77),vec3(179.77, 6.71, 179.97)},
+		{"n_traffic_02", 2, vec3(1707.65, 0.81, -10.81),vec3(-179.07, -63.55, 179.20)},
+		{"n_traffic_02", 0, vec3(1708.42, 0.81, -22.87),vec3(-0.05, -52.63, 0.06) },
+		{"n_traffic_02", 1, vec3(1732.00, 0.81, -18.50),vec3(-1.22, 82.14, -1.22)},
+		{"n_traffic_01", 2, vec3(1727.43, 0.81, -3.09),vec3(-179.34, 39.84, -179.57)},
+		{"n_traffic_02", 0, vec3(1723.88, 0.81, -30.89),vec3(-0.32, 15.25, -0.09)}
 	}
 	
 	for k,v in ipairs(carDefs) do
@@ -86,7 +86,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetDriverType("ped2")
 
-	sounds:Precache( "wind.mcd09" )
+	sounds:Precache( "wind.m_09" )
 	sounds:Precache( "goon.wat" )
 
 	-- For the load time, set player car
@@ -96,7 +96,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD12_TITLE_BAIT", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#M_12_TITLE_BAIT", 3.5)				-- Classic title text (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
 end
@@ -124,7 +124,7 @@ function MISSION.SetupFlybyCutscene()
 	TCS_CutsceneCamera.Start(cutCameras, MISSION.StartPause, 0)
 	
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd09"), -1 )
+		sounds:Emit( EmitParams.new("wind.m_09"), -1 )
 	end, 0.0);
 end
 
@@ -214,7 +214,7 @@ function MISSION.Phase1Start()
 		
 	end)
 
-	gameHUD:ShowScreenMessage("#MCD12_OBJ_WRECK", 3.5)
+	gameHUD:ShowScreenMessage("#M_12_OBJ_WRECK", 3.5)
 	
 	missionmanager:EnableTimeout( true, 155 ) -- Enable, time
 end
@@ -292,7 +292,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("#MCD_WELLDONE", 3.5)
+	gameHUD:ShowScreenMessage("#M_WELLDONE", 3.5)
 end
 
 function MISSION.OnFailed()
@@ -335,7 +335,7 @@ function MISSION.Phase2Start()
 	MISSION.PlayerAITargetPosition = MISSION.safeHouseTarget
 	
 	-- Show objective message (Duration)
-	gameHUD:ShowScreenMessage("#MCD12_OBJ_GETOUT", 3.5)
+	gameHUD:ShowScreenMessage("#M_12_OBJ_GETOUT", 3.5)
 
 	missionmanager:SetPluginRefreshFunc("BaitTrapCars", function()	-- Spawn scenery when player enters % radius
 
@@ -373,7 +373,7 @@ MISSION.UpdateAll = function(delta)
 	-- Check player's time is out
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
-		gameHUD:ShowScreenMessage("#MCD12_OBJ_FAILED", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#M_12_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		
@@ -399,11 +399,11 @@ MISSION.Phase2Update = function( delta )
 
 	local distToCar = length(playerCar:GetOrigin() - opponentCar:GetOrigin())
 	if distToCar > 100 then
-		gameHUD:ShowScreenMessage("#MCD12_OBJ_LOST", 3.5)
+		gameHUD:ShowScreenMessage("#M_12_OBJ_LOST", 3.5)
 		MISSION.OnFailed()	-- Game Over
 		return false
 	elseif distToCar > 60 then
-		gameHUD:ShowScreenMessage("#MCD12_OBJ_DONTLOSE", 1.0)
+		gameHUD:ShowScreenMessage("#M_12_OBJ_DONTLOSE", 1.0)
 	end
 	
 	local distToTarget = length(playerCar:GetOrigin() - MISSION.safeHouseTarget)

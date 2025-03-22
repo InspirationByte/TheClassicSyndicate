@@ -26,7 +26,7 @@ skyAngle 0;
 	sunLensAngles 			-2 -72 0;
 	moonBrightness			0.9;
 
-	sky						"skies/m_night";
+	sky						"miami/sky/m_night";
 
 	// light flags
 	lights			 		cars lamps city;

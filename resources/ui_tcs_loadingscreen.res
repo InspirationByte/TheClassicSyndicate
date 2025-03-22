@@ -8,7 +8,7 @@ panel
 
 	child image "background"
 	{
-		path		"ui/syndiclassic_bg";
+		path		"ui/ui_menu_bg0";
 		position	0 0;
 		size		920  510;
 		align		vcenter hcenter;
@@ -18,7 +18,7 @@ panel
 
 	child image "game_logo"
 	{
-		path		"ui/syndiclassic_logo";
+		path		"ui/ui_menu_logo";
 		position	0 64;
 		size		620 151;
 

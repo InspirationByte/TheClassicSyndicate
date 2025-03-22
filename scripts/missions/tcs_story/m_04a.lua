@@ -8,7 +8,7 @@ world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("day_clear")
 SetMusicName("nyc_day")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -17,14 +17,14 @@ MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
 ----------------------------------------------------------------------------------------------
 
 function MISSION.SpawnSceneryCars()						-- Spawning NPC cars for scenery, pre-init
-	local car1 = gameses:CreateCar("NPC_mcd_traffic01", CAR_TYPE_NORMAL)
+	local car1 = gameses:CreateCar("n_traffic_01", CAR_TYPE_NORMAL)
 	car1:SetOrigin( Vector3D.new(-84.5,0.77,-1143) )
 	car1:SetAngles( Vector3D.new(180,0,180) )			-- Scenery items coords
 	car1:Enable(false)
 	car1:Spawn()
 	car1:SetColorScheme(2)
 	
-	local car2 = gameses:CreateCar("NPC_mcd_traffic02", CAR_TYPE_NORMAL)
+	local car2 = gameses:CreateCar("n_traffic_02", CAR_TYPE_NORMAL)
 	car2:SetOrigin( Vector3D.new(-91.5,0.77,-1143) )
 	car2:SetAngles( Vector3D.new(180,0,180) )
 	car2:Enable(false)
@@ -59,8 +59,8 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetDriverType("ped2")
 
-	sounds:Precache( "wind.mcd04a1" )
-	sounds:Precache( "wind.mcd04a2" )
+	sounds:Precache( "wind.m_04a1" )
+	sounds:Precache( "wind.m_04a2" )
 
 	-- For the load time, set player car
 	gameses:SetPlayerCar( playerCar )
@@ -69,7 +69,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD04_TITLE_CLEANUP", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#M_04_TITLE_CLEANUP", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("THE BANK JOB", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
@@ -86,7 +86,7 @@ function MISSION.SetupFlybyCutscene()
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd04a1"), 0 )
+		sounds:Emit( EmitParams.new("wind.m_04a1"), 0 )
 	end, 2.4);
 
 	local targetView = cameraAnimator:GetComputedView()
@@ -148,7 +148,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("#MCD04_OBJ_PICKUP", 3.5)
+	gameHUD:ShowScreenMessage("#M_04_OBJ_PICKUP", 3.5)
 	
 	missionmanager:EnableTimeout( true, 120 ) -- Enable, time
 end
@@ -216,7 +216,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("#MCD_MISSION_TOBECONT", 3.5)
+	gameHUD:ShowScreenMessage("#M_MISSION_TOBECONT", 3.5)
 end
 
 MISSION.UpdateAll = function(delta)
@@ -245,7 +245,7 @@ MISSION.UpdateAll = function(delta)
 	if missionmanager:IsTimedOut() then		-- If player time is out, then..
 
 		--gameHUD:ShowAlert("#TIME_UP_MESSAGE", 3.5, HUD_ALERT_DANGER)	--.. Display timeout message
-		gameHUD:ShowScreenMessage("#MCD04_OBJ_FAILED", 3.5)	--.. Display classic timeout text
+		gameHUD:ShowScreenMessage("#M_04_OBJ_FAILED", 3.5)	--.. Display classic timeout text
 
 		MISSION.OnDone()	-- Game Over
 		

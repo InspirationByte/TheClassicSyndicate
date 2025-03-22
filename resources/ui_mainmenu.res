@@ -36,7 +36,7 @@ panel
 
 	child image "game_logo"
 	{
-		path		"ui/syndiclassic_logo";
+		path		"ui/ui_menu_logo";
 		position	30 60;
 		size		400 100;
 		

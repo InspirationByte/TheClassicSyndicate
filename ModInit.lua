@@ -11,28 +11,6 @@ local ModInit = {
 	Conflicts = {}
 }
 
--------------------------------------------------------------------------------
-
--- Mod Vocabulary:
-
--- dsd		= desert data
-
--- pkd		= parking data
-
--- mcd 		= miami classic data
--- mcdpages = miami classic data (mainly for models)
-
--- sfd		= san francisco data
--- sfdpages	= san francisco data (mainly for models)
-
--- lad		= los angeles data
--- ladpages = los angeles data (mainly for models)
-
--- nyd		= new york data
--- nydpages	= new york data (mainly for models)
-
--------------------------------------------------------------------------------
-
 -- Missions Index (Menu)
 local MiamiMissionsIdx = -1
 
@@ -248,8 +226,8 @@ local UnlockableCars = {
 	{"m_police_ios", "TCS - Police"},
 	{"m_250gt_ios", "TCS - 250 GT"},
 
-	{"NPC_mcd_traffic01", "TCS - Traffic 1"},
-	{"NPC_mcd_traffic02", "TCS - Traffic 2"},
+	{"n_traffic_01", "TCS - Traffic 1"},
+	{"n_traffic_02", "TCS - Traffic 2"},
 }
 
 function TCS_StoreAchievementsData( key, tbl )
@@ -319,10 +297,9 @@ end
 -- Initialization function
 function ModInit:Init()
 	
-	localize.AddTokensFile("mcd_missions")
+	localize.AddTokensFile("tcs_missions")
 	fonts.LoadFontDescriptionFile("resources/additional_fonts.res")
 
-	-- make MCD camera available
 	include("scripts/lua/TCS_CinematicCamera.lua")
 	include("scripts/lua/ui/StoryMiamiClassicEndScreen.lua")
 	include("scripts/lua/ui/StoryMoviePlay.lua")
@@ -366,9 +343,9 @@ function ModInit:Init()
 	missions["tcs_story"] = MiamiMissionsList
 
 	-- Miami (Classic) Minigames
-	table.insert(missions["minigame/survival"], {"mcd_srv01", "Miami Classic (Miami Beach)"})
-	table.insert(missions["minigame/survival"], {"mcd_srv02", "Miami Classic (Downtown)"})
-	table.insert(missions["minigame/survival"], {"mcd_srv03", "Miami Classic (Coral Gables)"})
+	table.insert(missions["minigame/survival"], {"m_sv_a", "Miami Classic (Miami Beach)"})
+	table.insert(missions["minigame/survival"], {"m_sv_b", "Miami Classic (Downtown)"})
+	table.insert(missions["minigame/survival"], {"m_sv_c", "Miami Classic (Coral Gables)"})
 
 	local MiamiMissionsElem = {
 		label = "Miami - Classic Missions",
@@ -416,10 +393,10 @@ end
 
 -- Deinitialization function
 function ModInit:DeInit()
-	localize.RemoveTokensFile("mcd_missions")
+	localize.RemoveTokensFile("tcs_missions")
 	
 	EmitterSounds.Messages 				= 	nil
-	EmitterSoundRegistry.MCDIview 		= 	nil
+	EmitterSoundRegistry.Parking 		= 	nil
 	EmitterSoundRegistry.Goons 			= 	nil
 	EmitterSoundRegistry.SFX 			= 	nil
 	EmitterSoundRegistry.Vehicles 		= 	nil
@@ -431,9 +408,9 @@ function ModInit:DeInit()
 	table.remove(StoryGameExtraElems, MiamiMissionsIdx)
 	
 	-- Remove Miami (Classic) Minigames
-	table.remove(missions["minigame/survival"], mcd_srv01)
-	table.remove(missions["minigame/survival"], mcd_srv02)
-	table.remove(missions["minigame/survival"], mcd_srv03)
+	table.remove(missions["minigame/survival"], m_sv_a)
+	table.remove(missions["minigame/survival"], m_sv_b)
+	table.remove(missions["minigame/survival"], m_sv_c)
 
 	missions["tcs_story"] = nil		-- Remove Miami (Classic) missions
 

@@ -31,7 +31,7 @@ local function TCS_CarSelectionElementsFunc(equiScheme, stack)
 
 	local storyPreferences = TCS_GetAchievementsData("TCS_CompletedStory")
 	if storyPreferences == nil then
-		-- first store for MCD
+		-- first store for TCS
 		storyPreferences = {
 			UnlockCars = false,
 		}
@@ -112,7 +112,7 @@ local function TCS_CarSelectionElementsFunc(equiScheme, stack)
 	local elems = {
 		MenuStack.MakeChoiceParam("< %s >", currentCarNameGetSet, StoryCarsList),
 		{
-			label = "#MCD_FLAT_CONFIRMCAR",
+			label = "#M_FLAT_CONFIRMCAR",
 			isFinal = false,
 			onEnter = function(self, stack)
 				lastPreferredCar = newPreferredCar

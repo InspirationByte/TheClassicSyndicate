@@ -34,7 +34,7 @@ static "mcd_tree01pc"
 debris "rglass0123"
 {
 	model 		"models/MIAMI/City/D09_Restaurant01_Glasses.egf";
-	smashsound	"d3.glasshit";
+	smashsound	"world.glasshit";
 
 	//smashspawn	"smash_trash";
 	

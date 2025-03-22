@@ -22,7 +22,7 @@ child Container "main"
 	// items found by Lua GUI API
 	child image "timer_gauge"
 	{
-		atlas		"ui/mcd_stopwatch" "stopwatch";
+		atlas		"ui/ui_intro_watch" "stopwatch";
 		position	25 5;
 		size		120 150;
 		
@@ -30,7 +30,7 @@ child Container "main"
 		/*
 		child image "timer_arrow"
 		{
-			atlas		"ui/mcd_stopwatch" "stopwatch_arrow";
+			atlas		"ui/ui_intro_watch" "stopwatch_arrow";
 			position	0 0;
 			size		100 100;
 		}*/
@@ -52,7 +52,7 @@ child Container "main"
 
 	child image "tasks"
 	{
-		atlas		"ui/mcd_pkd" "tasklist";
+		atlas		"ui/ui_intro_list" "tasklist";
 		
 		align		right top;
 		position	25 5;
@@ -63,7 +63,7 @@ child Container "main"
 		// damage
 		child image "marker_hit_1"
 		{
-			atlas		"ui/mcd_pkd" "marker_x1";
+			atlas		"ui/ui_intro_list" "marker_x1";
 			position	85 10;
 			size		16 16;
 			scaling		inherit;
@@ -72,7 +72,7 @@ child Container "main"
 		
 		child image "marker_hit_2"
 		{
-			atlas		"ui/mcd_pkd" "marker_x2";
+			atlas		"ui/ui_intro_list" "marker_x2";
 			position	100 10;
 			size		16 16;
 			scaling		inherit;
@@ -81,7 +81,7 @@ child Container "main"
 		
 		child image "marker_hit_3"
 		{
-			atlas		"ui/mcd_pkd" "marker_x3";
+			atlas		"ui/ui_intro_list" "marker_x3";
 			position	115 10;
 			size		16 16;
 			scaling		inherit;
@@ -90,7 +90,7 @@ child Container "main"
 		
 		child image "marker_hit_4"
 		{
-			atlas		"ui/mcd_pkd" "marker_x4";
+			atlas		"ui/ui_intro_list" "marker_x4";
 			position	130 10;
 			size		16 16;
 			scaling		inherit;
@@ -100,7 +100,7 @@ child Container "main"
 		// completion
 		child image "marker_burnout"
 		{
-			atlas		"ui/mcd_pkd" "marker_strike";
+			atlas		"ui/ui_intro_list" "marker_strike";
 			position	75 32;
 			size		60 8;
 			scaling		inherit;
@@ -109,7 +109,7 @@ child Container "main"
 		
 		child image "marker_handbrake"
 		{
-			atlas		"ui/mcd_pkd" "marker_strike";
+			atlas		"ui/ui_intro_list" "marker_strike";
 			position	78 48;
 			size		76 8;
 			scaling		inherit;
@@ -118,7 +118,7 @@ child Container "main"
 		
 		child image "marker_slalom"
 		{
-			atlas		"ui/mcd_pkd" "marker_strike";
+			atlas		"ui/ui_intro_list" "marker_strike";
 			position	65 66;
 			size		58 8;
 			scaling		inherit;
@@ -127,7 +127,7 @@ child Container "main"
 		
 		child image "marker_180"
 		{
-			atlas		"ui/mcd_pkd" "marker_strike";
+			atlas		"ui/ui_intro_list" "marker_strike";
 			position	80 84;
 			size		35 8;
 			scaling		inherit;
@@ -136,7 +136,7 @@ child Container "main"
 		
 		child image "marker_360"
 		{
-			atlas		"ui/mcd_pkd" "marker_strike";
+			atlas		"ui/ui_intro_list" "marker_strike";
 			position	76 101;
 			size		45 8;
 			scaling		inherit;
@@ -145,7 +145,7 @@ child Container "main"
 
 		child image "marker_rev180"
 		{
-			atlas		"ui/mcd_pkd" "marker_strike";
+			atlas		"ui/ui_intro_list" "marker_strike";
 			position	68 120;
 			size		76 8;
 			scaling		inherit;
@@ -154,7 +154,7 @@ child Container "main"
 		
 		child image "marker_speed"
 		{
-			atlas		"ui/mcd_pkd" "marker_strike";
+			atlas		"ui/ui_intro_list" "marker_strike";
 			position	78 138;
 			size		44 8;
 			scaling		inherit;
@@ -163,7 +163,7 @@ child Container "main"
 		
 		child image "marker_brake"
 		{
-			atlas		"ui/mcd_pkd" "marker_strike";
+			atlas		"ui/ui_intro_list" "marker_strike";
 			position	76 154;
 			size		80 8;
 			scaling		inherit;
@@ -172,7 +172,7 @@ child Container "main"
 		
 		child image "marker_lap"
 		{
-			atlas		"ui/mcd_pkd" "marker_strike";
+			atlas		"ui/ui_intro_list" "marker_strike";
 			position	84 172;
 			size		36 8;
 			scaling		inherit;

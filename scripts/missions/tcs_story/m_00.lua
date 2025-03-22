@@ -9,7 +9,7 @@ world:SetLevelName("iviewclassic")
 world:SetEnvironmentName("night_clear")
 SetMusicName("nyc_night")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 ----------------------------------------------------------------------------------------------
 -- Mission initialization
@@ -62,23 +62,23 @@ MISSION.Init = function()
 		parkedCars = {
 		
 			-- cars by left side
-			{ "NPC_mcd_traffic02", Vector3D.new(102.50,0.70,110), Vector3D.new(122,-90,-122), 0 },
-			{ "NPC_mcd_traffic01", Vector3D.new(102.50,0.70,117), Vector3D.new(122,-90,-122), 1 },
-			{ "NPC_mcd_traffic01", Vector3D.new(102.50,0.70,131), Vector3D.new(122,-90,-122), 2 },
-			{ "NPC_mcd_traffic01", Vector3D.new(102.50,0.70,144), Vector3D.new(122,-90,-122), 3 },
-			{ "NPC_mcd_traffic02", Vector3D.new(102.50,0.70,148), Vector3D.new(122,-90,-122), 4 },
+			{ "n_traffic_02", Vector3D.new(102.50,0.70,110), Vector3D.new(122,-90,-122), 0 },
+			{ "n_traffic_01", Vector3D.new(102.50,0.70,117), Vector3D.new(122,-90,-122), 1 },
+			{ "n_traffic_01", Vector3D.new(102.50,0.70,131), Vector3D.new(122,-90,-122), 2 },
+			{ "n_traffic_01", Vector3D.new(102.50,0.70,144), Vector3D.new(122,-90,-122), 3 },
+			{ "n_traffic_02", Vector3D.new(102.50,0.70,148), Vector3D.new(122,-90,-122), 4 },
 
-			{ "NPC_mcd_traffic01", Vector3D.new(120,0.70,148), Vector3D.new(122,-90,-122), 0 },
+			{ "n_traffic_01", Vector3D.new(120,0.70,148), Vector3D.new(122,-90,-122), 0 },
 			
 			-- cars by right side
-			{ "NPC_mcd_traffic02", Vector3D.new(140.50,0.70,112), Vector3D.new(0, 90, 0), 1 },
-			{ "NPC_mcd_traffic02", Vector3D.new(140.50,0.70,104), Vector3D.new(0, 90, 0), 2 },
-			{ "NPC_mcd_traffic01", Vector3D.new(140.50,0.70,100), Vector3D.new(0, 90, 0), 3 },
+			{ "n_traffic_02", Vector3D.new(140.50,0.70,112), Vector3D.new(0, 90, 0), 1 },
+			{ "n_traffic_02", Vector3D.new(140.50,0.70,104), Vector3D.new(0, 90, 0), 2 },
+			{ "n_traffic_01", Vector3D.new(140.50,0.70,100), Vector3D.new(0, 90, 0), 3 },
 
-			{ "NPC_mcd_traffic01", Vector3D.new(157.50,0.70,131), Vector3D.new(0, 90, 0), 4 },
-			{ "NPC_mcd_traffic02", Vector3D.new(157.50,0.70,142), Vector3D.new(0, 90, 0), 0 },
-			{ "NPC_mcd_traffic02", Vector3D.new(157.50,0.70,145), Vector3D.new(0, 90, 0), 1 },
-			{ "NPC_mcd_traffic01", Vector3D.new(157.50,0.70,154), Vector3D.new(0, 90, 0), 2 },
+			{ "n_traffic_01", Vector3D.new(157.50,0.70,131), Vector3D.new(0, 90, 0), 4 },
+			{ "n_traffic_02", Vector3D.new(157.50,0.70,142), Vector3D.new(0, 90, 0), 0 },
+			{ "n_traffic_02", Vector3D.new(157.50,0.70,145), Vector3D.new(0, 90, 0), 1 },
+			{ "n_traffic_01", Vector3D.new(157.50,0.70,154), Vector3D.new(0, 90, 0), 2 },
 		},
 		
 		lapPoints = {

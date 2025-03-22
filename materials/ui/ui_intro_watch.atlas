@@ -1,4 +1,4 @@
-atlasgroup "ui/mcd_stopwatch"
+atlasgroup "ui/ui_intro_watch"
 {
 	stopwatch "0" "0" "0.605469" "0.78125";
 };

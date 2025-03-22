@@ -33,7 +33,7 @@ include "scripts/objects/volumes.def";
 
 // add custom object types below for your level file
 
-include "scripts/objects/mcdtraffic.def";
-include "scripts/objects/mcdlights.def";
-include "scripts/objects/mcddebris.def";
-include "scripts/objects/mcdanim.def";
+include "scripts/objects/m_traffic.def";
+include "scripts/objects/m_lights.def";
+include "scripts/objects/m_debris.def";
+include "scripts/objects/m_anim.def";

@@ -8,7 +8,7 @@ world:SetLevelName("miamiclassic")
 world:SetEnvironmentName("day_clear")
 SetMusicName("frisco_day")
 
-MISSION.LoadingScreen = "resources/loadingscreen_mcd.res"
+MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
@@ -36,8 +36,8 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetDriverType("ped2")
 
-	sounds:Precache( "wind.mcd02a" )
-	sounds:Precache( "wind.mcd02b" )
+	sounds:Precache( "wind.m_02a" )
+	sounds:Precache( "wind.m_02b" )
 	
 	-- For the load time, set player car
 	gameses:SetPlayerCar( playerCar )
@@ -46,7 +46,7 @@ MISSION.Init = function()									-- Preparing Introduction
 
 	gameHUD:Enable(false)								-- HUD disabled
 	gameHUD:FadeIn(false, 2.5)								-- Screen Fade-In (Duration)
-	gameHUD:ShowScreenMessage("#MCD02_TITLE_HIDEEVIDENCE", 3.5)				-- Classic title text (Duration)
+	gameHUD:ShowScreenMessage("#M_02_TITLE_HIDEEVIDENCE", 3.5)				-- Classic title text (Duration)
 	--gameHUD:ShowAlert("HIDE THE EVIDENCE", 3.5, HUD_ALERT_NORMAL)		-- Syndicate title message (Duration)
 
 	MISSION.SetupFlybyCutscene()	-- Starting Introduction FlyBy Cutscene 
@@ -63,11 +63,11 @@ function MISSION.SetupFlybyCutscene()
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd02a"), -1 )
+		sounds:Emit( EmitParams.new("wind.m_02a"), -1 )
 	end, 1.5);
 
 	missionmanager:ScheduleEvent( function() 
-		sounds:Emit( EmitParams.new("wind.mcd02b"), 0 )
+		sounds:Emit( EmitParams.new("wind.m_02b"), 0 )
 	end, 2.0);
 	
 	local targetView = cameraAnimator:GetComputedView()
@@ -136,7 +136,7 @@ function MISSION.Phase1Start()
 	-- Here we start
 	missionmanager:SetRefreshFunc( MISSION.Phase1Update )
 
-	gameHUD:ShowScreenMessage("#MCD02_OBJ_BREAKERS", 3.5)
+	gameHUD:ShowScreenMessage("#M_02_OBJ_BREAKERS", 3.5)
 end
 
 ----------------------------------------------------------------------------------------------
@@ -199,7 +199,7 @@ function MISSION.OnCompleted()					-- Mission completed after all objectives are
 	-- Trigger MissionSuccess UI
 	--gameHUD:ShowAlert("#MENU_GAME_TITLE_MISSION_SUCCESS", 3.5, HUD_ALERT_SUCCESS)		
 	
-	gameHUD:ShowScreenMessage("#MCD_GOODJOB", 3.5)
+	gameHUD:ShowScreenMessage("#M_GOODJOB", 3.5)
 end
 
 MISSION.UpdateAll = function(delta)

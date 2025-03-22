@@ -13,8 +13,8 @@ local FreeRideVehicleSet = {
     },
     Traffic = {
         default = {
-            npc_mcd_traffic01       = {},
-            npc_mcd_traffic02		= {},
+            n_traffic_01       = {},
+            n_traffic_02		= {},
             m_police_ios			= { interval = 20, traffic = false }, -- cops are spawn by the requests
         },
     }

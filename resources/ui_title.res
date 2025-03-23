@@ -9,7 +9,7 @@ panel
 	{
 		path		"ui/ui_menu_bg0";
 		position	0 0;
-		size		920  510;
+		size		855  480;
 		align		vcenter hcenter;
 
 		scaling		aspecth;
@@ -18,8 +18,8 @@ panel
 	child image "game_logo"
 	{
 		path		"ui/ui_menu_logo";
-		position	0 64;
-		size		620 151;
+		position	0 81;
+		size		512 125;
 
 		align		hcenter;// vcenter;
 

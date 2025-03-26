@@ -199,9 +199,11 @@ local MiamiMissionsList = {
 	}
 }
 
+local InterviewFileName = "InterviewHD"
 local MyLevelFileName = "MiamiClassic"
 
 local ClassicLevels = {
+	InterviewFileName,
 	MyLevelFileName,
 }
 
@@ -326,6 +328,7 @@ function ModInit:Init()
 	-----------------------------------------------------------
 	
 	-- add levels
+--	table.insert(MenuCityList, {InterviewFileName, "Parking (Classic)"})
 	table.insert(MenuCityList, {MyLevelFileName, "Miami (Classic)"})
 
 	-- add cars
@@ -396,7 +399,7 @@ function ModInit:DeInit()
 	localize.RemoveTokensFile("tcs_missions")
 	
 	EmitterSounds.Messages 				= 	nil
-	EmitterSoundRegistry.Parking 		= 	nil
+	EmitterSoundRegistry.Interview 		= 	nil
 	EmitterSoundRegistry.Goons 			= 	nil
 	EmitterSoundRegistry.SFX 			= 	nil
 	EmitterSoundRegistry.Vehicles 		= 	nil

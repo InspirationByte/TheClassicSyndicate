@@ -3,7 +3,7 @@ name		"MIAMI - NPC 02";
 cleanmodel		"models/vehicles/mcd_miaminpc02.egf";
 damagedmodel	"models/vehicles/mcd_miaminpc02_dam.egf";
 
-wheelmodel		"models/vehicles/common/x_wheels.egf";
+wheelmodel		"models/vehicles/common/wheels_ios.egf";
 
 //				damaged 		hubcapped 		hubcap
 wheelBodyGroup	"ios_uncapped" 	"ios_capped" 	"ios_cap";

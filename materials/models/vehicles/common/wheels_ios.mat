@@ -1,6 +1,6 @@
 "Skinned"
 { 
-	BaseTexture					"models/vehicles/common/rims";
+	BaseTexture					"models/vehicles/common/wheels_ios";
 	BaseTextureSpecularAlpha 	1;
 
 	CubeMap						"$env_cubemap";
@@ -9,5 +9,5 @@
 	AlphaTest					1;
 	NoCull						0;
 	
-//	Filtering					"Nearest";
+//	Filtering					"Linear";
 }; 

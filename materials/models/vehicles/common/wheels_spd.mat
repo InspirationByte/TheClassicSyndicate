@@ -9,5 +9,5 @@
 	AlphaTest					1;
 	NoCull						0;
 	
-//	Filtering					"Nearest";
+//	Filtering					"Linear";
 }; 

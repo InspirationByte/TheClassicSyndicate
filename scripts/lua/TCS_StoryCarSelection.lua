@@ -4,7 +4,7 @@
 --//////////////////////////////////////////////////////////////////////////////////
 
 local StandardStoryCarsList = {
-	{"m_default_ios", "Skylark"},
+	{"m_skylark_ios", "Skylark"},
 	{"m_fairlane_ios", "Fairlane"},
 	{"m_bonneville_ios", "Bonneville"},
 	{"m_chevess_ios", "Chevelle SS"},

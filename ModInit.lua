@@ -208,7 +208,7 @@ local ClassicLevels = {
 }
 
 local ClassicCars = {
-	{"m_default_ios", "TCS - Skylark"},			-- Miami
+	{"m_skylark_ios", "TCS - Skylark"},			-- Miami
 	{"m_fairlane_ios", "TCS - Fairlane"},		-- Frisco
 	{"m_bonneville_ios", "TCS - Bonneville"},	-- LA
 	{"m_evidence_ios", "TCS - Evidence"},		-- NYC
@@ -248,7 +248,7 @@ function TCS_GetAchievementsData( key )
 end
 
 function TCS_GetPlayerCarName()
-	local standardCarName = "m_default_ios"
+	local standardCarName = "m_skylark_ios"
 	
 	local storyPreferences = TCS_GetAchievementsData("TCS_CompletedStory")
 	if storyPreferences ~= nil then

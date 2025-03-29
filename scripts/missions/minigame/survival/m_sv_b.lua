@@ -17,7 +17,7 @@ SetMusicName("frisco_day")
 
 MISSION.Init = function()
 	-- car name		maxdamage	pos ang
-	local playerCar = gameses:CreateCar("m_default_ios", CAR_TYPE_NORMAL)
+	local playerCar = gameses:CreateCar("m_skylark_ios", CAR_TYPE_NORMAL)
 	MISSION.playerCar = playerCar
 	
 	playerCar:SetOrigin( Vector3D.new(108, 0.70, -420) )

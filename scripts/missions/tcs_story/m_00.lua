@@ -52,8 +52,8 @@ MISSION.Init = function()
 	-- put globals here
 	MISSION.Data = {
 	
-		carName = "m_default_ios",
-		startPos = Vector3D.new(12, -0.6, 6.0),
+		carName = "m_skylark_ios",
+		startPos = Vector3D.new(10, -0.6, 0.0),
 		
 		waitTime = 1.0,
 		
@@ -162,7 +162,7 @@ MISSION.Init = function()
 	playerCar:SetMaxDamage( 1.0 )
 	
 	playerCar:SetOrigin( MISSION.Data.startPos )
-	playerCar:SetAngles( Vector3D.new(180, 0, 0) )
+	playerCar:SetAngles( Vector3D.new(180, 90, 0) )
 	playerCar:SetColorScheme( 1 )
 
 	playerCar:Spawn()

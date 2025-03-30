@@ -211,7 +211,7 @@ local ClassicCars = {
 	{"m_skylark_ios", "TCS - Skylark"},			-- Miami
 	{"m_fairlane_ios", "TCS - Fairlane"},		-- Frisco
 	{"m_bonneville_ios", "TCS - Bonneville"},	-- LA
-	{"m_evidence_ios", "TCS - Evidence"},		-- NYC
+	{"m_regal_ios", "TCS - Regal"},				-- NYC
 }
 
 -- unlocked with completion of story

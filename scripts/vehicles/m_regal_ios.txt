@@ -1,7 +1,7 @@
 name		"Miami - Evidence (iOS)";
 
-cleanmodel		"models/vehicles/m_evidence_ios/car_ok.egf";
-damagedmodel	"models/vehicles/m_evidence_ios/car_ko.egf";
+cleanmodel		"models/vehicles/m_regal_ios/car_clean.egf";
+damagedmodel	"models/vehicles/m_regal_ios/car_damaged.egf";
 
 wheelmodel		"models/vehicles/common/wheels_ios.egf";
 
@@ -32,18 +32,18 @@ visuals
 {
 	// name			type 	position 					split dist
 	
-	headlights 		0 		0.58 	0.0 	2.24 		0.09;
-	brakelights 	1 		0.51 	-0.015 	-2.30 		0.10;
+	headlights 		0 		0.56 	0.01 	2.24 		0.09;
+	brakelights 	1 		0.51 	-0.01 	-2.30 		0.10;
 
-	backlights 				0.51 	-0.015 	-2.30 		0.06;
+	backlights 				0.51 	-0.01 	-2.30 		0.06;
 
 	frontdimlights			0.84 	0.0 	2.21 		0.1;
-	backdimlights			0.76 	-0.015 	-2.30 		0.06;
+	backdimlights			0.76 	-0.005 	-2.30 		0.06;
 
 	engine 					0.0 	0.1 	2.12;
 	
-	driver 					-0.38 	0.13 	0.01;
-	passenger1 				0.34 	0.13 	0.01;
+	driver 					-0.38 	0.13 	0.02;
+	passenger1 				0.38 	0.13 	0.02;
 	
 	// name					position					type		want double exhausts? (add 1).
 	
@@ -64,12 +64,13 @@ colors
 	"Default"	0.35	0.35	0.50	0.75;	
 };
 
-bodysize		0.88 	0.52 	2.40;
-center 			0.00	0.12 	0.00;
+bodysize		0.88 	0.54 	2.40;
+center 			0.00	0.14 	0.00;
 
 gravitycenter	0.0 	-0.14 	0.05;
 mass 			2800;
 antiroll		0.32;
+noseDownScale 	0.175;
 
 gears
 	-1.95
@@ -85,7 +86,7 @@ torquemultipler		1.25;
 
 maxspeed			144;
 
-suspensionLift		-0.05;
+suspensionLift		-0.08;
 	
 wheels
 {
@@ -100,7 +101,7 @@ wheels
 		Radius 			0.32;
 		Width			0.22;
 
-		BrakeTorque		18000.0;
+		BrakeTorque		12000.0;
 
 		Steer			1;
 		Drive			0;
@@ -117,7 +118,7 @@ wheels
 		Radius 			0.32;
 		Width			0.22;
 
-		BrakeTorque		18000.0;
+		BrakeTorque		12000.0;
 		Steer			1;
 		Drive			0;
 		Handbrake		0;
@@ -134,7 +135,7 @@ wheels
 		Radius 			0.32;
 		Width			0.22;
 
-		BrakeTorque		18000.0;
+		BrakeTorque		12000.0;
 
 		Steer			0;
 		Drive			1;
@@ -152,7 +153,7 @@ wheels
 		Radius 			0.32;
 		Width			0.22;
 
-		BrakeTorque		18000.0;
+		BrakeTorque		12000.0;
 
 		Steer			0;
 		Drive			1;

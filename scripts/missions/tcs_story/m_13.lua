@@ -62,7 +62,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(180,0,180) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
-	playerCar:SetDriverType("ped2")
+	playerCar:SetDriverType("ped0")
 
 	sounds:Precache( "wind.m_13a" )
 	sounds:Precache( "wind.m_13b" )

@@ -95,7 +95,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(180,0,180) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
-	playerCar:SetDriverType("ped2")
+	playerCar:SetDriverType("ped0")
 
 	gameutil.PrecacheStudioModel( "models/characters/mcd_ticco.egf", {
 		"models/characters/pedestrian.mop",

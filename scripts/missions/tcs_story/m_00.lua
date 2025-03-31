@@ -166,7 +166,7 @@ MISSION.Init = function()
 	playerCar:SetColorScheme( 1 )
 
 	playerCar:Spawn()
-	playerCar:SetDriverType("ped2")
+	playerCar:SetDriverType("ped0")
 	playerCar:AlignToGround();
 	playerCar:SetPassengers(1)
 

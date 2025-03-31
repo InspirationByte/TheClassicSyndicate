@@ -1,0 +1,5 @@
+Skinned
+{
+	BaseTexture "models/characters/face00" "usage:diffuse";
+	SpecularScale 0.1;
+};

@@ -69,7 +69,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetColorScheme( 1 )
 	playerCar:SetMaxSpeed(170)
 	playerCar:SetTorqueScale(1.2)
-	playerCar:SetDriverType("ped2")
+	playerCar:SetDriverType("ped0")
 
 	sounds:Precache( "wind.m_11a" )
 

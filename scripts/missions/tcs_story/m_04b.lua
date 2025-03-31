@@ -57,7 +57,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	playerCar:SetAngles( Vector3D.new(180,-90,180) )
 	playerCar:Spawn()
 	playerCar:SetColorScheme( 1 )
-	playerCar:SetDriverType("ped2")
+	playerCar:SetDriverType("ped0")
 
 	-- For the load time, set player car
 	gameses:SetPlayerCar( playerCar )

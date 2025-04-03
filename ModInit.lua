@@ -217,7 +217,7 @@ local ClassicCars = {
 -- unlocked with completion of story
 local UnlockableCars = {
 	{"m_superfly_ios", "TCS - Superfly"},
-	{"m_continental_ios", "TCS - Continental"},
+	{"m_grandprix_ios", "TCS - Grand Prix"},
 	{"m_truck_ios", "TCS - Bomb Truck"},
 	{"m_chevess_ios", "TCS - Chevelle SS"},
 	{"m_chevelle_ios", "TCS - Chevelle"},

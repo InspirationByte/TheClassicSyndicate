@@ -14,7 +14,7 @@ local StandardStoryCarsList = {
 
 local UnlockableStoryCarsList = {
 	{"m_superfly_ios", "Superfly"},
-	{"m_continental_ios", "Continental"},
+	{"m_grandprix_ios", "Grand Prix"},
 	{"m_truck_ios", "Bomb Truck"},
 	{"m_chevelle_ios", "Chevelle"},
 	{"m_camaro_ios", "Camaro"},

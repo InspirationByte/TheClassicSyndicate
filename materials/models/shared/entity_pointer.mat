@@ -1,0 +1,31 @@
+"Skinned" 
+{ 
+	BaseTexture 					"models/shared/entity_pointer";
+	
+// =======================================================================		
+	
+//	Cubemap							"$env_Cubemap";
+//	SpecularScale					"0.0";
+	
+// =======================================================================		
+	
+//	Additive						"1";
+//	Address							"Clamp";
+	AlphaTest						"1";
+//	NoCull							"1";
+//	NoDraw							"1";
+	
+// =======================================================================		
+	
+//	Rotatable						"1";
+//	SurfaceProps					"XXXXXXXXXXXXXXXX";
+	
+	Filtering 						"Nearest";
+	
+	NoDraw 							1;
+	
+	editor
+	{
+		NoDraw 0;
+	}
+};

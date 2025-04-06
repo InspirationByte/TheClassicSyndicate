@@ -6,6 +6,7 @@ fonts
 	Default 	"Cooper" 30
 	{
 		fontScale	16 16;
+		textColor	1.0 1.0 0.4 1;
 	}
 	FelonyBar	"Cooper" 30
 	{
@@ -44,15 +45,38 @@ child Container "main"
 		
 		size		210 17;
 		scaling		inherit_min;
+		
+		child image "border_classic_fade"
+		{
+			path		"ui/ui_border_classic_fade";
+			position	0 0;
+			size		210 18;
+			
+			scaling		inherit;
+		}		
+
+		child image "border_classic"
+		{
+			path		"ui/ui_border_classic";
+			position	0 0;
+			size		210 18;
+			
+			scaling		inherit;
+		}
 
 		child label "damageLabel"
 		{
-			position	5 -5;
+			position	12 -10;
 			
 			size		200 40;
 			scaling		uniform;
 			
-			label		"#HUD_DAMAGE_TITLE";
+			label		"Damage";
+			
+			// fancy stuff
+			textShadowColor		0 0 0 1;
+			textShadowOffset 	2.0;
+			textShadowWeight	0.1;			
 		}
 	}
 
@@ -77,26 +101,54 @@ child Container "main"
 			align		top right;
 			textAlign	right;
 			
-			label		"#HUD_DAMAGE_TITLE";
+			label		"Damage";
+			
+			// fancy stuff
+			textShadowColor		0 0 0 1;
+			textShadowOffset 	2.0;
+			textShadowWeight	0.1;			
 		}
 	}
 
 	child ProgressBar "felonyBar"
 	{
 		clipChilds	0;
-		position	20 60;
+		position	20 62;
 		
 		size		210 17;
 		scaling		inherit_min;
 
+		child image "border_classic_fade"
+		{
+			path		"ui/ui_border_classic_fade";
+			position	0 0;
+			size		210 18;
+			
+			scaling		inherit;
+		}		
+
+		child image "border_classic"
+		{
+			path		"ui/ui_border_classic";
+			position	0 0;
+			size		210 18;
+			
+			scaling		inherit;
+		}
+
 		child label "felonyLabel"
 		{
-			position	5 -5;
+			position	12 -10;
 			
 			size		200 40;
 			scaling		uniform;
 			
-			label		"#HUD_FELONY_TITLE";
+			label		"Felony";
+			
+			// fancy stuff
+			textShadowColor		0 0 0 1;
+			textShadowOffset 	2.0;
+			textShadowWeight	0.1;		
 		}
 	}
 
@@ -119,20 +171,29 @@ child Container "main"
 	child image "map"
 	{
 		path		"_hudMap";
-		position	20 30;
+		position	30 30;
 		align		bottom right;
 		
-		size		160 120;
+		size		140 130;
 		scaling		inherit_min;
 		color		1 1 1 0.7;
 
 		child image "radarColor"
 		{
 			position 	0 0;
-			size 		160 120;
+			size 		140 130;
 			scaling 	inherit;
 			path		"_hudWhite";
 		}
+		
+		child image "border_classic_map"
+		{
+			path		"ui/ui_border_classic_map";
+			position	0 0;
+			size		140 130;
+			
+			scaling		inherit;
+		}		
 	}
 }
 

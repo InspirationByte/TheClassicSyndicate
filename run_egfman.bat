@@ -1,2 +1,2 @@
-cd ..\..\Bin64SDK\
+cd ..\..\Bin64\
 start egfman -devAddon Addons/TheClassicSyndicate

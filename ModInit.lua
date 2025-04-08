@@ -199,7 +199,7 @@ local MiamiMissionsList = {
 	}
 }
 
-local InterviewFileName = "InterviewHD"
+local InterviewFileName = "iview"
 local MyLevelFileName = "MiamiClassic"
 
 local ClassicLevels = {

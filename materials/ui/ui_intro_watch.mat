@@ -1,6 +1,13 @@
 BaseUnlit
 {
-	BaseTexture "ui/ui_intro_watch";
-	address "clamp";
-	translucent "1";
+	BaseTexture 					"ui/ui_intro_watch";
+	
+// =======================================================================	
+	
+	Address 						"Clamp";
+	Translucent 					"1";
+	
+// =======================================================================	
+	
+	Filtering						"Nearest";
 };

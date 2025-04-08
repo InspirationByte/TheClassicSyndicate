@@ -5,7 +5,7 @@
 -- 11 Mar 2015
 --------------------------------------------------------------------------------
 
-world:SetLevelName("InterviewHD")
+world:SetLevelName("iview")
 world:SetEnvironmentName("night_clear")
 SetMusicName("nyc_night")
 
@@ -18,7 +18,7 @@ MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"
 sounds:LoadScript(EmitterSounds.iview)
 
 MISSION.Hud = {
-	resourceFile = "resources/hud/InterviewHD.res",
+	resourceFile = "resources/hud/iview.res",
 	interview = {
 		Init = function()
 			-- init hud
@@ -53,7 +53,7 @@ MISSION.Init = function()
 	MISSION.Data = {
 	
 		carName = "m_skylark_ios",
-		startPos = Vector3D.new(10, -0.6, 0.0),
+		startPos = Vector3D.new(-4, -0.6, 23),
 		
 		waitTime = 1.0,
 		
@@ -62,61 +62,61 @@ MISSION.Init = function()
 		parkedCars = {
 		
 			-- Left
-			{ "n_traffic_02", Vector3D.new( 41, 0.60, -46 ), Vector3D.new( -180, 90, -180 ), 1 },
-			{ "n_traffic_02", Vector3D.new( 41, 0.60, -42 ), Vector3D.new( -180, 90, -180 ), 2 },
-			{ "n_traffic_01", Vector3D.new( 41, 0.60, -34 ), Vector3D.new( -180, 90, -180 ), 3 },
-			{ "n_traffic_02", Vector3D.new( 41, 0.60, -18 ), Vector3D.new( -180, 90, -180 ), 4 },
-			{ "n_traffic_01", Vector3D.new( 41, 0.60, -10 ), Vector3D.new( -180, 90, -180 ), 5 },
-			
-			-- Center left
-			{ "n_traffic_01", Vector3D.new( 23, 0.60, -50 ), Vector3D.new( -180, 90, -180 ), 2 },
-			
-			-- Center right
-			{ "n_traffic_01", Vector3D.new( 1, 0.60, -6 ), Vector3D.new( -180, -90, -180 ), 3 },
-
-			-- Right
-			{ "n_traffic_01", Vector3D.new( -17, 0.60, -46 ), Vector3D.new( -180, -90, -180 ), 4 },
-			{ "n_traffic_02", Vector3D.new( -17, 0.60, -38 ), Vector3D.new( -180, -90, -180 ), 5 },
-			{ "n_traffic_01", Vector3D.new( -17, 0.60, -34 ), Vector3D.new( -180, -90, -180 ), 1 },
-			{ "n_traffic_02", Vector3D.new( -17, 0.60, -22 ), Vector3D.new( -180, -90, -180 ), 2 },
+			{ "n_traffic_02", Vector3D.new( 23.8, 0.60, -27.25 ), Vector3D.new( -180, 90, -180 ), 1 },
+			{ "n_traffic_02", Vector3D.new( 23.8, 0.60, -24.5 ), Vector3D.new( -180, 90, -180 ), 2 },
+			{ "n_traffic_01", Vector3D.new( 23.8, 0.60, -16.25 ), Vector3D.new( -180, 90, -180 ), 3 },
+			{ "n_traffic_02", Vector3D.new( 23.8, 0.60, 0.25 ), Vector3D.new( -180, 90, -180 ), 4 },
+			{ "n_traffic_01", Vector3D.new( 23.8, 0.60, 11.25 ), Vector3D.new( -180, 90, -180 ), 5 },
+--			
+--			-- Center left
+			{ "n_traffic_01", Vector3D.new( 6.5, 0.60, -27.25 ), Vector3D.new( -180, 90, -180 ), 2 },
+--			
+--			-- Center right
+			{ "n_traffic_01", Vector3D.new( -14.5, 0.60, 11.25 ), Vector3D.new( -180, -90, -180 ), 3 },
+--
+--			-- Right
+			{ "n_traffic_01", Vector3D.new( -31.6, 0.60, -24.5 ), Vector3D.new( -180, -90, -180 ), 4 },
+			{ "n_traffic_02", Vector3D.new( -31.6, 0.60, -21.75 ), Vector3D.new( -180, -90, -180 ), 5 },
+			{ "n_traffic_01", Vector3D.new( -31.6, 0.60, -10.75 ), Vector3D.new( -180, -90, -180 ), 1 },
+			{ "n_traffic_02", Vector3D.new( -31.6, 0.60, 5.75 ), Vector3D.new( -180, -90, -180 ), 2 },
 
 		},
 		
 		lapPoints = {
 
 			-- Left
-			Vector3D.new(33, 0.60, -4),
-			Vector3D.new(33, 0.60, -52),
+			Vector3D.new(15, 0.60, 12.25),
+			Vector3D.new(15, 0.60, -28.25),
 
 			-- Up
-			Vector3D.new(26, 0.60, -60),
-			Vector3D.new(-2, 0.60, -60),
+			Vector3D.new(9.5, 0.60, -36),
+			Vector3D.new(-17.5, 0.60, -36),
 			
 			-- Right
-			Vector3D.new(-10, 0.60, -52),
-			Vector3D.new(-10, 0.60, -44),
+			Vector3D.new(-23, 0.60, -28.25),
+			Vector3D.new(-23, 0.60, 12.25),
 
 			-- Down
-			Vector3D.new(-2, 0.60, 4),
-			Vector3D.new(26, 0.60, 4),
+			Vector3D.new(-17.5, 0.60, 20),
+			Vector3D.new(9.5, 0.60, 20),
 		},
 		
 		slalomPoints = {
 			{
 				-- Left
-				Vector3D.new(26, 0.60, 4),
-				Vector3D.new(26, 0.60, -12),
-				Vector3D.new(26, 0.60, -28),
-				Vector3D.new(26, 0.60, -44),
-				Vector3D.new(26, 0.60, -60),
+				Vector3D.new(9.5, 0.60, 19.1),
+				Vector3D.new(9.5, 0.60, 5.6),
+				Vector3D.new(9.5, 0.60, -7.9),
+				Vector3D.new(9.5, 0.60, -21.4),
+				Vector3D.new(9.5, 0.60, -34.9),
 			},
 			{
 				-- Right
-				Vector3D.new(-2 ,0.60, 4),
-				Vector3D.new(-2 ,0.60, -12),
-				Vector3D.new(-2 ,0.60, -28),
-				Vector3D.new(-2 ,0.60, -44),
-				Vector3D.new(-2 ,0.60, -60),
+				Vector3D.new(-17.5, 0.60, 19.1),
+				Vector3D.new(-17.5, 0.60, 5.6),
+				Vector3D.new(-17.5, 0.60, -7.9),
+				Vector3D.new(-17.5, 0.60, -21.4),
+				Vector3D.new(-17.5, 0.60, -34.9),
 			}
 		},
 		
@@ -162,7 +162,7 @@ MISSION.Init = function()
 	playerCar:SetMaxDamage( 1.0 )
 	
 	playerCar:SetOrigin( MISSION.Data.startPos )
-	playerCar:SetAngles( Vector3D.new(180, 90, 0) )
+	playerCar:SetAngles( Vector3D.new(180, 0, 0) )
 	playerCar:SetColorScheme( 1 )
 
 	playerCar:Spawn()
@@ -215,7 +215,7 @@ MISSION.WaitForStart = function( delta )
 	local playerCar = MISSION.playerCar
 
 	missionmanager:ScheduleEvent( function() 
-		playerCar:SetLight(CAR_LIGHT_LOWBEAMS, false);
+		playerCar:SetLight(CAR_LIGHT_LOWBEAMS, true);
 	end, 0);
 
 	if MISSION.Data.waitTime > 0 then
@@ -260,7 +260,7 @@ MISSION.ProcessLapCondition = function()
 	local numPoints = 0
 	
 	for i,v in ipairs(missionData.lapPoints) do
-		--debugoverlay:Line3D(lastPoint, v, Vector4D.new(1,1,1,1), Vector4D.new(1,1,1,1), 0.0)
+--		DbgSphere():Position(v):Radius(1.0)	-- DEBUG
 
 		local pr = lineProjection( lastPoint, v, playerCar:GetOrigin() )
 		local posOnLine = lerp(lastPoint, v, pr)
@@ -305,7 +305,8 @@ MISSION.CheckSlalomPassing = function( num )
 	local points = missionData.slalomPoints[num]
 
 	for i,v in ipairs(points) do
-		if length(v - playerCar:GetOrigin()) < 6.5 then
+--		DbgSphere():Position(v):Radius(6.0) -- DEBUG
+		if length(v - playerCar:GetOrigin()) < 6.0 then
 			return i == 1 or i == #points -- should be only beginning or ending
 		end
 	end

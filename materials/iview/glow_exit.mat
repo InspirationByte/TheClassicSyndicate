@@ -1,7 +1,7 @@
 "Base" 
 { 
-	BaseTexture 					"iview/XXXXXXXXXXXXXXXX";
-//	NightLight						"iview/XXXXXXXXXXXXXXXX";
+	BaseTexture 					"iview/glow_exit";
+//	NightLight						"iview/glow_exit";
 	
 // =======================================================================	
 	
@@ -12,6 +12,7 @@
 
 // =======================================================================
 
+	Additive						"1";	
 //	Address							"Clamp";	
 //	AlphaTest						"1";
 //	NoCull							"1";
@@ -21,5 +22,5 @@
 
 //	Rotatable						"1";
 //	SurfaceProps					"XXXXXXXXXXXXXXXX";
-	Filtering 						"Linear";
+	Filtering 						"Nearest";
 };

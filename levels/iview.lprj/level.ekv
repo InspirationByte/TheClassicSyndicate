@@ -1,0 +1,225 @@
+version 2;
+cellsSize 128;
+regionsWidth 16;
+regionsHeight 16;
+leftHandedRoads 0;
+CameraPosition 14.3011 1.75729 26.0592;
+CameraRotation 0.0978394 -124.8 0;
+objectDefs
+{
+	static iview_solid
+	{
+		flags 0;
+	};
+	static iview_ground
+	{
+		flags 1;
+	};
+	domain_volume city_buildings_volume;
+	domain_volume parking_volume;
+	domain_volume tunnel_volume;
+	domain_volume nav_dynamic_carver;
+	domain_volume nav_closed_area;
+	domain_volume nav_open_area;
+	gameobj break_lamp_sparks;
+	gameobj smash_woodflecks;
+	gameobj smash_mailbox;
+	gameobj smash_trash;
+	gameobj smash_wood;
+	gameobj hydrantFlow;
+	gameobj sparks;
+	gameobj smoke_black;
+	gameobj water_test;
+	gameobj sound_path;
+	gameobj spawn_point;
+	gameobj light_set_1;
+	gameobj light_exit;
+	static iview_nocollision
+	{
+		flags 2;
+	};
+};
+visGroups
+{
+	visgroup 0
+	{
+		name default;
+		enabled 1;
+		visible 1;
+	};
+	visgroup 1
+	{
+		name volumes;
+		enabled 1;
+		visible 0;
+	};
+};
+regions
+{
+	region 119
+	{
+		objects
+		{
+			obj iview_solid
+			{
+				position -2 0 -6;
+				rotation 0 0 0;
+				tileX 127;
+				tileY 126;
+				visGroupId 0;
+			};
+			obj iview_ground
+			{
+				position -2 0 -6;
+				rotation 0 0 0;
+				tileX 127;
+				tileY 126;
+				visGroupId 0;
+			};
+			obj iview_nocollision
+			{
+				position -2 0 -6;
+				rotation 0 0 0;
+				tileX 127;
+				tileY 126;
+				visGroupId 0;
+			};
+		};
+		brushes
+		{
+			brush
+			{
+				faces
+				{
+					face tools\occluder
+					{
+						N -1 -0 -0 -40;
+						U -4.37114e-08 0 1 0;
+						V 0 1 0 0;
+						TS 4 4;
+						TR 0;
+					};
+					face tools\occluder
+					{
+						N 1 -0 -0 -32;
+						U 1.19249e-08 0 -1 0;
+						V 0 1 0 0;
+						TS 4 4;
+						TR 0;
+					};
+					face tools\occluder
+					{
+						N -0 1 -0 -4;
+						U -1 0 -8.74228e-08 0;
+						V -8.74228e-08 1.19249e-08 1 0;
+						TS 4 4;
+						TR 0;
+					};
+					face tools\occluder
+					{
+						N -0 -1 -0 -0;
+						U -1 0 -8.74228e-08 0;
+						V 8.74228e-08 -4.37114e-08 -1 0;
+						TS 4 4;
+						TR 0;
+					};
+					face tools\occluder
+					{
+						N -0 -0 1 -32;
+						U 1 0 0 0;
+						V 0 1 0 0;
+						TS 4 4;
+						TR 0;
+					};
+					face tools\occluder
+					{
+						N -0 -0 -1 -48;
+						U -1 0 -8.74228e-08 0;
+						V 0 1 0 0;
+						TS 4 4;
+						TR 0;
+					};
+				};
+				name "";
+				region 119;
+				groupId 65535;
+				visGroupId 1;
+				def parking_volume;
+			};
+		};
+	};
+	region 120
+	{
+		objects
+		{
+			obj light_exit
+			{
+				position 30 0 -34;
+				rotation 0 -180 0;
+				tileX 7;
+				tileY 119;
+				visGroupId 0;
+			};
+			obj light_set_1
+			{
+				position 34 0 -8.45223;
+				rotation 0 0 0;
+				tileX 65535;
+				tileY 126;
+				visGroupId 0;
+			};
+			obj light_set_1
+			{
+				position 34 0 -21.9514;
+				rotation 0 0 0;
+				tileX 65535;
+				tileY 122;
+				visGroupId 0;
+			};
+			obj light_set_1
+			{
+				position 34 0 -35.4381;
+				rotation 0 0 0;
+				tileX 65535;
+				tileY 117;
+				visGroupId 0;
+			};
+		};
+	};
+	region 135
+	{
+		objects
+		{
+			obj light_exit
+			{
+				position -38 0 18;
+				rotation 0 0 0;
+				tileX 118;
+				tileY 4;
+				visGroupId 0;
+			};
+		};
+	};
+	region 136
+	{
+		objects
+		{
+			obj light_set_1
+			{
+				position 34 0 5.0453;
+				rotation 0 0 0;
+				tileX 65535;
+				tileY 1;
+				visGroupId 0;
+			};
+			obj light_set_1
+			{
+				position 34 0 18.5775;
+				rotation 0 0 0;
+				tileX 65535;
+				tileY 4;
+				visGroupId 0;
+			};
+		};
+	};
+};

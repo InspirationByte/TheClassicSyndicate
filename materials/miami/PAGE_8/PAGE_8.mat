@@ -1,0 +1,25 @@
+"Base" 
+{ 
+	BaseTexture 					"miami/PAGE_8/PAGE_8";
+//	NightLight						"miami/XXXXXXXXXXXXXXXX";
+	
+// =======================================================================	
+	
+//	Cubemap							"$env_Cubemap";
+//	BaseTextureSpecularAlpha 		"1";
+//	SpecularScale					"0.3";
+//	Phong							"5.0";
+
+// =======================================================================
+
+//	Address							"Clamp";	
+//	AlphaTest						"1";
+//	NoCull							"1";
+//	NoDraw							"1";
+
+// =======================================================================
+
+//	Rotatable						"1";
+//	SurfaceProps					"XXXXXXXXXXXXXXXX";
+	Filtering 						"Nearest";
+};

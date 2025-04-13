@@ -1,0 +1,30 @@
+"Base" 
+{ 
+	BaseTexture 					"shared/light_entity";
+//	NightLight						"shared/XXXXXXXXXXXXXXXX";
+	
+// =======================================================================	
+	
+//	Cubemap							"$env_Cubemap";
+//	BaseTextureSpecularAlpha 		"1";
+//	SpecularScale					"0.3";
+//	Phong							"5.0";
+
+// =======================================================================
+
+//	Address							"Clamp";	
+	AlphaTest						"1";
+	NoCull							"1";
+	NoDraw							"1";
+	
+	editor
+	{
+		NoDraw						"0";
+	}
+
+// =======================================================================
+
+//	Rotatable						"1";
+//	SurfaceProps					"XXXXXXXXXXXXXXXX";
+	Filtering 						"Nearest";
+};

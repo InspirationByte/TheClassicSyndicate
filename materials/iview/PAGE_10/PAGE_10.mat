@@ -1,7 +1,7 @@
 "Base" 
 { 
-	BaseTexture 					"iview/glow_exit";
-//	NightLight						"iview/glow_exit";
+	BaseTexture 					"iview/PAGE_10/PAGE_10";
+//	NightLight						"iview/XXXXXXXXXXXXXXXX";
 	
 // =======================================================================	
 	
@@ -12,8 +12,8 @@
 
 // =======================================================================
 
-	Additive						"1";	
-//	Address							"Clamp";	
+//	Additive						"0";
+//	Address							"Clamp";
 //	AlphaTest						"1";
 //	NoCull							"1";
 //	NoDraw							"1";

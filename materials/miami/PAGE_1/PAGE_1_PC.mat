@@ -1,7 +1,7 @@
 "Base" 
 { 
-	BaseTexture 					"iview/PAGE_15";
-//	NightLight						"iview/XXXXXXXXXXXXXXXX";
+	BaseTexture 					"miami/PAGE_1/PAGE_1_PC";
+//	NightLight						"miami/XXXXXXXXXXXXXXXX";
 	
 // =======================================================================	
 	
@@ -12,8 +12,7 @@
 
 // =======================================================================
 
-//	Additive						"0";
-//	Address							"Clamp";
+//	Address							"Clamp";	
 //	AlphaTest						"1";
 //	NoCull							"1";
 //	NoDraw							"1";

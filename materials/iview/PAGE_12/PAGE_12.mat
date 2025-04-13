@@ -1,7 +1,7 @@
 "Base" 
 { 
-	BaseTexture 					"iview/PAGE_12";
-	NightLight						"iview/PAGE_12_L";
+	BaseTexture 					"iview/PAGE_12/PAGE_12";
+	NightLight						"iview/PAGE_12/PAGE_12_L";
 	
 // =======================================================================	
 	

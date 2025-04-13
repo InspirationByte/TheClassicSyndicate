@@ -3,7 +3,7 @@ cellsSize 128;
 regionsWidth 16;
 regionsHeight 16;
 leftHandedRoads 0;
-CameraPosition 14.3011 1.75729 26.0592;
+CameraPosition -1.21738 2.41226 3.72906;
 CameraRotation 0.0978394 -124.8 0;
 objectDefs
 {

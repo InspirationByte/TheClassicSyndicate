@@ -5,7 +5,7 @@
 ----------------------------------------------------------------------------------------------
 
 world:SetLevelName("miamiclassic")
-world:SetEnvironmentName("caseforakey_weather")
+world:SetEnvironmentName("m_05a_weather")
 SetMusicName("la_night")
 
 MISSION.LoadingScreen = "resources/ui_tcs_loadingscreen.res"

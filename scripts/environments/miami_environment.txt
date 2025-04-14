@@ -1,0 +1,230 @@
+skyHeight 							-1.1;
+skyAngle 							0.0;
+northLocation 						0;
+foreground 							"shared/no_foreground";
+
+//---------------------------------------------------------------------------------------------------
+
+"dawn_clear"
+{
+	ambientColor 					0.32 	0.32 	0.28;
+	sunColor 						0.76 	0.56 	0.20;
+	skyCloudsColor					1.0 	0.96 	0.44 	0.50;
+
+	shadows							1;
+	shadowColor						0.01 	0.01 	0.09 	0.35;
+
+	sunAngles 						-16 	-72 	0;
+	sunLensAngles					-16 	-72 	0;
+	sunLensItensity 				0.65;
+
+	brightModFactor					0.0;
+
+	streetLightIntensity			0.6;
+	headlightIntensity				0.7;
+
+	sky								"miami/sky/m_dawn";
+
+	fog 							1
+	{
+		fog_far						300;
+		fog_near					200;
+		fog_color					0.56 	0.56 	0.56;
+	}
+
+	weather							"clear";
+}
+
+//---------------------------------------------------------------------------------------------------
+
+"day_clear"
+{
+	ambientColor 					0.68 	0.68 	0.68;
+	sunColor 						0.68 	0.68 	0.60;
+	skyCloudsColor					1.0 	1.0 	1.0 	0.75;
+
+	shadows							1;
+	shadowColor						0.01 	0.01 	0.09 	0.35;
+
+	sunAngles 						-32 	16 		0;
+	sunLensAngles					-32 	16 		0;
+	sunLensItensity 				0.65;
+
+	brightModFactor					0.0;
+
+	streetLightIntensity			0.0;
+	headlightIntensity				0.0;
+
+	sky								"miami/sky/m_day";
+
+	fog 							1
+	{
+		fog_far						300;
+		fog_near					200;
+		fog_color					0.56 	0.56 	0.56;
+	}
+
+	weather							"clear";
+}
+
+//---------------------------------------------------------------------------------------------------
+
+"day_stormy"
+{
+	ambientColor 					0.32 	0.32 	0.32;
+	sunColor 						0.16 	0.16 	0.16;
+	skyCloudsColor					0.25	0.25 	0.25 	0.75;
+
+	shadows							0;
+	shadowColor						0.01 	0.01 	0.09 	0.35;
+
+	sunAngles 						-32 	16 		0;
+	sunLensAngles					-32 	16 		0;
+	sunLensItensity 				0.0;
+
+	brightModFactor					0.0;
+
+	rainBrightness					0.44;
+	rainDensity						150;
+
+	streetLightIntensity			0.6;
+	headlightIntensity				0.1;
+
+	sky								"miami/sky/m_day_stormy";
+
+	fog 							1
+	{
+		fog_far						175;
+		fog_near					50;
+		fog_color					0.32 	0.32 	0.32;
+	}
+
+	weather							"storm";
+}
+
+//---------------------------------------------------------------------------------------------------
+
+"dusk_clear"
+{
+	ambientColor 					0.40 	0.36 	0.36;
+	sunColor 						0.84 	0.48 	0.20;
+	skyCloudsColor					1.0 	0.56 	0.48 	0.50;
+
+	shadows							1;
+	shadowColor						0.01 	0.01 	0.09 	0.35;
+
+	sunAngles 						-12 	44 		0;
+	sunLensAngles					-12 	44 		0;
+	sunLensItensity 				0.65;
+
+	brightModFactor					0.0;
+
+	streetLightIntensity			0.6;
+	headlightIntensity				0.7;
+
+	sky								"miami/sky/m_dusk";
+
+	fog 							1
+	{
+		fog_far						300;
+		fog_near					200;
+		fog_color					0.56 	0.56 	0.56;
+	}
+
+	weather							"clear";
+}
+
+//---------------------------------------------------------------------------------------------------
+
+"night_clear"
+{
+	ambientColor 					0.12 	0.12 	0.12;
+	sunColor 						0.04 	0.08 	0.10;
+	skyCloudsColor					0.32 	0.32 	0.32 	0.25;
+
+	shadows							0;
+	shadowColor						0.01 	0.01 	0.09 	0.35;
+
+	sunAngles 						-44 	-32 		0;
+	sunLensAngles					-44 	-32 		0;
+	sunLensItensity 				0.65;
+
+	moonBrightness					1.25;
+
+	brightModFactor					0.16;
+
+	streetLightIntensity			1.0;
+	headlightIntensity				0.64;
+
+	lights							cars 	lamps 	city;
+
+	sky								"miami/sky/m_night";
+
+	fog 							1
+	{
+		fog_far						300;
+		fog_near					200;
+		fog_color					0.56 	0.56 	0.56;
+	}
+
+	weather							"clear";
+}
+
+//---------------------------------------------------------------------------------------------------
+
+"night_stormy"
+{
+	ambientColor 					0.16 	0.16 	0.16;
+	sunColor 						0.06 	0.06 	0.08;
+	skyCloudsColor					0.125	0.125 	0.125 	0.75;
+
+	shadows							0;
+	shadowColor						0.01 	0.01 	0.09 	0.35;
+
+	sunAngles 						-44 	-32 		0;
+	sunLensAngles					-44 	-32 		0;
+	sunLensItensity 				0.0;
+
+	brightModFactor					0.0;
+
+	rainBrightness					0.44;
+	rainDensity						150;
+
+	streetLightIntensity			0.6;
+	headlightIntensity				0.1;
+
+	lights							cars 	lamps 	city;
+
+	sky								"miami/sky/m_night_stormy";
+
+	fog 							1
+	{
+		fog_far						175;
+		fog_near					50;
+		fog_color					0.32 	0.32 	0.32;
+	}
+
+	weather							"storm";
+}
+
+//---------------------------------------------------------------------------------------------------
+
+"night_stormy_rainless"
+{
+	base "night_stormy";
+
+	rainBrightness					0.0;
+	rainDensity 					0.0;
+}
+
+"m_05a_weather"
+{
+	transition 						night_clear 		dawn_clear 			day_clear;
+	transition_time 				300;
+}
+
+"m_07b_weather"
+{
+	transition 						day_clear			dusk_clear			night_clear;
+	transition_time 				120;
+}

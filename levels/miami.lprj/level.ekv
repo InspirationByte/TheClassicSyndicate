@@ -1,0 +1,401 @@
+version 2;
+cellsSize 128;
+regionsWidth 16;
+regionsHeight 16;
+leftHandedRoads 0;
+CameraPosition -3.9275 112.184 -328.13;
+CameraRotation 53.4998 -0.000366211 0;
+objectDefs
+{
+	gameobj newsSheets;
+	gameobj mailSheets;
+	gameobj leaves;
+	gameobj cone;
+	gameobj pillar;
+	gameobj cardbox1;
+	gameobj cardbox2;
+	gameobj cardbox3;
+	gameobj trashbin1;
+	gameobj trashbin2;
+	gameobj mailbox1;
+	gameobj fence1;
+	gameobj rblock1;
+	gameobj sadvert;
+	gameobj bench1;
+	gameobj schair1;
+	gameobj umbrella1;
+	gameobj utable;
+	gameobj sfence1;
+	gameobj sign_yield;
+	gameobj sign_childxing;
+	gameobj sign_limit20;
+	gameobj sign_limit55;
+	gameobj sign_noenter;
+	gameobj sign_nopark;
+	gameobj sign_noturn_l;
+	gameobj sign_noturn_r;
+	gameobj sign_only_l;
+	gameobj sign_stop;
+	gameobj sign_pedxing;
+	gameobj ball;
+	gameobj shydrant1;
+	gameobj dumpster;
+	gameobj spawn_point;
+	gameobj sound_path;
+	gameobj lightpost1;
+	gameobj lightpost2;
+	gameobj lightpost1_warm;
+	gameobj lightpost2_warm;
+	gameobj garage_light;
+	gameobj slamp1;
+	gameobj trafficlight1;
+	gameobj trafficlight2;
+	gameobj tree1;
+	gameobj tree2;
+	gameobj tree3;
+	gameobj tree4;
+	gameobj water_test;
+	gameobj smoke_black;
+	gameobj sparks;
+	gameobj hydrantFlow;
+	gameobj smash_wood;
+	gameobj smash_trash;
+	gameobj smash_mailbox;
+	gameobj smash_woodflecks;
+	gameobj break_lamp_sparks;
+	domain_volume nav_open_area;
+	domain_volume nav_closed_area;
+	domain_volume nav_dynamic_carver;
+	domain_volume tunnel_volume;
+	domain_volume parking_volume;
+	domain_volume city_buildings_volume;
+	static downtown_a_block
+	{
+		flags 0;
+	};
+	static downtown_a_grass
+	{
+		flags 1;
+	};
+	static downtown_a_road
+	{
+		flags 1;
+	};
+	static downtown_a_road2
+	{
+		flags 1;
+	};
+	static downtown_a_junc
+	{
+		flags 1;
+	};
+	static downtown_a_junc2
+	{
+		flags 1;
+	};
+};
+visGroups
+{
+	visgroup 0
+	{
+		name default;
+		enabled 1;
+		visible 1;
+	};
+};
+roadStraights
+{
+	0
+	{
+		connection 65535 65535;
+		vehicleZoneName "";
+		position 406 0 -202;
+		angle 180;
+		length 4;
+		speedLimit 50;
+		numLanes 1;
+		laneDirFlags 0;
+		laneDisableFlags 0;
+	};
+};
+regions
+{
+	region 119
+	{
+		objects
+		{
+			obj spawn_point freeride_spawn
+			{
+				position -34 0.272492 -14;
+				rotation 0 -180 0;
+				tileX 119;
+				tileY 124;
+				visGroupId 0;
+			};
+			obj downtown_a_grass
+			{
+				position -94 0 -246;
+				rotation 0 -180 0;
+				tileX 104;
+				tileY 66;
+				visGroupId 0;
+			};
+			obj downtown_a_block
+			{
+				position -94 0 -246;
+				rotation 0 -180 0;
+				tileX 104;
+				tileY 66;
+				visGroupId 0;
+			};
+			obj downtown_a_grass
+			{
+				position -234 0 -242;
+				rotation 0 0 0;
+				tileX 69;
+				tileY 67;
+				visGroupId 0;
+			};
+			obj downtown_a_block
+			{
+				position -234 0 -242;
+				rotation 0 0 0;
+				tileX 69;
+				tileY 67;
+				visGroupId 0;
+			};
+			obj downtown_a_grass
+			{
+				position -366 0 -246;
+				rotation 0 -180 0;
+				tileX 36;
+				tileY 66;
+				visGroupId 0;
+			};
+			obj downtown_a_block
+			{
+				position -366 0 -246;
+				rotation 0 -180 0;
+				tileX 36;
+				tileY 66;
+				visGroupId 0;
+			};
+			obj downtown_a_road
+			{
+				position -34 0 -10;
+				rotation 0 0 0;
+				tileX 119;
+				tileY 125;
+				visGroupId 0;
+			};
+			obj downtown_a_road
+			{
+				position -34 0 -178;
+				rotation 0 0 0;
+				tileX 119;
+				tileY 83;
+				visGroupId 0;
+			};
+			obj downtown_a_road2
+			{
+				position -10 0 -334;
+				rotation 0 0 0;
+				tileX 125;
+				tileY 44;
+				visGroupId 0;
+			};
+			obj downtown_a_road2
+			{
+				position -10 0 -166;
+				rotation 0 0 0;
+				tileX 125;
+				tileY 86;
+				visGroupId 0;
+			};
+			obj downtown_a_junc
+			{
+				position -34 0 -154;
+				rotation 0 -90 0;
+				tileX 119;
+				tileY 89;
+				visGroupId 0;
+			};
+			obj downtown_a_junc
+			{
+				position -34 0 -322;
+				rotation 0 -90 0;
+				tileX 119;
+				tileY 47;
+				visGroupId 0;
+			};
+			obj downtown_a_road2
+			{
+				position -138 0 -166;
+				rotation 0 0 0;
+				tileX 93;
+				tileY 86;
+				visGroupId 0;
+			};
+			obj downtown_a_road2
+			{
+				position -282 0 -166;
+				rotation 0 0 0;
+				tileX 57;
+				tileY 86;
+				visGroupId 0;
+			};
+			obj downtown_a_road2
+			{
+				position -410 0 -166;
+				rotation 0 0 0;
+				tileX 25;
+				tileY 86;
+				visGroupId 0;
+			};
+			obj downtown_a_junc
+			{
+				position -306 0 -154;
+				rotation 0 -90 0;
+				tileX 51;
+				tileY 89;
+				visGroupId 0;
+			};
+			obj downtown_a_road
+			{
+				position -306 0 -178;
+				rotation 0 0 0;
+				tileX 51;
+				tileY 83;
+				visGroupId 0;
+			};
+			obj downtown_a_junc
+			{
+				position -422 0 -154;
+				rotation 0 -180 0;
+				tileX 22;
+				tileY 89;
+				visGroupId 0;
+			};
+			obj downtown_a_junc
+			{
+				position -422 0 -322;
+				rotation 0 -180 0;
+				tileX 22;
+				tileY 47;
+				visGroupId 0;
+			};
+			obj downtown_a_road
+			{
+				position -434 0 -178;
+				rotation 0 0 0;
+				tileX 19;
+				tileY 83;
+				visGroupId 0;
+			};
+			obj downtown_a_junc
+			{
+				position -306 0 -322;
+				rotation 0 -90 0;
+				tileX 51;
+				tileY 47;
+				visGroupId 0;
+			};
+			obj downtown_a_road2
+			{
+				position -410 0 -334;
+				rotation 0 0 0;
+				tileX 25;
+				tileY 44;
+				visGroupId 0;
+			};
+			obj downtown_a_road2
+			{
+				position -282 0 -334;
+				rotation 0 0 0;
+				tileX 57;
+				tileY 44;
+				visGroupId 0;
+			};
+			obj downtown_a_road2
+			{
+				position -138 0 -334;
+				rotation 0 0 0;
+				tileX 93;
+				tileY 44;
+				visGroupId 0;
+			};
+			obj downtown_a_junc2
+			{
+				position -150 0 -154;
+				rotation 0 -180 0;
+				tileX 90;
+				tileY 89;
+				visGroupId 0;
+			};
+			obj downtown_a_junc2
+			{
+				position -150 0 -322;
+				rotation 0 -180 0;
+				tileX 90;
+				tileY 47;
+				visGroupId 0;
+			};
+		};
+	};
+	region 120
+	{
+		objects
+		{
+			obj downtown_a_grass
+			{
+				position 34 0 -246;
+				rotation 0 -180 0;
+				tileX 8;
+				tileY 66;
+				visGroupId 0;
+			};
+			obj downtown_a_block
+			{
+				position 34 0 -246;
+				rotation 0 -180 0;
+				tileX 8;
+				tileY 66;
+				visGroupId 0;
+			};
+			obj downtown_a_grass
+			{
+				position 38 0 -74;
+				rotation 0 0 0;
+				tileX 9;
+				tileY 109;
+				visGroupId 0;
+			};
+			obj downtown_a_block
+			{
+				position 38 0 -74;
+				rotation 0 0 0;
+				tileX 9;
+				tileY 109;
+				visGroupId 0;
+			};
+			obj downtown_a_grass
+			{
+				position 38 0 -410;
+				rotation 0 0 0;
+				tileX 9;
+				tileY 25;
+				visGroupId 0;
+			};
+			obj downtown_a_block
+			{
+				position 38 0 -410;
+				rotation 0 0 0;
+				tileX 9;
+				tileY 25;
+				visGroupId 0;
+			};
+		};
+	};
+	region 135;
+	region 136;
+};

@@ -200,10 +200,12 @@ local MiamiMissionsList = {
 }
 
 local InterviewFileName = "iview"
+local MiamiFileName = "miami"
 local MyLevelFileName = "MiamiClassic"
 
 local ClassicLevels = {
 	InterviewFileName,
+	MiamiFileName,
 	MyLevelFileName,
 }
 
@@ -329,7 +331,8 @@ function ModInit:Init()
 	
 	-- add levels
 --	table.insert(MenuCityList, {InterviewFileName, "Parking (Classic)"})
-	table.insert(MenuCityList, {MyLevelFileName, "Miami (Classic)"})
+	table.insert(MenuCityList, {MiamiFileName, "Miami (New)"})
+	table.insert(MenuCityList, {MyLevelFileName, "Miami (Old Ver.)"})
 
 	-- add cars
 	for i,v in ipairs(ClassicCars) do
@@ -367,7 +370,7 @@ function ModInit:Init()
 	SetHudCreateCallback("TCS_HUDInitializer", function(scheme)
 		local levName = world:GetLevelName()
 		
-		if levName:lower() == MyLevelFileName:lower() then
+		if levName:lower() == MyLevelFileName:lower() or MiamiFileName:lower() then
 			scheme.resourceFile = "resources/hud/classichud.res"
 			
 			-- classic hud scheme already includes control

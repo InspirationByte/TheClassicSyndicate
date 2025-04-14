@@ -1,6 +1,6 @@
 "Base" 
 { 
-	BaseTexture 					"miami/PAGE_1/PAGE_1_SAND";
+	BaseTexture 					"miami/BANK_GROUND/ROAD_A_EMPTY";
 //	NightLight						"miami/XXXXXXXXXXXXXXXX";
 	
 // =======================================================================	
@@ -20,6 +20,6 @@
 // =======================================================================
 
 //	Rotatable						"1";
-	SurfaceProps					"Sand";
+//	SurfaceProps					"XXXXXXXXXXXXXXXX";
 	Filtering 						"Nearest";
 };

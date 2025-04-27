@@ -1,0 +1,28 @@
+"DrvSynVehicle" 
+{ 
+//	BaseTexture 					"models/vehicles/XXXXXXXXXXXXXXXX/car_clean";
+//	DamageTexture					"models/vehicles/XXXXXXXXXXXXXXXX/car_damaged";
+	
+// =======================================================================	
+	
+//	Cubemap							"$env_Cubemap";
+//	BaseTextureSpecularAlpha 		"1.0";
+//	SpecularScale					"0.25";
+//	Phong							"5.0";
+//	WetScale 						"0.75";
+
+// =======================================================================
+
+//	Address							"Clamp";
+//	AlphaTest						"1";
+//	Translucent						"1";
+//	NoCull							"1";
+//	NoDraw							"1";
+
+// =======================================================================
+
+//	Variation						"1";
+//	Rotatable						"1";
+//	SurfaceProps					"XXXXXXXXXXXXXXXX";
+//	Filtering 						"Nearest";
+};

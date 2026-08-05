@@ -139,9 +139,7 @@ function MISSION.Phase1Start()
 	
 	MISSION.Settings.EnableCops = true
 	MISSION.Settings.CopMaxSpeed = 155		-- Cops to be slower than player
-	MISSION.Settings.StopCops = true
-	MISSION.Settings.StopCopsRadius = 300
-	MISSION.Settings.StopCopsPosition = MISSION.Data.targetPosition
+	MISSION.Settings.StopCopsZones["Target"] = StopPursuitZone(MISSION.Data.targetPosition)
 
 	playerCar:SetFelony(0.2)
 	

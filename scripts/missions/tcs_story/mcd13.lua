@@ -149,21 +149,21 @@ end
 ----------------------------------------------------------------------------------------------
 function MISSION.CopsSpawnStart()
 	local cop1 = gameses:CreateCar("NPC_mcd_defaultpolicecar_black", CAR_TYPE_NORMAL)
-	SetupPursuerCar(cop1)
 	local settings = MISSION.Settings
 	
 	cop1:SetOrigin( Vector3D.new(-185,0.7,-1095) )
 	cop1:SetAngles( Vector3D.new(0,-90,0) )
 	
 	cop1:Spawn()
+	SetupPursuerCar(cop1)
 	
 	local cop2 = gameses:CreateCar("NPC_mcd_defaultpolicecar_black", CAR_TYPE_NORMAL)
-	SetupPursuerCar(cop2)
 	
 	cop2:SetOrigin( Vector3D.new(17,0.7,-1160) )
 	cop2:SetAngles( Vector3D.new(0,0,0) )
 
 	cop2:Spawn()
+	SetupPursuerCar(cop2)
 	
 	ai:TrackCar(cop1)
 	ai:TrackCar(cop2)
@@ -182,7 +182,11 @@ function MISSION.Phase1Start()
 	MISSION.Settings.EnableCops = true
 	MISSION.Settings.StopCops = true
 	MISSION.Settings.StopCopsRadius = 200
-	MISSION.Settings.StopCopsPosition = MISSION.Data.targetPosition
+	MISSION.Settings.StopCopsZones["Target"] = StopPursuitZone(MISSION.Data.targetPosition, {
+		MaxSpeed = 90,
+		TorqueScale = 0.8,
+		SlowdownStartRadius = 200,
+	})
 	
 	gameHUD:Enable(true)
 	playerCar:Lock(false)

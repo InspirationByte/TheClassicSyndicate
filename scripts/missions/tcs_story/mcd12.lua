@@ -155,10 +155,7 @@ function MISSION.Phase1Start()
 	local playerCar = MISSION.playerCar		-- Define player car for current phase
 
 	MISSION.Settings.EnableCops = true
-	MISSION.Settings.StopCops = true
-	MISSION.Settings.StopCopsRadius = 500
-	MISSION.Settings.StopCopsEndThreshold = 0.7
-	MISSION.Settings.StopCopsPosition = MISSION.Data.targetPosition
+	MISSION.Settings.StopCopsZones["Target"] = StopPursuitZone(MISSION.Data.targetPosition, { SlowdownStartRadius = 500, StopPursuitRadius = 350 })
 		
 	gameHUD:Enable(true)
 	playerCar:Lock(false)

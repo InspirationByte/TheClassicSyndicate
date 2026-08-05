@@ -119,7 +119,7 @@ function MISSION.Phase1Start()
 	MISSION.Settings.EnableCops = true
 	--MISSION.Settings.StopCops = true
 	--MISSION.Settings.StopCopsRadius = 150
-	--MISSION.Settings.StopCopsPosition = MISSION.Data.targetPosition
+	--MISSION.Settings.StopCopsZones["Target"] = StopPursuitZone(MISSION.Data.targetPosition, { SlowdownStartRadius = 150 })
 	
 	gameHUD:Enable(true)
 	playerCar:Lock(false)

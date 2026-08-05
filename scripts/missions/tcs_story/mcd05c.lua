@@ -236,9 +236,7 @@ function MISSION.Phase1Start()
 	playerCar:SetFelony(felony)
 
 	MISSION.Settings.EnableCops = true
-	MISSION.Settings.StopCops = true
-	MISSION.Settings.StopCopsRadius = 300
-	MISSION.Settings.StopCopsPosition = MISSION.Data.targetPosition
+	MISSION.Settings.StopCopsZones["Target"] = StopPursuitZone(MISSION.Data.targetPosition)
 	
 	gameHUD:Enable(true)
 	playerCar:Lock(false)

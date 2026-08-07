@@ -85,6 +85,7 @@ MISSION.PlayMessage = function()
 end
 
 MISSION.Init = function()									-- Preparing Introduction
+	
 	MISSION.Data = {
 		targetPosition = Vector3D.new(-54,0.70,69),			-- Targets Positions
 		target2Position = Vector3D.new(1719,0.70,-603),
@@ -104,6 +105,7 @@ MISSION.Init = function()									-- Preparing Introduction
 	
 	MISSION.Settings.EnableCops = false						-- Cops are disabled
 	MISSION.Settings.EnableTraffic = false
+	MISSION.Settings.IsZapEnabled = false
 	MISSION.SpawnSceneryCars()
 
 	-- precache sounds

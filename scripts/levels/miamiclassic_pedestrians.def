@@ -17,6 +17,10 @@ ped2 "models/characters/ped02.egf"
 
 	spawnInterval	4;
 	bodyGroups	"briefcase";
+	excludeDriverBodyGroups
+		"briefcase";
+	excludePassengerBodyGroups
+		"briefcase";
 }
 
 cop "models/characters/cop01.egf"
@@ -25,7 +29,7 @@ cop "models/characters/cop01.egf"
 	passenger 	1;
 	pedestrian 	0;
 	onlyVehicles	"m_police_ios";
-	forceBodyGroups	"cophat";
+	forceBodyGroups	"hat";
 }
 
 robber "models/characters/mcd_pedrobber.egf"

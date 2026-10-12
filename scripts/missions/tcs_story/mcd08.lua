@@ -174,8 +174,6 @@ function MISSION.StartTheMadness()
 
 		MISSION.StartTarget(MISSION.Targets[MISSION.CurrentTarget])
 	end, 1)
-
-
 end
 
 function MISSION.OnCarCollision(go) -- go stands for "game object"
@@ -220,15 +218,15 @@ function MISSION.SetupWreckZone(targetData)
 	MISSION.WreckCounter = 0
 	MISSION.WreckObjs = {}
 	
-	objects:QueryObjects(targetData.radius, targetData.position, function(go)
-		if go:GetType() == GO_DEBRIS then
-			-- setup collision callback for debris objects
-			go.onCarCollision = function() 
-				MISSION.OnCarCollision(go)
-			end
+	local objQuery = GameObjQuery.new(targetData.position, targetData.radius)
+	objQuery.type = GO_DEBRIS
+
+	-- setup collision callback for debris objects
+	for i,obj in ipairs(objects:Query(objQuery)) do
+		obj.onCarCollision = function() 
+			MISSION.OnCarCollision(obj)
 		end
-		return true
-	end)
+	end
 end
 
 function MISSION.StartTarget(targetData, onComplete)
@@ -302,7 +300,7 @@ function MISSION.GenericUpdate(targetData, delta)
 	UpdateCops( playerCar, delta )
 	
 	-- check for timeout
-	if targetData.timer ~= nil and missionmanager:IsTimedOut() then
+	if targetData ~= nil and missionmanager:IsTimedOut() then
 		MISSION.SetFailed(targetData.timedOutMessage)
 		return false
 	end

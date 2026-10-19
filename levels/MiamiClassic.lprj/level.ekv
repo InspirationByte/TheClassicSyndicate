@@ -3,8 +3,8 @@ cellsSize 64;
 regionsWidth 32;
 regionsHeight 32;
 leftHandedRoads 0;
-CameraPosition 1718.52 48.1404 -290.937;
-CameraRotation 53.6986 170.193 0;
+CameraPosition 1645.09 66.9822 -231.908;
+CameraRotation 83.0993 -89.6068 0;
 objectDefs
 {
 	gameobj newsSheets;
@@ -4068,7 +4068,7 @@ roadStraights
 	};
 	181
 	{
-		connection 4218 4220;
+		connection 4215 4217;
 		vehicleZoneName "";
 		position 632 0 -178;
 		angle 180;
@@ -4080,7 +4080,7 @@ roadStraights
 	};
 	182
 	{
-		connection 4212 4200;
+		connection 4210 4200;
 		vehicleZoneName "";
 		position 1216 0 -288;
 		angle 90;
@@ -4587,11 +4587,11 @@ roadStraights
 	};
 	222
 	{
-		connection 4213 4152;
+		connection 4218 4152;
 		vehicleZoneName "";
-		position 1656 0 -362;
+		position 1656 0 -374;
 		angle 180;
-		length 76;
+		length 52;
 		speedLimit 50;
 		numLanes 10;
 		laneDirFlags 992;
@@ -4600,11 +4600,11 @@ roadStraights
 	};
 	223
 	{
-		connection 4202 4211;
+		connection 4220 4219;
 		vehicleZoneName "";
-		position 1656 0 -244;
+		position 1656 0 -242;
 		angle 180;
-		length 64;
+		length 28;
 		speedLimit 50;
 		numLanes 10;
 		laneDirFlags 992;
@@ -4615,9 +4615,9 @@ roadStraights
 	{
 		connection 4153 4221;
 		vehicleZoneName "";
-		position 1656 0 -126;
+		position 1656 0 -118;
 		angle 180;
-		length 76;
+		length 60;
 		speedLimit 50;
 		numLanes 10;
 		laneDirFlags 992;
@@ -5129,7 +5129,7 @@ roadStraights
 	};
 	264
 	{
-		connection 4200 4219;
+		connection 4200 4216;
 		vehicleZoneName "";
 		position 792 0 -288;
 		angle 90;
@@ -5141,7 +5141,7 @@ roadStraights
 	};
 	265
 	{
-		connection 4214 4212;
+		connection 4211 4210;
 		vehicleZoneName "";
 		position 1576 0 -300;
 		angle 90;
@@ -5153,7 +5153,7 @@ roadStraights
 	};
 	266
 	{
-		connection 4139 4212;
+		connection 4139 4210;
 		vehicleZoneName "";
 		position 1548 0 -276;
 		angle 90;
@@ -5165,7 +5165,7 @@ roadStraights
 	};
 	267
 	{
-		connection 4120 4218;
+		connection 4120 4215;
 		vehicleZoneName "";
 		position 644 0 -92;
 		angle 180;
@@ -5570,11 +5570,11 @@ roadStraights
 	};
 	300
 	{
-		connection 4148 4202;
+		connection 4148 4220;
 		vehicleZoneName "";
-		position 1644 0 -204;
+		position 1644 0 -212;
 		angle 180;
-		length 8;
+		length 24;
 		speedLimit 50;
 		numLanes 4;
 		laneDirFlags 0;
@@ -5582,11 +5582,11 @@ roadStraights
 	};
 	301
 	{
-		connection 4161 4202;
+		connection 4161 4220;
 		vehicleZoneName "";
-		position 1668 0 -204;
+		position 1668 0 -212;
 		angle 180;
-		length 8;
+		length 24;
 		speedLimit 50;
 		numLanes 4;
 		laneDirFlags 15;
@@ -5607,7 +5607,7 @@ roadStraights
 	};
 	303
 	{
-		connection 4203 4146;
+		connection 4202 4146;
 		vehicleZoneName "";
 		position 1592 0 -132;
 		angle 180;
@@ -5620,7 +5620,7 @@ roadStraights
 	};
 	304
 	{
-		connection 4153 4203;
+		connection 4153 4202;
 		vehicleZoneName "";
 		position 1616 0 -76;
 		angle 90;
@@ -5633,7 +5633,7 @@ roadStraights
 	};
 	305
 	{
-		connection 4204 4152;
+		connection 4203 4152;
 		vehicleZoneName "";
 		position 1698 0 -412;
 		angle 90;
@@ -5646,7 +5646,7 @@ roadStraights
 	};
 	306
 	{
-		connection 4205 4215;
+		connection 4204 4212;
 		vehicleZoneName "";
 		position 1698 0 -300;
 		angle 90;
@@ -5659,7 +5659,7 @@ roadStraights
 	};
 	307
 	{
-		connection 4206 4161;
+		connection 4205 4161;
 		vehicleZoneName "";
 		position 1698 0 -188;
 		angle 90;
@@ -5672,7 +5672,7 @@ roadStraights
 	};
 	308
 	{
-		connection 4207 4153;
+		connection 4206 4153;
 		vehicleZoneName "";
 		position 1698 0 -76;
 		angle 90;
@@ -5685,7 +5685,7 @@ roadStraights
 	};
 	309
 	{
-		connection 4205 4204;
+		connection 4204 4203;
 		vehicleZoneName "";
 		position 1720 0 -356;
 		angle 180;
@@ -5698,7 +5698,7 @@ roadStraights
 	};
 	310
 	{
-		connection 4206 4205;
+		connection 4205 4204;
 		vehicleZoneName "";
 		position 1720 0 -244;
 		angle 180;
@@ -5711,7 +5711,7 @@ roadStraights
 	};
 	311
 	{
-		connection 4207 4206;
+		connection 4206 4205;
 		vehicleZoneName "";
 		position 1720 0 -132;
 		angle 180;
@@ -5724,7 +5724,7 @@ roadStraights
 	};
 	312
 	{
-		connection 4165 4204;
+		connection 4165 4203;
 		vehicleZoneName "";
 		position 1742 0 -412;
 		angle 90;
@@ -5737,7 +5737,7 @@ roadStraights
 	};
 	313
 	{
-		connection 4166 4205;
+		connection 4166 4204;
 		vehicleZoneName "";
 		position 1742 0 -300;
 		angle 90;
@@ -5750,7 +5750,7 @@ roadStraights
 	};
 	314
 	{
-		connection 4167 4206;
+		connection 4167 4205;
 		vehicleZoneName "";
 		position 1742 0 -188;
 		angle 90;
@@ -5763,7 +5763,7 @@ roadStraights
 	};
 	315
 	{
-		connection 4168 4207;
+		connection 4168 4206;
 		vehicleZoneName "";
 		position 1742 0 -76;
 		angle 90;
@@ -5776,7 +5776,7 @@ roadStraights
 	};
 	316
 	{
-		connection 4208 4166;
+		connection 4207 4166;
 		vehicleZoneName "";
 		position 1810 0 -300;
 		angle 90;
@@ -5789,7 +5789,7 @@ roadStraights
 	};
 	317
 	{
-		connection 4209 4167;
+		connection 4208 4167;
 		vehicleZoneName "";
 		position 1810 0 -188;
 		angle 90;
@@ -5802,7 +5802,7 @@ roadStraights
 	};
 	318
 	{
-		connection 4210 4168;
+		connection 4209 4168;
 		vehicleZoneName "";
 		position 1810 0 -76;
 		angle 90;
@@ -5815,7 +5815,7 @@ roadStraights
 	};
 	319
 	{
-		connection 4209 4208;
+		connection 4208 4207;
 		vehicleZoneName "";
 		position 1832 0 -244;
 		angle 180;
@@ -5828,7 +5828,7 @@ roadStraights
 	};
 	320
 	{
-		connection 4210 4209;
+		connection 4209 4208;
 		vehicleZoneName "";
 		position 1832 0 -132;
 		angle 180;
@@ -5841,7 +5841,7 @@ roadStraights
 	};
 	321
 	{
-		connection 4178 4208;
+		connection 4178 4207;
 		vehicleZoneName "";
 		position 1854 0 -300;
 		angle 90;
@@ -5854,7 +5854,7 @@ roadStraights
 	};
 	322
 	{
-		connection 4179 4209;
+		connection 4179 4208;
 		vehicleZoneName "";
 		position 1854 0 -188;
 		angle 90;
@@ -5867,7 +5867,7 @@ roadStraights
 	};
 	323
 	{
-		connection 4180 4210;
+		connection 4180 4209;
 		vehicleZoneName "";
 		position 1854 0 -76;
 		angle 90;
@@ -5880,7 +5880,7 @@ roadStraights
 	};
 	324
 	{
-		connection 4215 4214;
+		connection 4212 4211;
 		vehicleZoneName "";
 		position 1656 0 -300;
 		angle 90;
@@ -5892,11 +5892,11 @@ roadStraights
 	};
 	325
 	{
-		connection 4211 4214;
+		connection 4219 4211;
 		vehicleZoneName "";
-		position 1644 0 -284;
+		position 1644 0 -274;
 		angle 180;
-		length 8;
+		length 28;
 		speedLimit 50;
 		numLanes 4;
 		laneDirFlags 0;
@@ -5904,11 +5904,11 @@ roadStraights
 	};
 	326
 	{
-		connection 4211 4215;
+		connection 4219 4212;
 		vehicleZoneName "";
-		position 1668 0 -284;
+		position 1668 0 -274;
 		angle 180;
-		length 8;
+		length 28;
 		speedLimit 50;
 		numLanes 4;
 		laneDirFlags 15;
@@ -5917,7 +5917,7 @@ roadStraights
 	};
 	327
 	{
-		connection 4220 4119;
+		connection 4217 4119;
 		vehicleZoneName "";
 		position 620 0 -266;
 		angle 180;
@@ -5929,7 +5929,7 @@ roadStraights
 	};
 	328
 	{
-		connection 4219 4119;
+		connection 4216 4119;
 		vehicleZoneName "";
 		position 652 0 -300;
 		angle 90;
@@ -5941,11 +5941,11 @@ roadStraights
 	};
 	329
 	{
-		connection 4214 4213;
+		connection 4211 4218;
 		vehicleZoneName "";
-		position 1644 0 -316;
+		position 1644 0 -328;
 		angle 180;
-		length 8;
+		length 32;
 		speedLimit 50;
 		numLanes 4;
 		laneDirFlags 0;
@@ -5953,11 +5953,11 @@ roadStraights
 	};
 	330
 	{
-		connection 4215 4213;
+		connection 4212 4218;
 		vehicleZoneName "";
-		position 1668 0 -316;
+		position 1668 0 -328;
 		angle 180;
-		length 8;
+		length 32;
 		speedLimit 50;
 		numLanes 4;
 		laneDirFlags 15;
@@ -5966,7 +5966,7 @@ roadStraights
 	};
 	331
 	{
-		connection 4216 4182;
+		connection 4213 4182;
 		vehicleZoneName "";
 		position 602 0 -84;
 		angle 90;
@@ -5978,7 +5978,7 @@ roadStraights
 	};
 	332
 	{
-		connection 4216 4218;
+		connection 4213 4215;
 		vehicleZoneName "";
 		position 620 0 -104;
 		angle 180;
@@ -5990,19 +5990,7 @@ roadStraights
 	};
 	333
 	{
-		connection 65535 65535;
-		vehicleZoneName "";
-		position 0 0 0;
-		angle 180;
-		length -1.52e+07;
-		speedLimit 50;
-		numLanes 1089;
-		laneDirFlags 0;
-		laneDisableFlags 0;
-	};
-	334
-	{
-		connection 4219 4217;
+		connection 4216 4214;
 		vehicleZoneName "";
 		position 664 0 -276;
 		angle 90;
@@ -6012,9 +6000,9 @@ roadStraights
 		laneDirFlags 0;
 		laneDisableFlags 0;
 	};
-	335
+	334
 	{
-		connection 4220 4217;
+		connection 4217 4214;
 		vehicleZoneName "";
 		position 644 0 -254;
 		angle 180;
@@ -6024,26 +6012,26 @@ roadStraights
 		laneDirFlags 15;
 		laneDisableFlags 0;
 	};
-	336
+	335
 	{
 		connection 4221 4148;
 		vehicleZoneName "";
-		position 1644 0 -172;
+		position 1644 0 -164;
 		angle 180;
-		length 8;
+		length 24;
 		speedLimit 50;
 		numLanes 4;
 		laneDirFlags 0;
 		laneDisableFlags 0;
 		flags paveL;
 	};
-	337
+	336
 	{
 		connection 4221 4161;
 		vehicleZoneName "";
-		position 1668 0 -172;
+		position 1668 0 -164;
 		angle 180;
-		length 8;
+		length 24;
 		speedLimit 50;
 		numLanes 4;
 		laneDirFlags 15;
@@ -9025,7 +9013,7 @@ roadJunctions
 			{
 				point 1644 0 -200;
 			};
-			336
+			335
 			{
 				point 1644 0 -176;
 			};
@@ -9285,7 +9273,7 @@ roadJunctions
 			{
 				point 1680 0 -188;
 			};
-			337
+			336
 			{
 				point 1668 0 -176;
 			};
@@ -10097,26 +10085,6 @@ roadJunctions
 	{
 		edges
 		{
-			223
-			{
-				point 1656 0 -212;
-			};
-			300
-			{
-				point 1644 0 -208;
-			};
-			301
-			{
-				point 1668 0 -208;
-			};
-		};
-		position 1656 0 -210;
-		trafficLightPhaseIdx -1;
-	};
-	203
-	{
-		edges
-		{
 			303
 			{
 				point 1592 0 -88;
@@ -10129,7 +10097,7 @@ roadJunctions
 		position 1592 0 -78;
 		trafficLightPhaseIdx -1;
 	};
-	204
+	203
 	{
 		edges
 		{
@@ -10149,7 +10117,7 @@ roadJunctions
 		position 1720 0 -410;
 		trafficLightPhaseIdx -1;
 	};
-	205
+	204
 	{
 		edges
 		{
@@ -10173,7 +10141,7 @@ roadJunctions
 		position 1720 0 -300;
 		trafficLightPhaseIdx -1;
 	};
-	206
+	205
 	{
 		edges
 		{
@@ -10197,7 +10165,7 @@ roadJunctions
 		position 1720 0 -188;
 		trafficLightPhaseIdx -1;
 	};
-	207
+	206
 	{
 		edges
 		{
@@ -10217,7 +10185,7 @@ roadJunctions
 		position 1720 0 -78;
 		trafficLightPhaseIdx -1;
 	};
-	208
+	207
 	{
 		edges
 		{
@@ -10237,7 +10205,7 @@ roadJunctions
 		position 1832 0 -298;
 		trafficLightPhaseIdx -1;
 	};
-	209
+	208
 	{
 		edges
 		{
@@ -10261,7 +10229,7 @@ roadJunctions
 		position 1832 0 -188;
 		trafficLightPhaseIdx -1;
 	};
-	210
+	209
 	{
 		edges
 		{
@@ -10281,27 +10249,7 @@ roadJunctions
 		position 1832 0 -78;
 		trafficLightPhaseIdx -1;
 	};
-	211
-	{
-		edges
-		{
-			223
-			{
-				point 1656 0 -276;
-			};
-			325
-			{
-				point 1644 0 -280;
-			};
-			326
-			{
-				point 1668 0 -280;
-			};
-		};
-		position 1656 0 -278;
-		trafficLightPhaseIdx -1;
-	};
-	212
+	210
 	{
 		edges
 		{
@@ -10321,27 +10269,7 @@ roadJunctions
 		position 1518 0 -288;
 		trafficLightPhaseIdx -1;
 	};
-	213
-	{
-		edges
-		{
-			222
-			{
-				point 1656 0 -324;
-			};
-			329
-			{
-				point 1644 0 -320;
-			};
-			330
-			{
-				point 1668 0 -320;
-			};
-		};
-		position 1656 0 -322;
-		trafficLightPhaseIdx -1;
-	};
-	214
+	211
 	{
 		edges
 		{
@@ -10365,7 +10293,7 @@ roadJunctions
 		position 1642 0 -300;
 		trafficLightPhaseIdx 0;
 	};
-	215
+	212
 	{
 		edges
 		{
@@ -10389,7 +10317,7 @@ roadJunctions
 		position 1670 0 -300;
 		trafficLightPhaseIdx 0;
 	};
-	216
+	213
 	{
 		edges
 		{
@@ -10405,15 +10333,15 @@ roadJunctions
 		position 618 0 -86;
 		trafficLightPhaseIdx -1;
 	};
-	217
+	214
 	{
 		edges
 		{
-			334
+			333
 			{
 				point 656 0 -276;
 			};
-			335
+			334
 			{
 				point 644 0 -264;
 			};
@@ -10421,7 +10349,7 @@ roadJunctions
 		position 646 0 -274;
 		trafficLightPhaseIdx -1;
 	};
-	218
+	215
 	{
 		edges
 		{
@@ -10441,7 +10369,7 @@ roadJunctions
 		position 632 0 -114;
 		trafficLightPhaseIdx -1;
 	};
-	219
+	216
 	{
 		edges
 		{
@@ -10453,7 +10381,7 @@ roadJunctions
 			{
 				point 672 0 -300;
 			};
-			334
+			333
 			{
 				point 672 0 -276;
 			};
@@ -10461,7 +10389,7 @@ roadJunctions
 		position 674 0 -288;
 		trafficLightPhaseIdx -1;
 	};
-	220
+	217
 	{
 		edges
 		{
@@ -10473,12 +10401,72 @@ roadJunctions
 			{
 				point 620 0 -244;
 			};
-			335
+			334
 			{
 				point 644 0 -244;
 			};
 		};
 		position 632 0 -242;
+		trafficLightPhaseIdx -1;
+	};
+	218
+	{
+		edges
+		{
+			222
+			{
+				point 1656 0 -348;
+			};
+			329
+			{
+				point 1644 0 -344;
+			};
+			330
+			{
+				point 1668 0 -344;
+			};
+		};
+		position 1656 0 -346;
+		trafficLightPhaseIdx -1;
+	};
+	219
+	{
+		edges
+		{
+			223
+			{
+				point 1656 0 -256;
+			};
+			325
+			{
+				point 1644 0 -260;
+			};
+			326
+			{
+				point 1668 0 -260;
+			};
+		};
+		position 1656 0 -258;
+		trafficLightPhaseIdx -1;
+	};
+	220
+	{
+		edges
+		{
+			223
+			{
+				point 1656 0 -228;
+			};
+			300
+			{
+				point 1644 0 -224;
+			};
+			301
+			{
+				point 1668 0 -224;
+			};
+		};
+		position 1656 0 -226;
 		trafficLightPhaseIdx -1;
 	};
 	221
@@ -10487,18 +10475,18 @@ roadJunctions
 		{
 			224
 			{
-				point 1656 0 -164;
+				point 1656 0 -148;
+			};
+			335
+			{
+				point 1644 0 -152;
 			};
 			336
 			{
-				point 1644 0 -168;
-			};
-			337
-			{
-				point 1668 0 -168;
+				point 1668 0 -152;
 			};
 		};
-		position 1656 0 -166;
+		position 1656 0 -150;
 		trafficLightPhaseIdx -1;
 	};
 	222
@@ -66697,49 +66685,49 @@ regions
 				{
 					face tools\navmesh
 					{
-						N -1 -0 -0 1652;
-						U -1.62921e-07 0 1 0;
-						V 0 1 0 0;
+						N -1 0 0 1652;
+						U -3.74718e-07 0 1 -388;
+						V 0 1 0 -0;
 						TS 4 4;
 						TR 0;
 					};
 					face tools\navmesh
 					{
-						N 1 -0 -0 -1660;
-						U 1.19249e-08 0 -1 0;
-						V 0 1 0 0;
+						N 1 0 0 -1660;
+						U 2.74273e-08 0 -1 388;
+						V 0 1 0 -0;
 						TS 4 4;
 						TR 0;
 					};
 					face tools\navmesh
 					{
-						N -0 1 -0 -1;
-						U -1 0 3.89414e-07 0;
-						V 3.89414e-07 1.19249e-08 1 0;
+						N 0 1 0 -1;
+						U -1 0 1.6931e-07 -6.56925e-05;
+						V 8.95652e-07 2.74273e-08 1 -388;
 						TS 4 4;
 						TR 0;
 					};
 					face tools\navmesh
 					{
-						N -0 -1 -0 -0;
-						U -1 0 3.89414e-07 0;
-						V -3.89414e-07 -1.62921e-07 -1 0;
+						N 0 -1 0 -0;
+						U -1 0 1.6931e-07 -6.56925e-05;
+						V -8.95652e-07 -3.74718e-07 -1 388;
 						TS 4 4;
 						TR 0;
 					};
 					face tools\navmesh
 					{
-						N -0 -0 1 280;
-						U 1 0 0 0;
-						V 0 1 0 0;
+						N 0 0 1 256;
+						U 1 0 0 -0;
+						V 0 1 0 -0;
 						TS 4 4;
 						TR 0;
 					};
 					face tools\navmesh
 					{
-						N -0 -0 -1 -320;
-						U -1 0 3.89414e-07 0;
-						V 0 1 0 0;
+						N 0 0 -1 -348;
+						U -1 0 1.6931e-07 -6.56925e-05;
+						V 0 1 0 -0;
 						TS 4 4;
 						TR 0;
 					};
@@ -89748,7 +89736,7 @@ regions
 					face tools\navmesh
 					{
 						N -1 0 0 1652;
-						U -1.62921e-07 0 1 63.6842;
+						U -2.45979e-07 0 1 2.0526;
 						V 0 1 0 -0;
 						TS 4 4;
 						TR 0;
@@ -89756,7 +89744,7 @@ regions
 					face tools\navmesh
 					{
 						N 1 0 0 -1660;
-						U 1.19249e-08 0 -1 -63.6842;
+						U 1.80043e-08 0 -1 -2.0526;
 						V 0 1 0 -0;
 						TS 4 4;
 						TR 0;
@@ -89765,7 +89753,7 @@ regions
 					{
 						N 0 1 0 -1;
 						U 1 0 0 -8.2966e-06;
-						V 0 1.19249e-08 -1 63.6842;
+						V 0 1.80043e-08 -1 190.249;
 						TS 4 4;
 						TR 0;
 					};
@@ -89773,13 +89761,13 @@ regions
 					{
 						N 0 -1 0 -0;
 						U 1 0 0 -8.2966e-06;
-						V 0 -1.62921e-07 1 -63.6842;
+						V 0 -2.45979e-07 1 -190.249;
 						TS 4 4;
 						TR 0;
 					};
 					face tools\navmesh
 					{
-						N 0 0 1 163;
+						N 0 0 1 152;
 						U 1 0 0 -0;
 						V 0 1 0 -0;
 						TS 4 4;
@@ -89787,8 +89775,8 @@ regions
 					};
 					face tools\navmesh
 					{
-						N 0 0 -1 -214;
-						U -1 0 -8.74228e-08 -8.2966e-06;
+						N 0 0 -1 -229;
+						U -1 0 -5.79034e-08 -2.848e-06;
 						V 0 1 0 -0;
 						TS 4 4;
 						TR 0;

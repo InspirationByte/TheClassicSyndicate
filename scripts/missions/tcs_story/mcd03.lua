@@ -290,7 +290,7 @@ end
 
 function MISSION.TiccoPause()				-- Transition between Phase1Update and Phase2Start
 	local playerCar = MISSION.playerCar
-    local pedestrian = gameses:CreatePedestrian("models/characters/mcd_ticco.egf", -1)
+    local pedestrian = gameses:CreatePedestrian("ticco", -1)
     pedestrian:SetOrigin(vec3(-217.17,0.7,-182.11))
     pedestrian:Spawn()
     pedestrian:SetBodyGroups(1)        -- 2 to make briefcase
@@ -371,7 +371,7 @@ function MISSION.TiccoPewPew()				-- Transition between Phase1Update and Phase2S
 
 	local playerCar = MISSION.playerCar
 	
-    local pedestrian1 = gameses:CreatePedestrian("models/characters/mcd_ticco.egf", -1)
+    local pedestrian1 = gameses:CreatePedestrian("ticco", -1)
     pedestrian1:SetOrigin(vec3(-1806, 0.7, -433))
     pedestrian1:Spawn()
     pedestrian1:SetBodyGroups(1)        -- 2 to make briefcase

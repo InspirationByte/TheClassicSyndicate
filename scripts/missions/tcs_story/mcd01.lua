@@ -283,7 +283,7 @@ function MISSION.BankPause()				-- Transition between Phase1Update and Phase2Sta
 	playerCar:SetOrigin( Vector3D.new(-53,0.7,68) )	
 	playerCar:SetAngles( Vector3D.new(180,-90,-180) )
 
-	local ped1 = gameses:CreatePedestrian("models/characters/mcd_pedrobber.egf", -1)
+	local ped1 = gameses:CreatePedestrian("robber", -1)
 	ped1:SetOrigin(vec3(-54.02,0.7,60.87))
 	ped1:Spawn()
 	ped1:SetBodyGroups(1 + 2)		-- 2 to make briefcase
@@ -298,7 +298,7 @@ function MISSION.BankPause()				-- Transition between Phase1Update and Phase2Sta
 	
 	for i in range(1,2) do 
 		missionmanager:ScheduleEvent( function() 
-			local ped = gameses:CreatePedestrian("models/characters/mcd_pedrobber.egf", -1)
+			local ped = gameses:CreatePedestrian("robber", -1)
 			ped:SetOrigin(vec3(-54.02,0.7,60.87))
 			ped:Spawn()
 			ped:SetBodyGroups(1)		-- 2 to make briefcase

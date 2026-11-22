@@ -3,8 +3,8 @@ cellsSize 64;
 regionsWidth 32;
 regionsHeight 32;
 leftHandedRoads 0;
-CameraPosition -929.604 29.7827 -948.025;
-CameraRotation 83.0993 -89.6068 0;
+CameraPosition -539.752 11.4209 -969.45;
+CameraRotation 1.94941 -90.0569 0;
 objectDefs
 {
 	gameobj newsSheets;
@@ -1070,55 +1070,55 @@ objectDefs
 	};
 	static D00_HighwayDetail_Part12
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part1
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part2
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part3
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part4
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part5
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part7
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part8
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part9
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part10
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part11
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part6a
 	{
-		flags 2;
+		flags 0;
 	};
 	static D00_HighwayDetail_Part6b
 	{
-		flags 2;
+		flags 0;
 	};
 	static 00_Island01
 	{
